@@ -1,0 +1,16 @@
+[
+{
+  "modid": "torchrism",
+  "name": "Torchrism",
+  "description": "utility of torch.",
+  "version": "1.1",
+  "mcversion": "1.12",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/torchrism",
+  "updateUrl": "",
+  "authorList": ["Atomuze"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

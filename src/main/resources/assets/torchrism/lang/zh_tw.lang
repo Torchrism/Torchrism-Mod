@@ -1,0 +1,9 @@
+tile.compacted_torch.name=壓縮火把
+tile.double_compacted_torch.name=雙重壓縮火把
+tile.torch_placer.name=火把放置器
+tile.torch_dice.name=火把骰子
+tile.torch_castle.name=火把長城
+
+item.torch_wand.name=火把權杖
+
+itemGroup.torchrism=火把教

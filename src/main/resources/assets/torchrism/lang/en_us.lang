@@ -1,0 +1,9 @@
+tile.compacted_torch.name=Compacted Torch
+tile.double_compacted_torch.name=Double Compacted Torch
+tile.torch_placer.name=Torch Placer
+tile.torch_dice.name=Torch Dice
+tile.torch_castle.name=Torch Great Wall
+
+item.torch_wand.name=Torch Staff
+
+itemGroup.torchrism=Torchrism Mod
