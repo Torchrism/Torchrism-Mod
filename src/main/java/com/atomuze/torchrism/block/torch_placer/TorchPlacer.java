@@ -1,14 +1,21 @@
 package com.atomuze.torchrism.block.torch_placer;
 
+import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.PropertyDirection;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.Mirror;
+import net.minecraft.util.Rotation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
@@ -17,18 +24,22 @@ import net.minecraft.world.World;
 
 import com.atomuze.torchrism.TorchrismMod;
 import com.atomuze.torchrism.ModConfig;
+import com.atomuze.torchrism.block.BlockBase;
 import com.atomuze.torchrism.block.BlockTileEntity;
 
 import javax.annotation.Nullable;
 
-public class TorchPlacer extends BlockTileEntity {
+public class TorchPlacer extends BlockBase{
+
+	public static final PropertyDirection FACING = BlockHorizontal.FACING;
 
 	public TorchPlacer(String name) {
-		super(Material.ROCK, name);
+		super(Material.WOOD, name);
 
 		setHardness(1f);
 		setResistance(5f);
 		setLightLevel(1f);
+		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
 
 	}
 
@@ -48,7 +59,7 @@ public class TorchPlacer extends BlockTileEntity {
 		int placerPosX = pos.getX() - offset * 8;
 		int placePosY = 255;
 		int placerPosZ = pos.getZ() - offset * 8;
-		
+
 		if (!world.isRemote) {
 			int giveBackToPlayerCount = 256;
 			world.setBlockState(pos, Blocks.AIR.getDefaultState());
@@ -82,23 +93,27 @@ public class TorchPlacer extends BlockTileEntity {
 
 	@Override
 	public boolean isOpaqueCube(IBlockState state) {
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isFullCube(IBlockState state) {
-		return false;
+		return true;
 	}
 
 	@Override
-	public Class getTileEntityClass() {
-		// TODO Auto-generated method stub
-		return null;
+	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY,
+			float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
+		return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing());
 	}
 
 	@Override
-	public TileEntity createTileEntity(World world, IBlockState state) {
-		// TODO Auto-generated method stub
-		return null;
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, FACING);
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state) {
+		return ((EnumFacing) state.getValue(FACING)).getIndex();
 	}
 }

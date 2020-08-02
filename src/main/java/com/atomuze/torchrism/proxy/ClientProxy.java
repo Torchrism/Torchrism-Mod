@@ -1,9 +1,8 @@
 package com.atomuze.torchrism.proxy;
 
 import com.atomuze.torchrism.TorchrismMod;
-import com.atomuze.torchrism.block.torch_altar.altar.TESRTorchAltar;
-import com.atomuze.torchrism.block.torch_altar.altar.TileEntityTorchAltar;
-import com.atomuze.torchrism.block.torch_altar.pedestal.TESRTorchPedestal;
+import com.atomuze.torchrism.block.torch_altar.TESRTorchAltar;
+import com.atomuze.torchrism.block.torch_altar.TileEntityTorchAltar;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.resources.I18n;
@@ -23,5 +22,11 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void registerRenderers() {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityTorchAltar.class, new TESRTorchAltar());
+	}
+	
+	@Override
+	public void registerModel(Item item, int metadata) 
+	{
+		ModelLoader.setCustomModelResourceLocation(item, metadata, new ModelResourceLocation(item.getRegistryName(), "inventory"));
 	}
 }

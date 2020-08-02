@@ -1,0 +1,12 @@
+{
+	"forge_marker": 1,
+  "variants": {
+    "normal": {
+      "model": "torchrism:wall"
+    },
+    "inventory": {
+      "model": "torchrism:wall",
+      "transform": "forge:default-block"
+    }
+  }
+}

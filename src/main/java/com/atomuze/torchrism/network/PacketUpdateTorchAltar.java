@@ -1,6 +1,6 @@
 package com.atomuze.torchrism.network;
 
-import com.atomuze.torchrism.block.torch_altar.altar.TileEntityTorchAltar;
+import com.atomuze.torchrism.block.torch_altar.TileEntityTorchAltar;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;

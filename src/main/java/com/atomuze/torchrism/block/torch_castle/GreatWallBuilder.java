@@ -1,79 +1,91 @@
-package com.atomuze.torchrism.block.torch_dice;
+package com.atomuze.torchrism.block.torch_castle;
 
-import java.util.Random;
-
-import com.atomuze.torchrism.ModConfig;
-import com.atomuze.torchrism.block.BlockTileEntity;
-import com.atomuze.torchrism.block.torch_placer.TorchPlacer;
+import com.atomuze.torchrism.block.BlockBase;
 
 import net.minecraft.block.BlockHorizontal;
+import net.minecraft.block.BlockPistonBase;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.Mirror;
+import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.items.IItemHandler;
 
-public class TorchDice extends BlockTileEntity {
-	
+public class GreatWallBuilder extends BlockBase {
 	public static final PropertyDirection FACING = BlockHorizontal.FACING;
-	
-	public TorchDice(String name) {
-		super(Material.WOOD, name);
 
-		setHardness(1f);
-		setResistance(1f);
+	public GreatWallBuilder(String name) {
+		super(Material.ROCK, name);
+
+		setHardness(3f);
+		setResistance(4f);
 		setLightLevel(1f);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
-
 	}
 
 	@Override
-	public TorchDice setCreativeTab(CreativeTabs tab) {
+	public GreatWallBuilder setCreativeTab(CreativeTabs tab) {
 		super.setCreativeTab(tab);
 		return this;
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
-		
-		Random random = new Random();
-		int rand = random.nextInt(5);
-		
-		
-		if (!world.isRemote) {
-			player.addItemStackToInventory(new ItemStack(Blocks.TORCH, rand + 1));
-			world.setBlockState(pos, Blocks.AIR.getDefaultState());
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
+			EnumFacing side, float hitX, float hitY, float hitZ) {
+		final TileEntityGreatWallBuilder tileEntity = (TileEntityGreatWallBuilder) world.getTileEntity(pos);
+		if (tileEntity != null) {
+
+			tileEntity.toggleActive();
 		}
+
+		TileEntity tileentity = world.getTileEntity(pos);
+
+		if (tileentity instanceof TileEntityGreatWallBuilder) {
+			((TileEntityGreatWallBuilder) tileentity).setPos(pos);
+		}
+
 		return true;
 	}
-	
+
 	@Override
-	public Class getTileEntityClass() {
-		// TODO Auto-generated method stub
-		return null;
+	public void breakBlock(World world, BlockPos pos, IBlockState state) {
+
+		TileEntityGreatWallBuilder tileEntity = (TileEntityGreatWallBuilder) world.getTileEntity(pos);
+		ItemStack stack = ((IItemHandler) tileEntity).getStackInSlot(0);
+		EntityItem item = new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), stack);
+		world.spawnEntity(item);
+
+		super.breakBlock(world, pos, state);
+	}
+
+	@Override
+	public boolean hasTileEntity(IBlockState state) {
+		return true;
 	}
 
 	@Override
 	public TileEntity createTileEntity(World world, IBlockState state) {
-		// TODO Auto-generated method stub
-		return null;
+		return new TileEntityGreatWallBuilder();
 	}
-	
-	
+
 	@Override
 	public boolean isOpaqueCube(IBlockState state) {
 		return true;
 	}
-	
+
 	@Override
 	public boolean isFullCube(IBlockState state) {
 		return true;
@@ -89,10 +101,9 @@ public class TorchDice extends BlockTileEntity {
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, FACING);
 	}
-
+	
 	@Override
 	public int getMetaFromState(IBlockState state) {
 		return ((EnumFacing) state.getValue(FACING)).getIndex();
 	}
 }
-

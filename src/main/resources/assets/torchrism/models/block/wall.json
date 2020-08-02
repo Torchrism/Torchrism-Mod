@@ -1,0 +1,35 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "particle": "minecraft:blocks/stone",
+    "side": "minecraft:blocks/stone",
+    "up": "minecraft:blocks/stone",
+    "down": "minecraft:blocks/stone"
+  },
+  "elements": [
+    {
+      "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "faces": {
+        "down": {
+          "texture": "down"
+        },
+        "up": {
+          "texture": "#up"
+        },
+        "north": {
+          "texture": "#side"
+        },
+        "south": {
+          "texture": "#side"
+        },
+        "west": {
+          "texture": "#side"
+        },
+        "east": {
+          "texture": "#side"
+        }
+      }
+    }
+  ]
+}

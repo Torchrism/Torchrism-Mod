@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import javax.annotation.Nullable;
 
-import com.atomuze.torchrism.block.torch_castle.TorchCastle;
+import com.atomuze.torchrism.block.torch_castle.GreatWallBuilder;
 
 public abstract class BlockTileEntity<TE extends TileEntity> extends BlockBase {
 	

@@ -9,7 +9,7 @@
   "updateUrl": "",
   "authorList": ["Atomuze"],
   "credits": "",
-  "logoFile": "",
+  "logoFile": "icon.png",
   "screenshots": [],
   "dependencies": []
 }

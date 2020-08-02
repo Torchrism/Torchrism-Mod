@@ -14,4 +14,7 @@ public class CommonProxy {
 	
 	public void registerRenderers() {
 	}
+	public void registerModel(Item item, int metadata) {
+		
+	}
 }

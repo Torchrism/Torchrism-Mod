@@ -9,7 +9,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 
 public class ModItems {
 	
-	public static ItemBase torchwand = new ItemBase("torch_wand").setCreativeTab(TorchrismMod.creativeTab);
+	public static ItemBase torchwand = (ItemBase) new ItemBase("torch_wand").setMaxStackSize(1).setCreativeTab(TorchrismMod.creativeTab);
 	
 	public static void register(IForgeRegistry<Item> registry) {
 		registry.registerAll(

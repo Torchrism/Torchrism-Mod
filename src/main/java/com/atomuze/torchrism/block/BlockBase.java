@@ -8,7 +8,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 
-public class BlockBase extends Block {
+public class BlockBase extends Block{
 
 	protected String name;
 
@@ -24,6 +24,10 @@ public class BlockBase extends Block {
 	
 	public void registerItemModel(Item itemBlock) {
 		TorchrismMod.proxy.registerItemRenderer(itemBlock, 0, name);
+	}
+	
+	public void registerModel(Item itemBlock) {
+		TorchrismMod.proxy.registerModel(Item.getItemFromBlock(this), 0);
 	}
 	
 	public Item createItemBlock() {

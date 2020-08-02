@@ -1,9 +1,10 @@
 {
 	"forge_marker": 1,
   "variants": {
-    "normal": {
-      "model": "torchrism:torch_placer"
-    },
+    "facing=north": {"model": "torchrism:torch_placer"},
+	"facing=east": {"model": "torchrism:torch_placer", "y" : 90},
+	"facing=south": {"model": "torchrism:torch_placer", "y" : 180},
+	"facing=west": {"model": "torchrism:torch_placer", "y" : 270},
     "inventory": {
       "model": "torchrism:torch_placer",
       "transform": "forge:default-block"

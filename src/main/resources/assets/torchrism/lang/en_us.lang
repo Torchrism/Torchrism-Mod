@@ -1,9 +1,17 @@
+tile.torch_placer.name=Torch Placer
 tile.compacted_torch.name=Compacted Torch
 tile.double_compacted_torch.name=Double Compacted Torch
-tile.torch_placer.name=Torch Placer
 tile.torch_dice.name=Torch Dice
-tile.torch_castle.name=Torch Great Wall
+tile.torch_altar.name=Torch Altar
+tile.altar_pedestal.name=Altar Pedestal
+tile.altar_pure_pedestal.name=Altar Pure Pedestal
+tile.pillar.name=Pillar
+tile.altar_base.name=Altar Base
+tile.great_wall_builder.name=Torch Great Wall
+tile.wall.name=Wall
+tile.illuminate_block.name=Illuminate Block
 
 item.torch_wand.name=Torch Staff
+
 
 itemGroup.torchrism=Torchrism Mod

@@ -23,8 +23,8 @@ import net.minecraftforge.fml.relauncher.Side;
 
 import com.atomuze.torchrism.block.BlockTileEntity;
 import com.atomuze.torchrism.block.ModBlocks;
-import com.atomuze.torchrism.block.torch_castle.TileEntityTorchCastle;
-import com.atomuze.torchrism.block.torch_castle.TorchCastle;
+import com.atomuze.torchrism.block.torch_castle.TileEntityGreatWallBuilder;
+import com.atomuze.torchrism.block.torch_castle.GreatWallBuilder;
 import com.atomuze.torchrism.item.ModItems;
 import com.atomuze.torchrism.network.PacketRequestUpdateTorchAltar;
 import com.atomuze.torchrism.network.PacketUpdateTorchAltar;

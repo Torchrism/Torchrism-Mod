@@ -1,8 +1,15 @@
+tile.torch_placer.name=火把放置器
 tile.compacted_torch.name=壓縮火把
 tile.double_compacted_torch.name=雙重壓縮火把
-tile.torch_placer.name=火把放置器
 tile.torch_dice.name=火把骰子
-tile.torch_castle.name=火把長城
+tile.torch_altar.name=火把祭壇
+tile.altar_pedestal.name=祭壇基座
+tile.altar_pure_pedestal.name=純淨的祭壇基座
+tile.pillar.name=祭壇支柱
+tile.altar_base.name=祭壇底部
+tile.great_wall_builder.name=火把長城
+tile.wall.name=城牆
+tile.illuminate_block.name=發光der方塊
 
 item.torch_wand.name=火把權杖
 
