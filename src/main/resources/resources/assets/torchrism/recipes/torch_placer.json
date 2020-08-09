@@ -1,0 +1,16 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		" A ",
+		"A A",
+		" A "
+	],
+	"key": {
+		"A": {
+			"item": "torchrism:double_compacted_torch"
+		}
+	},
+	"result": {
+		"item": "torchrism:torch_placer"
+	}
+}

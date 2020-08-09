@@ -1,0 +1,12 @@
+{
+	"forge_marker": 1,
+  "variants": {
+    "normal": {
+      "model": "torchrism:double_compacted_torch"
+    },
+    "inventory": {
+      "model": "torchrism:double_compacted_torch",
+      "transform": "forge:default-block"
+    }
+  }
+}

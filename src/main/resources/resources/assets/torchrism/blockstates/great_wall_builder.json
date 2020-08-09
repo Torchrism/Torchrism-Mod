@@ -1,0 +1,13 @@
+{
+	"forge_marker": 1,
+  "variants": {
+    "facing=north": {"model": "torchrism:great_wall_builder"},
+	"facing=east": {"model": "torchrism:great_wall_builder", "y" : 90},
+	"facing=south": {"model": "torchrism:great_wall_builder", "y" : 180},
+	"facing=west": {"model": "torchrism:great_wall_builder", "y" : 270},
+    "inventory": {
+      "model": "torchrism:great_wall_builder",
+      "transform": "forge:default-block"
+    }
+  }
+}

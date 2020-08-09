@@ -1,0 +1,12 @@
+{
+	"forge_marker": 1,
+  "variants": {
+    "normal": {
+      "model": "torchrism:altar_base"
+    },
+    "inventory": {
+      "model": "torchrism:altar_base",
+      "transform": "forge:default-block"
+    }
+  }
+}

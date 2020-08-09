@@ -1,0 +1,13 @@
+{
+	"forge_marker": 1,
+    "variants": {
+    "facing=north": {"model": "torchrism:torch_dice"},
+	"facing=east": {"model": "torchrism:torch_dice", "y" : 90},
+	"facing=south": {"model": "torchrism:torch_dice", "y" : 180},
+	"facing=west": {"model": "torchrism:torch_dice", "y" : 270},
+    "inventory": {
+      "model": "torchrism:torch_dice",
+      "transform": "forge:default-block"
+    }
+  }
+}

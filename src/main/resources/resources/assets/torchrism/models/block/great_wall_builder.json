@@ -1,0 +1,36 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+  "particle": "torchrism:blocks/torch_castle_bottom",
+    "side": "torchrism:blocks/torch_castle_side",
+    "up": "torchrism:blocks/torch_castle_top",
+    "down": "torchrism:blocks/torch_castle_bottom"
+    
+  },
+  "elements": [
+    {
+      "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "faces": {
+        "down": {
+          "texture": "down"
+        },
+        "up": {
+          "texture": "#up"
+        },
+        "north": {
+          "texture": "#side"
+        },
+        "south": {
+          "texture": "#side"
+        },
+        "west": {
+          "texture": "#side"
+        },
+        "east": {
+          "texture": "#side"
+        }
+      }
+    }
+  ]
+}

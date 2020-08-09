@@ -1,0 +1,17 @@
+{
+	"entity.flyingtorch.hurt":{
+		"category":"entity",
+		"subtitle":"entity.flyingtorch.hurt",
+		"sounds":[{"name":"torchrism:entity/flyingtorch/hurt","stream":true}]
+	},
+	"entity.flyingtorch.death":{
+		"category":"entity",
+		"subtitle":"entity.flyingtorch.death",
+		"sounds":[{"name":"torchrism:entity/flyingtorch/death","stream":true}]
+	},
+	"item.torchonomicon.changepage":{
+		"category":"item",
+		"subtitle":"item.torchonomicon.changepage",
+		"sounds":[{"name":"torchrism:item/torchonomicon/changepage","stream":true}]
+	}
+}
