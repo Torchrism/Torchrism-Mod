@@ -20,15 +20,18 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import com.atomuze.torchrism.block.BlockTileEntity;
 import com.atomuze.torchrism.block.ModBlocks;
 import com.atomuze.torchrism.block.torch_castle.TileEntityGreatWallBuilder;
-import com.atomuze.torchrism.block.torch_castle.GreatWallBuilder;
+import com.atomuze.torchrism.entity.ModEntity;
+import com.atomuze.torchrism.block.torch_castle.BlockGreatWallBuilder;
 import com.atomuze.torchrism.item.ModItems;
 import com.atomuze.torchrism.network.PacketRequestUpdateTorchAltar;
 import com.atomuze.torchrism.network.PacketUpdateTorchAltar;
 import com.atomuze.torchrism.proxy.CommonProxy;
+import com.atomuze.torchrism.sound.ModSound;
 
 @Mod(modid = TorchrismMod.MODID, name = TorchrismMod.NAME, version = TorchrismMod.VERSION)
 public class TorchrismMod
@@ -53,16 +56,21 @@ public class TorchrismMod
 		System.out.println(NAME + " is loading!");
 		System.out.println();
 		
+		ModEntity.registerEntities();
+		
+		NetworkRegistry.INSTANCE.registerGuiHandler(this, new ModGuiHandler());
 		network = NetworkRegistry.INSTANCE.newSimpleChannel(MODID);
 		network.registerMessage(new PacketUpdateTorchAltar.Handler(), PacketUpdateTorchAltar.class, 0, Side.CLIENT);
 		network.registerMessage(new PacketRequestUpdateTorchAltar.Handler(), PacketRequestUpdateTorchAltar.class, 1, Side.SERVER);
 		proxy.registerRenderers();
 		
+		
+		
 	}
 
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event) {
-		
+		ModSound.registerSounds();
 	}
 
 	@Mod.EventHandler

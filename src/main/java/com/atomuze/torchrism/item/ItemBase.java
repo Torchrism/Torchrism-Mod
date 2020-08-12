@@ -8,10 +8,11 @@ import net.minecraft.item.Item;
 public class ItemBase extends Item {
 
 	protected String name;
+	protected String modid = TorchrismMod.MODID;
 
 	public ItemBase(String name) {
 		this.name = name;
-		setUnlocalizedName(name);
+		setUnlocalizedName(modid + "." + name);
 		setRegistryName(name);
 	}
 	

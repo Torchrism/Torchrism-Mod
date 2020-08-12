@@ -1,9 +1,10 @@
 {
 	"forge_marker": 1,
   "variants": {
-    "normal": {
-      "model": "torchrism:wall"
-    },
+    "facing=north": {"model": "torchrism:wall"},
+	"facing=east": {"model": "torchrism:wall", "y" : 90},
+	"facing=south": {"model": "torchrism:wall", "y" : 180},
+	"facing=west": {"model": "torchrism:wall", "y" : 270},
     "inventory": {
       "model": "torchrism:wall",
       "transform": "forge:default-block"

@@ -13,6 +13,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.ForgeHooksClient;
 
 public class TESRTorchAltar extends TileEntitySpecialRenderer<TileEntityTorchAltar> {
+	
+	
+	
 	@Override
 	public void render(TileEntityTorchAltar te, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
 		ItemStack stack = te.inventory.getStackInSlot(0);
@@ -23,8 +26,8 @@ public class TESRTorchAltar extends TileEntitySpecialRenderer<TileEntityTorchAlt
 			RenderHelper.enableStandardItemLighting();
 			GlStateManager.tryBlendFuncSeparate(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA, 1, 0);
 			GlStateManager.pushMatrix();
-			//double offset = Math.sin((te.getWorld().getTotalWorldTime() - te.lastChangeTime + partialTicks) / 8) / 8.0;
-			GlStateManager.translate(x + 0.5, y + 1.15, z + 0.5);
+			
+			GlStateManager.translate(x + 0.5, y + 1.15 + BlockTorchAltar.offset, z + 0.5);
 			GlStateManager.rotate((te.getWorld().getTotalWorldTime() + partialTicks) * 2, 0, 1, 0);
 			
 			IBakedModel model = Minecraft.getMinecraft().getRenderItem().getItemModelWithOverrides(stack, te.getWorld(), null);

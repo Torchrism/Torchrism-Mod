@@ -1,17 +1,36 @@
-tile.torch_placer.name=Torch Placer
-tile.compacted_torch.name=Compacted Torch
-tile.double_compacted_torch.name=Double Compacted Torch
-tile.torch_dice.name=Torch Dice
-tile.torch_altar.name=Torch Altar
-tile.altar_pedestal.name=Altar Pedestal
-tile.altar_pure_pedestal.name=Altar Pure Pedestal
-tile.pillar.name=Pillar
-tile.altar_base.name=Altar Base
-tile.great_wall_builder.name=Torch Great Wall
-tile.wall.name=Wall
-tile.illuminate_block.name=Illuminate Block
+tile.torchrism.torch_placer.name=Torch Placer
+tile.torchrism.compacted_torch.name=Compacted Torch
+tile.torchrism.double_compacted_torch.name=Double Compacted Torch
+tile.torchrism.torch_dice.name=Torch Dice
+tile.torchrism.torch_altar.name=Torch Altar
+tile.torchrism.altar_pedestal.name=Altar Pedestal
+tile.torchrism.altar_pure_pedestal.name=Altar Pure Pedestal
+tile.torchrism.pillar.name=Pillar
+tile.torchrism.altar_base.name=Altar Base
+tile.torchrism.great_wall_builder.name=Torch Great Wall
+tile.torchrism.wall.name=Wall
+tile.torchrism.illuminate_block.name=Illuminate Block
+tile.torchrism.fake_illuminate_block.name=FAKE Illuminate Block
 
-item.torch_wand.name=Torch Staff
+item.torchrism.torch_wand.name=Torch Staff
+item.torchrism.torchonomicon.name=Torchonomicon
 
+entity.torchrism.flying_torch.name=Flying Torch
 
 itemGroup.torchrism=Torchrism Mod
+
+torchrism.bookButton.menu=Back to Menu
+torchrism.bookButton.next_page=Next
+torchrism.bookButton.previous_page=Previous
+torchrism.bookButton.overview=Overview
+torchrism.bookButton.utilities=Utilities
+torchrism.bookButton.altar=Altar
+
+torchrism.bookTitle.overview=Overview
+torchrism.bookTitle.utilities=Utilities
+torchrism.bookTitle.altar=Altar
+torchrism.bookTitle.menu=Menu
+
+torchrism.book.overview_text=Congratulations on stepping into the world of the greatest torch!<NL>This is one of the few right decisions you have ever made in your life.<NL> You can understand all the functions and some hidden features of this mod by reading through this book.<NL> Everything in Torchrism can be experienced using vanilla Minecraft items, and all the designs are aimed to be particle hoping that it can accompany players through the whole game.<NL> <NL><NL><NP>God said, let there be torches: and there were torches in the world.<NL> I said, needs to be organised: and there was Torchrism.<NP>IF spent six days constructing the material world in the void and chaos. Light, atmosphere, dry-lands, plants, celestial bodies, animals and humans were created in order.<NL> On the seventh day, he created torches and its holy land and set the day as "Torch Day".<NL>Torch blooming: Four chapters<NL> 1.Torch Yggdrasil<NL>2.Monster<NL>3.The flooding <NL>4.<NL><NP>1.Torch Yggdrasil.<NL>IF said every torch on the world is a relic, and was originated from the torch Yggdrasil.<NL>However, the cunning Kane got seduced by a squid, so he chopped the tree down into seven pieces that the balance of the world was severely destroyed. Kane and his people were expelled from the holy torch land, so humans had to work for their life and eventually return to dust.<NP>2.Monsters.<NL>One night, XXX suddenly came to attack and swallowed many people.<NL> IF couldn’t bear to see, so he provided them with torches but they didn’t learn to share. In contrary, for winning the torch, they harmed their siblings.<NP>3.The flooding.<NL>IF saw humans were corrupted and immoral, he then brought a flood to wash off everything in the world. Before the flooding came IF told the innocent torches and gave each of them a pair of wings so that they were free from this catastrophic disaster.<NL> However, the selfless torches went against IF’s intention and brought humans with them. Therefore, humans were able to survive.<NP>4.
+torchrism.book.utilities_text=bla bla
+torchrism.book.altar_text=bla bla

@@ -7,33 +7,35 @@ import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraftforge.fml.common.Mod;
 
-public class BlockBase extends Block{
+public class BlockBase extends Block {
 
 	protected String name;
+	protected String modid = TorchrismMod.MODID;
 
 	public BlockBase(Material material, String name) {
 		super(material);
-	
+
 		this.name = name;
-	
-		setUnlocalizedName(name);
+
+		setUnlocalizedName(modid + "." + name);
 		setRegistryName(name);
-		
+
 	}
-	
+
 	public void registerItemModel(Item itemBlock) {
 		TorchrismMod.proxy.registerItemRenderer(itemBlock, 0, name);
 	}
-	
+
 	public void registerModel(Item itemBlock) {
 		TorchrismMod.proxy.registerModel(Item.getItemFromBlock(this), 0);
 	}
-	
+
 	public Item createItemBlock() {
 		return new ItemBlock(this).setRegistryName(getRegistryName());
 	}
-	
+
 	@Override
 	public BlockBase setCreativeTab(CreativeTabs tab) {
 		super.setCreativeTab(tab);

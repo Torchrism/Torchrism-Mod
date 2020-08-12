@@ -10,25 +10,25 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import javax.annotation.Nullable;
 
-import com.atomuze.torchrism.block.torch_castle.GreatWallBuilder;
+import com.atomuze.torchrism.block.torch_castle.BlockGreatWallBuilder;
 
 public abstract class BlockTileEntity<TE extends TileEntity> extends BlockBase {
-	
+
 	public BlockTileEntity(Material material, String name) {
 		super(material, name);
 	}
-	
+
 	public abstract Class<TE> getTileEntityClass();
-	
+
 	public TE getTileEntity(IBlockAccess world, BlockPos pos) {
-		return (TE)world.getTileEntity(pos);
+		return (TE) world.getTileEntity(pos);
 	}
-	
+
 	@Override
 	public boolean hasTileEntity(IBlockState state) {
 		return true;
 	}
-	
+
 	@Nullable
 	@Override
 	public abstract TE createTileEntity(World world, IBlockState state);
