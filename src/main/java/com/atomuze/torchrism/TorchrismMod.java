@@ -28,8 +28,8 @@ import com.atomuze.torchrism.block.torch_castle.TileEntityGreatWallBuilder;
 import com.atomuze.torchrism.entity.ModEntity;
 import com.atomuze.torchrism.block.torch_castle.BlockGreatWallBuilder;
 import com.atomuze.torchrism.item.ModItems;
-import com.atomuze.torchrism.network.PacketRequestUpdateTorchAltar;
-import com.atomuze.torchrism.network.PacketUpdateTorchAltar;
+import com.atomuze.torchrism.network.PacketRequestUpdatePedestal;
+import com.atomuze.torchrism.network.PacketUpdatePedestal;
 import com.atomuze.torchrism.proxy.CommonProxy;
 import com.atomuze.torchrism.sound.ModSound;
 
@@ -60,8 +60,8 @@ public class TorchrismMod
 		
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new ModGuiHandler());
 		network = NetworkRegistry.INSTANCE.newSimpleChannel(MODID);
-		network.registerMessage(new PacketUpdateTorchAltar.Handler(), PacketUpdateTorchAltar.class, 0, Side.CLIENT);
-		network.registerMessage(new PacketRequestUpdateTorchAltar.Handler(), PacketRequestUpdateTorchAltar.class, 1, Side.SERVER);
+		network.registerMessage(new PacketUpdatePedestal.Handler(), PacketUpdatePedestal.class, 0, Side.CLIENT);
+		network.registerMessage(new PacketRequestUpdatePedestal.Handler(), PacketRequestUpdatePedestal.class, 1, Side.SERVER);
 		proxy.registerRenderers();
 		
 		

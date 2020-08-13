@@ -2,9 +2,7 @@ package com.atomuze.torchrism.block.torch_dice;
 
 import java.util.Random;
 
-import com.atomuze.torchrism.ModConfig;
 import com.atomuze.torchrism.block.BlockTileEntity;
-import com.atomuze.torchrism.block.torch_placer.BlockTorchPlacer;
 
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
@@ -23,9 +21,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class BlockTorchDice extends BlockTileEntity {
-	
+
 	public static final PropertyDirection FACING = BlockHorizontal.FACING;
-	
+
 	public BlockTorchDice(String name) {
 		super(Material.WOOD, name);
 
@@ -44,18 +42,17 @@ public class BlockTorchDice extends BlockTileEntity {
 
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
-		
+
 		Random random = new Random();
 		int rand = random.nextInt(5);
-		
-		
+
 		if (!world.isRemote) {
 			player.addItemStackToInventory(new ItemStack(Blocks.TORCH, rand + 1));
 			world.setBlockState(pos, Blocks.AIR.getDefaultState());
 		}
 		return true;
 	}
-	
+
 	@Override
 	public Class getTileEntityClass() {
 		// TODO Auto-generated method stub
@@ -67,21 +64,19 @@ public class BlockTorchDice extends BlockTileEntity {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	
+
 	@Override
 	public boolean isOpaqueCube(IBlockState state) {
 		return true;
 	}
-	
+
 	@Override
 	public boolean isFullCube(IBlockState state) {
 		return true;
 	}
 
 	@Override
-	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY,
-			float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
+	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
 		return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing());
 	}
 
@@ -94,13 +89,12 @@ public class BlockTorchDice extends BlockTileEntity {
 	public int getMetaFromState(IBlockState state) {
 		return ((EnumFacing) state.getValue(FACING)).getIndex();
 	}
-	
+
 	@Override
-	public IBlockState getStateFromMeta(int meta) 
-	{
+	public IBlockState getStateFromMeta(int meta) {
 		EnumFacing facing = EnumFacing.getFront(meta);
-		if(facing.getAxis() == EnumFacing.Axis.Y) facing = EnumFacing.NORTH;
+		if (facing.getAxis() == EnumFacing.Axis.Y)
+			facing = EnumFacing.NORTH;
 		return this.getDefaultState().withProperty(FACING, facing);
 	}
 }
-

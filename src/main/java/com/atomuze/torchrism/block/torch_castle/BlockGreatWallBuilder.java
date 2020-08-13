@@ -1,30 +1,20 @@
 package com.atomuze.torchrism.block.torch_castle;
 
-import com.atomuze.torchrism.block.BlockBase;
 import com.atomuze.torchrism.block.BlockTileEntity;
-import com.atomuze.torchrism.block.torch_altar.TileEntityTorchAltar;
 
 import net.minecraft.block.BlockHorizontal;
-import net.minecraft.block.BlockPistonBase;
-import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.Mirror;
-import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.items.IItemHandler;
 
 public class BlockGreatWallBuilder extends BlockTileEntity<TileEntityGreatWallBuilder> {
 	public static final PropertyDirection FACING = BlockHorizontal.FACING;

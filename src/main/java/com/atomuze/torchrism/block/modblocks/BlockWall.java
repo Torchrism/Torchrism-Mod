@@ -1,7 +1,5 @@
 package com.atomuze.torchrism.block.modblocks;
 
-import java.util.Random;
-
 import com.atomuze.torchrism.block.BlockBase;
 
 import net.minecraft.block.BlockHorizontal;
@@ -11,8 +9,6 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -41,7 +37,7 @@ public class BlockWall extends BlockBase {
 	
 	@Override
 	public boolean isOpaqueCube(IBlockState state) {
-		return false;
+		return true;
 	}
 
 	@Override

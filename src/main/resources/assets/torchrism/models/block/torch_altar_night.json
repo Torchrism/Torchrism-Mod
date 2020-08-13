@@ -8,7 +8,7 @@
 		"6": "torchrism:blocks/quartz_block_chiseled_top",
 		"side": "torchrism:blocks/torch_pure_pedestal_top_side",
 		"particle": "torchrism:blocks/torch_altar_top",
-		"up": "torchrism:blocks/torch_altar_top_sun"
+		"up": "torchrism:blocks/torch_altar_top_moon"
 	},
 	"elements": [
 		{

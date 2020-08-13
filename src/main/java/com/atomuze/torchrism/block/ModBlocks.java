@@ -6,11 +6,11 @@ import com.atomuze.torchrism.block.modblocks.BlockWall;
 import com.atomuze.torchrism.block.modblocks.BlockWallLight;
 import com.atomuze.torchrism.block.torch.BlockCompactedTorch;
 import com.atomuze.torchrism.block.torch.BlockDoubleCompactedTorch;
-import com.atomuze.torchrism.block.torch_altar.BlockTorchAltar;
-import com.atomuze.torchrism.block.torch_altar.BlockAltarBase;
-import com.atomuze.torchrism.block.torch_altar.BlockAltarPedestal;
-import com.atomuze.torchrism.block.torch_altar.BlockAltarPillar;
-import com.atomuze.torchrism.block.torch_altar.BlockAltarPurePedestal;
+import com.atomuze.torchrism.block.torch_altar.block.BlockAltarBase;
+import com.atomuze.torchrism.block.torch_altar.block.BlockAltarPedestal;
+import com.atomuze.torchrism.block.torch_altar.block.BlockAltarPillar;
+import com.atomuze.torchrism.block.torch_altar.block.BlockAltarPurePedestal;
+import com.atomuze.torchrism.block.torch_altar.block.BlockMainPedestal;
 import com.atomuze.torchrism.block.torch_castle.TileEntityGreatWallBuilder;
 import com.atomuze.torchrism.block.torch_castle.BlockGreatWallBuilder;
 import com.atomuze.torchrism.block.torch_dice.BlockTorchDice;
@@ -33,7 +33,8 @@ public class ModBlocks {
 	public static BlockDoubleCompactedTorch doublecompactedTorch = new BlockDoubleCompactedTorch("double_compacted_torch").setCreativeTab(TorchrismMod.creativeTab);
 	public static BlockTorchDice torchDice = new BlockTorchDice("torch_dice").setCreativeTab(TorchrismMod.creativeTab);
 	
-	public static BlockTorchAltar torchAltar = new BlockTorchAltar("torch_altar").setCreativeTab(TorchrismMod.creativeTab);
+	public static BlockMainPedestal torchAltar = new BlockMainPedestal("torch_altar").setCreativeTab(TorchrismMod.creativeTab);
+	public static BlockMainPedestal torchAltar_night = new BlockMainPedestal("torch_altar_night").setCreativeTab(TorchrismMod.creativeTab);
 	public static BlockAltarPedestal altarPedestal = new BlockAltarPedestal("altar_pedestal").setCreativeTab(TorchrismMod.creativeTab);
 	public static BlockAltarPurePedestal altarPurePedestal = new BlockAltarPurePedestal("altar_pure_pedestal").setCreativeTab(TorchrismMod.creativeTab);
 	public static BlockAltarPillar pillar = new BlockAltarPillar("pillar").setCreativeTab(TorchrismMod.creativeTab);
@@ -49,6 +50,7 @@ public class ModBlocks {
 	public static void register(IForgeRegistry<Block> registry) {
 		registry.registerAll(
 				torchPlacer,
+				torchAltar_night,
 				compactedTorch,
 				doublecompactedTorch,
 				torchDice,
@@ -65,6 +67,7 @@ public class ModBlocks {
 				wall
 				
 		);
+		GameRegistry.registerTileEntity(torchAltar.getTileEntityClass(), torchAltar.getRegistryName().toString());
 		GameRegistry.registerTileEntity(altarPedestal.getTileEntityClass(), altarPedestal.getRegistryName().toString());
 		GameRegistry.registerTileEntity(greatWallBuilder.getTileEntityClass(), greatWallBuilder.getRegistryName().toString());
 	}

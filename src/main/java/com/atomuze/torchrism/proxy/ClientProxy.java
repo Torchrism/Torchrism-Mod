@@ -1,8 +1,10 @@
 package com.atomuze.torchrism.proxy;
 
 import com.atomuze.torchrism.TorchrismMod;
-import com.atomuze.torchrism.block.torch_altar.TESRTorchAltar;
-import com.atomuze.torchrism.block.torch_altar.TileEntityTorchAltar;
+import com.atomuze.torchrism.block.torch_altar.TESR.TESRMainPedestal;
+import com.atomuze.torchrism.block.torch_altar.TESR.TESROtherPedestal;
+import com.atomuze.torchrism.block.torch_altar.tileEntity.TileEntityMainPedestal;
+import com.atomuze.torchrism.block.torch_altar.tileEntity.TileEntityOtherPedestal;
 import com.atomuze.torchrism.entity.flyingTorch.EntityFlyingTorch;
 import com.atomuze.torchrism.entity.flyingTorch.RenderFlyingTorch;
 
@@ -29,7 +31,9 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void registerRenderers() {
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityTorchAltar.class, new TESRTorchAltar());
+		
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMainPedestal.class, new TESRMainPedestal());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityOtherPedestal.class, new TESROtherPedestal());
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityFlyingTorch.class, new IRenderFactory<EntityFlyingTorch>()
 		{

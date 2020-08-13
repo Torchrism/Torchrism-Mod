@@ -1,5 +1,10 @@
 package com.atomuze.torchrism.block.torch_placer;
 
+import java.util.Random;
+
+import com.atomuze.torchrism.ModConfig;
+import com.atomuze.torchrism.block.BlockBase;
+
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
@@ -10,27 +15,10 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.Mirror;
-import net.minecraft.util.Rotation;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextComponentString;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
-import com.atomuze.torchrism.TorchrismMod;
-import com.atomuze.torchrism.ModConfig;
-import com.atomuze.torchrism.block.BlockBase;
-import com.atomuze.torchrism.block.BlockTileEntity;
-
-import java.util.Random;
-
-import javax.annotation.Nullable;
 
 public class BlockTorchPlacer extends BlockBase {
 
