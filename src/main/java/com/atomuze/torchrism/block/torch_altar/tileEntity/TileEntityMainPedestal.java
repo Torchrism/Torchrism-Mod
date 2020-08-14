@@ -1,5 +1,7 @@
 package com.atomuze.torchrism.block.torch_altar.tileEntity;
 
+import java.util.Random;
+
 import javax.annotation.Nullable;
 import javax.swing.Icon;
 
@@ -69,9 +71,10 @@ public class TileEntityMainPedestal extends TileEntityPedestal implements ITicka
 			Offset = (processingTime / 60.0) * 3;
 			if (processingTime > 60.0 && processingTime < 80.0) {
 				Offset = 3;
+				BlockMainPedestal.isCraftingFinfish = true;
 			} else if (processingTime > 80.0) {
 				BlockMainPedestal.crafting = false;
-				world.spawnParticle(EnumParticleTypes.EXPLOSION_HUGE, pos.getX(),  pos.getX(),  pos.getX(), 0.0, 0.0, 0.0);
+				BlockMainPedestal.isCraftingFinfish = false;
 				craftingEffect();
 				Offset = 0;
 			}
@@ -87,10 +90,15 @@ public class TileEntityMainPedestal extends TileEntityPedestal implements ITicka
 			BlockMainPedestal.setState(false, world, pos);
 			altarT = false;
 		}
+		
+		if(BlockMainPedestal.isCraftingFinfish) {
+			this.spawnParticles(world,pos);
+		}
+		
 	}
 	
 	public void craftingEffect() {
-		this.world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, pos.getX(), pos.getY(), pos.getZ(), 0.0D, 0.0D, 0.0D);
+		
 		extractItem(world, pos);
 		extractItem(world, pos.down().north().north().west().west().up().up());
 		extractItem(world, pos.down().north().north().east().east().up().up());
@@ -113,5 +121,53 @@ public class TileEntityMainPedestal extends TileEntityPedestal implements ITicka
 		itemHandler.extractItem(0, 1, false);
 		tile.markDirty();
 	}
+	
+	private void spawnParticles(World worldIn, BlockPos pos)
+    {
+        Random random = worldIn.rand;
+        double d0 = 0.0625D;
+
+        for (int i = 0; i < 6; ++i)
+        {
+            double d1 = (double)((float)pos.getX() + random.nextFloat());
+            double d2 = (double)((float)pos.getY() + random.nextFloat());
+            double d3 = (double)((float)pos.getZ() + random.nextFloat());
+
+            if (i == 0 && !worldIn.getBlockState(pos.up()).isOpaqueCube())
+            {
+                d2 = (double)pos.getY() + 0.0625D + 1.0D;
+            }
+
+            if (i == 1 && !worldIn.getBlockState(pos.down()).isOpaqueCube())
+            {
+                d2 = (double)pos.getY() - 0.0625D;
+            }
+
+            if (i == 2 && !worldIn.getBlockState(pos.south()).isOpaqueCube())
+            {
+                d3 = (double)pos.getZ() + 0.0625D + 1.0D;
+            }
+
+            if (i == 3 && !worldIn.getBlockState(pos.north()).isOpaqueCube())
+            {
+                d3 = (double)pos.getZ() - 0.0625D;
+            }
+
+            if (i == 4 && !worldIn.getBlockState(pos.east()).isOpaqueCube())
+            {
+                d1 = (double)pos.getX() + 0.0625D + 1.0D;
+            }
+
+            if (i == 5 && !worldIn.getBlockState(pos.west()).isOpaqueCube())
+            {
+                d1 = (double)pos.getX() - 0.0625D;
+            }
+
+            if (d1 < (double)pos.getX() || d1 > (double)(pos.getX() + 1) || d2 < 0.0D || d2 > (double)(pos.getY() + 1) || d3 < (double)pos.getZ() || d3 > (double)(pos.getZ() + 1))
+            {
+                worldIn.spawnParticle(EnumParticleTypes.EXPLOSION_LARGE, d1, d2+3, d3, 0.0D, 0.0D, 0.0D);
+            }
+        }
+    }
 
 }

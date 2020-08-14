@@ -1,5 +1,7 @@
 package com.atomuze.torchrism.block.torch_altar.block;
 
+import java.util.Random;
+
 import javax.annotation.Nullable;
 
 import com.atomuze.torchrism.block.BlockTileEntity;
@@ -20,14 +22,18 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 
 public class BlockMainPedestal extends BlockTileEntity<TileEntityMainPedestal> {
 
 	public static boolean crafting = false;
+	public static boolean isCraftingFinfish = false;
 	public static EntityItem craftingResult;
 	private static boolean keepInventory;
 	World world;
