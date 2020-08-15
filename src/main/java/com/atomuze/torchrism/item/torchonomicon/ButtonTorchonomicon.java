@@ -2,7 +2,7 @@ package com.atomuze.torchrism.item.torchonomicon;
 
 import javax.annotation.Nullable;
 
-import com.atomuze.torchrism.TorchrismMod;
+import com.atomuze.torchrism.Torchrism;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.PositionedSoundRecord;
@@ -15,7 +15,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class ButtonTorchonomicon extends GuiButton {
 	
-	private static final ResourceLocation BUTTON_TEXTURES_T = new ResourceLocation(TorchrismMod.MODID, "textures/gui/torchonomicon_bg.png");
+	private static final ResourceLocation BUTTON_TEXTURES_T = new ResourceLocation(Torchrism.MODID, "textures/gui/torchonomicon_bg.png");
 	private int textx,texty;
 	private int widthIn;
 	private int heightIn;

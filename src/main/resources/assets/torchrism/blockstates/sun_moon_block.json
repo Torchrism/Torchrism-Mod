@@ -1,0 +1,12 @@
+{
+	"forge_marker": 1,
+  "variants": {
+    "normal": {
+      "model": "torchrism:sun_moon_block"
+    },
+    "inventory": {
+      "model": "torchrism:sun_moon_block",
+      "transform": "forge:default-block"
+    }
+  }
+}

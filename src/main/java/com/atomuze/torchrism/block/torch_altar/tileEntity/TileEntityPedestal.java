@@ -2,9 +2,10 @@ package com.atomuze.torchrism.block.torch_altar.tileEntity;
 
 import javax.annotation.Nullable;
 
-import com.atomuze.torchrism.TorchrismMod;
+import com.atomuze.torchrism.Torchrism;
 import com.atomuze.torchrism.network.PacketRequestUpdatePedestal;
 import com.atomuze.torchrism.network.PacketUpdatePedestal;
+import com.atomuze.torchrism.network.TorchrimNetworkHandler;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -24,7 +25,7 @@ public class TileEntityPedestal extends TileEntity {
 		protected void onContentsChanged(int slot) {
 			if (!world.isRemote) {
 				lastChangeTime = world.getTotalWorldTime();
-				TorchrismMod.network.sendToAllAround(new PacketUpdatePedestal(TileEntityPedestal.this), new NetworkRegistry.TargetPoint(world.provider.getDimension(), pos.getX(), pos.getY(), pos.getZ(), 64));
+				TorchrimNetworkHandler.network.sendToAllAround(new PacketUpdatePedestal(TileEntityPedestal.this), new NetworkRegistry.TargetPoint(world.provider.getDimension(), pos.getX(), pos.getY(), pos.getZ(), 64));
 			}
 		}
 	};
@@ -32,7 +33,7 @@ public class TileEntityPedestal extends TileEntity {
 	@Override
 	public void onLoad() {
 		if (world.isRemote) {
-			TorchrismMod.network.sendToServer(new PacketRequestUpdatePedestal(this));
+			TorchrimNetworkHandler.network.sendToServer(new PacketRequestUpdatePedestal(this));
 		}
 	}
 	

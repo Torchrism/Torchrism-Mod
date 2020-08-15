@@ -1,6 +1,6 @@
 package com.atomuze.torchrism.block;
 
-import com.atomuze.torchrism.TorchrismMod;
+import com.atomuze.torchrism.Torchrism;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -11,7 +11,7 @@ import net.minecraft.item.ItemBlock;
 public class BlockBase extends Block {
 
 	protected String name;
-	protected String modid = TorchrismMod.MODID;
+	protected String modid = Torchrism.MODID;
 
 	public BlockBase(Material material, String name) {
 		super(material);
@@ -24,11 +24,11 @@ public class BlockBase extends Block {
 	}
 
 	public void registerItemModel(Item itemBlock) {
-		TorchrismMod.proxy.registerItemRenderer(itemBlock, 0, name);
+		Torchrism.proxy.registerItemRenderer(itemBlock, 0, name);
 	}
 
 	public void registerModel(Item itemBlock) {
-		TorchrismMod.proxy.registerModel(Item.getItemFromBlock(this), 0);
+		Torchrism.proxy.registerModel(Item.getItemFromBlock(this), 0);
 	}
 
 	public Item createItemBlock() {

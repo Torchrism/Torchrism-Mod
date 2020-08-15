@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 
 public class TorchrismTab extends CreativeTabs {
 	public TorchrismTab() {
-		super(TorchrismMod.MODID);
+		super(Torchrism.MODID);
 	}
 
 	@Override

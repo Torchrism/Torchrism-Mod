@@ -34,6 +34,30 @@ public class TileEntityGreatWallBuilder extends TileEntity implements ITickable 
 				}else if(world.getBlockState(pos.west()).getBlock() == Blocks.TORCH) {
 					pos = pos.west();
 					buildWall(EnumFacing.NORTH);
+				}else if(world.getBlockState(pos.north().up()).getBlock() == Blocks.TORCH) {
+					pos = pos.north().up();
+					buildWall(EnumFacing.EAST);
+				}else if(world.getBlockState(pos.east().up()).getBlock() == Blocks.TORCH) {
+					pos = pos.east().up();
+					buildWall(EnumFacing.SOUTH);
+				}else if(world.getBlockState(pos.south().up()).getBlock() == Blocks.TORCH) {
+					pos = pos.south().up();
+					buildWall(EnumFacing.WEST);
+				}else if(world.getBlockState(pos.west().up()).getBlock() == Blocks.TORCH) {
+					pos = pos.west().up();
+					buildWall(EnumFacing.NORTH);
+				}else if(world.getBlockState(pos.north().down()).getBlock() == Blocks.TORCH) {
+					pos = pos.north().down();
+					buildWall(EnumFacing.EAST);
+				}else if(world.getBlockState(pos.east().down()).getBlock() == Blocks.TORCH) {
+					pos = pos.east().down();
+					buildWall(EnumFacing.SOUTH);
+				}else if(world.getBlockState(pos.south().down()).getBlock() == Blocks.TORCH) {
+					pos = pos.south().down();
+					buildWall(EnumFacing.WEST);
+				}else if(world.getBlockState(pos.west().down()).getBlock() == Blocks.TORCH) {
+					pos = pos.west().down();
+					buildWall(EnumFacing.NORTH);
 				}else {
 					buildCastle = false;
 					pos = pos2;

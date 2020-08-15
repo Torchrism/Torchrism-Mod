@@ -24,6 +24,8 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -32,17 +34,11 @@ import net.minecraftforge.items.IItemHandler;
 
 public class BlockMainPedestal extends BlockTileEntity<TileEntityMainPedestal> {
 
-	public static boolean crafting = false;
-	public static boolean isCraftingFinfish = false;
+	public static boolean crafting;
 	public static EntityItem craftingResult;
 	private static boolean keepInventory;
 	World world;
 	BlockPos pos;
-	EnumFacing side;
-
-	public BlockMainPedestal(Material material, String name) {
-		super(material, name);
-	}
 
 	public BlockMainPedestal(String name) {
 
@@ -51,8 +47,9 @@ public class BlockMainPedestal extends BlockTileEntity<TileEntityMainPedestal> {
 		setHardness(3f);
 		setResistance(5f);
 		setLightLevel(1f);
-
+		crafting = false;
 	}
+	
 
 	@Override
 	public BlockMainPedestal setCreativeTab(CreativeTabs tab) {
@@ -73,7 +70,8 @@ public class BlockMainPedestal extends BlockTileEntity<TileEntityMainPedestal> {
 
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
-
+		
+//		player.sendMessage(new TextComponentString("" + crafting));
 		TileEntityMainPedestal tile = getTileEntity(world, pos);
 
 		if (!world.isRemote) {
@@ -94,7 +92,7 @@ public class BlockMainPedestal extends BlockTileEntity<TileEntityMainPedestal> {
 				tile.markDirty();
 			}
 
-		}
+		}              
 		return true;
 	}
 
@@ -121,12 +119,13 @@ public class BlockMainPedestal extends BlockTileEntity<TileEntityMainPedestal> {
 
 		ItemStack stackResult = RecipeAltar.ingredientIn(ingredient);
 		if (stackResult != null) {
-			craftingResult = new EntityItem(world, pos.getX(), pos.getY() + 4, pos.getZ(), stackResult);
-			crafting = true;
+			craftingResult = new EntityItem(world, pos.getX(), pos.getY() + 2, pos.getZ(), stackResult);
+			
+			this.crafting = true;
+			
 		}
 		this.world = world;
 		this.pos = pos;
-		this.side = side;
 	}
 
 	private ItemStack getAltarItems(World world, BlockPos pos) {
@@ -187,5 +186,10 @@ public class BlockMainPedestal extends BlockTileEntity<TileEntityMainPedestal> {
 	@Override
 	public boolean isFullCube(IBlockState state) {
 		return false;
+	}
+	
+	@Override
+	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
+		return new ItemStack(ModBlocks.torchAltar);
 	}
 }

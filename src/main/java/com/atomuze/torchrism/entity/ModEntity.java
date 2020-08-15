@@ -1,7 +1,7 @@
 package com.atomuze.torchrism.entity;
 
 import com.atomuze.torchrism.ModConfig;
-import com.atomuze.torchrism.TorchrismMod;
+import com.atomuze.torchrism.Torchrism;
 import com.atomuze.torchrism.entity.flyingTorch.EntityFlyingTorch;
 
 import net.minecraft.entity.Entity;
@@ -17,6 +17,6 @@ public class ModEntity{
 	
 	private static void registerEntity(String name, Class<? extends Entity> entity, int id, int range, int color1, int color2)
 	{
-		EntityRegistry.registerModEntity(new ResourceLocation(TorchrismMod.MODID + ":" + name), entity, TorchrismMod.MODID + "." + name, id, TorchrismMod.instance, range, 1, true, color1, color2);
+		EntityRegistry.registerModEntity(new ResourceLocation(Torchrism.MODID + ":" + name), entity, Torchrism.MODID + "." + name, id, Torchrism.instance, range, 1, true, color1, color2);
 	}
 }

@@ -1,6 +1,6 @@
 package com.atomuze.torchrism.entity.flyingTorch;
 
-import com.atomuze.torchrism.TorchrismMod;
+import com.atomuze.torchrism.Torchrism;
 
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -12,7 +12,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class RenderFlyingTorch extends RenderLiving<EntityFlyingTorch>{
-public static final ResourceLocation TEXTURES = new ResourceLocation(TorchrismMod.MODID + ":textures/entity/flying_torch.png");
+public static final ResourceLocation TEXTURES = new ResourceLocation(Torchrism.MODID + ":textures/entity/flying_torch.png");
 	
 	public RenderFlyingTorch(RenderManager manager) 
 	{

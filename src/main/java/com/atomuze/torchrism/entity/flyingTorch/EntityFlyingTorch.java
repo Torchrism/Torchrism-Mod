@@ -77,6 +77,22 @@ public class EntityFlyingTorch extends EntityBat {
 		
 	}
 	
+	public boolean getCanSpawnHere()
+    {
+        BlockPos blockpos = new BlockPos(this.posX, this.getEntityBoundingBox().minY, this.posZ);
+        
+            int i = this.world.getLightFromNeighbors(blockpos);
+            int j = 4;
+
+            if (this.rand.nextBoolean())
+            {
+                return false;
+            }
+
+            return i > this.rand.nextInt(j) ? false : super.getCanSpawnHere();
+        
+    }
+	
 	/**
      * (abstract) Protected helper method to read subclass entity data from NBT.
      */

@@ -1,6 +1,6 @@
 package com.atomuze.torchrism.sound;
 
-import com.atomuze.torchrism.TorchrismMod;
+import com.atomuze.torchrism.Torchrism;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -25,7 +25,7 @@ public class ModSound {
 	}
 
 	private static SoundEvent registerSound(String name) {
-		ResourceLocation location = new ResourceLocation(TorchrismMod.MODID, name);
+		ResourceLocation location = new ResourceLocation(Torchrism.MODID, name);
 		SoundEvent event = new SoundEvent(location);
 		event.setRegistryName(name);
 		ForgeRegistries.SOUND_EVENTS.register(event);

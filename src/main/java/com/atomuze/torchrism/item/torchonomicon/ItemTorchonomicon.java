@@ -1,6 +1,6 @@
 package com.atomuze.torchrism.item.torchonomicon;
 
-import com.atomuze.torchrism.TorchrismMod;
+import com.atomuze.torchrism.Torchrism;
 import com.atomuze.torchrism.item.ItemBase;
 import com.atomuze.torchrism.sound.ModSound;
 
@@ -23,7 +23,7 @@ public class ItemTorchonomicon extends ItemBase {
 		ItemStack itemstack = playerIn.getHeldItem(handIn);
 
 		if (worldIn.isRemote) {
-			playerIn.openGui(TorchrismMod.instance, 0, worldIn, (int) playerIn.posX, (int) playerIn.posY, (int) playerIn.posZ);
+			playerIn.openGui(Torchrism.instance, 0, worldIn, (int) playerIn.posX, (int) playerIn.posY, (int) playerIn.posZ);
 			playerIn.playSound(ModSound.ITEM_TORCHONOMICON_OPEN, 1F, (float) (0.7 + Math.random() * 0.4));
 		}
 		

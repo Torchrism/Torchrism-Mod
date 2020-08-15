@@ -1,6 +1,6 @@
 package com.atomuze.torchrism.item;
 
-import com.atomuze.torchrism.TorchrismMod;
+import com.atomuze.torchrism.Torchrism;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -8,7 +8,7 @@ import net.minecraft.item.Item;
 public class ItemBase extends Item {
 
 	protected String name;
-	protected String modid = TorchrismMod.MODID;
+	protected String modid = Torchrism.MODID;
 
 	public ItemBase(String name) {
 		this.name = name;
@@ -17,7 +17,7 @@ public class ItemBase extends Item {
 	}
 	
 	public void registerItemModel() {
-		TorchrismMod.proxy.registerItemRenderer(this, 0, name);
+		Torchrism.proxy.registerItemRenderer(this, 0, name);
 	}
 	
 	@Override

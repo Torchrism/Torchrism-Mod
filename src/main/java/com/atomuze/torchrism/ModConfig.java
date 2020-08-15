@@ -5,7 +5,7 @@ import net.minecraftforge.common.config.Config.Comment;
 import net.minecraftforge.common.config.Config.Name;
 import net.minecraftforge.common.config.Config.RangeInt;
 
-@Config(modid = TorchrismMod.MODID, name = TorchrismMod.MODID)
+@Config(modid = Torchrism.MODID, name = Torchrism.MODID)
 public class ModConfig
 {
     @Name("Torch Offset")

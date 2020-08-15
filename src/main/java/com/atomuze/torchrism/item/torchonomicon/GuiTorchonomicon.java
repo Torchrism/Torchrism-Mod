@@ -3,30 +3,21 @@ package com.atomuze.torchrism.item.torchonomicon;
 import java.io.IOException;
 import java.util.Random;
 
-import javax.annotation.Nullable;
-
+import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
-import com.atomuze.torchrism.TorchrismMod;
+import com.atomuze.torchrism.Torchrism;
 import com.atomuze.torchrism.sound.ModSound;
 
 import net.minecraft.client.audio.PositionedSoundRecord;
-import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.resources.I18n;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.nbt.NBTTagString;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextFormatting;
 
 public class GuiTorchonomicon extends GuiScreen {
-	private static final ResourceLocation PG = new ResourceLocation(TorchrismMod.MODID, "textures/gui/torchonomicon_bg.png");
+	private static final ResourceLocation PG = new ResourceLocation(Torchrism.MODID, "textures/gui/torchonomicon_bg.png");
 	private GuiButton exit, menu, nextPage, PreviousPage, overview, utilities, altar, ch1, ch2, ch3, ch4;
 	private int crrBG;
 	private int branch = 0;
@@ -42,8 +33,8 @@ public class GuiTorchonomicon extends GuiScreen {
 	private int PagesMenu = 1;
 	private int totalPages = 1;
 
-	protected String modid = TorchrismMod.MODID;
-	
+	protected String modid = Torchrism.MODID;
+
 	String StringOverView = I18n.format(modid + "." + "book.overview_text");
 	String StringuUilities = I18n.format(modid + "." + "book.utilities_text");
 	String StringAltar = I18n.format(modid + "." + "book.altar_text");
@@ -52,7 +43,11 @@ public class GuiTorchonomicon extends GuiScreen {
 	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
 		this.drawBackground(crrBG);
 		super.drawScreen(mouseX, mouseY, partialTicks);
-
+//		if(Keyboard.isKeyDown(Keyboard.KEY_E)) {
+//			this.mc.player.closeScreen();
+//		}
+		
+		
 		String StrText = "";
 		String StrTitle = "";
 		// System.out.println("branch" + branch + " " +"crrPage" + crrPage);
@@ -149,6 +144,7 @@ public class GuiTorchonomicon extends GuiScreen {
 
 	@Override
 	protected void actionPerformed(GuiButton button) throws IOException {
+
 		if (button.enabled) {
 			if (button.id == 0) {
 				this.mc.displayGuiScreen((GuiScreen) null);
@@ -230,5 +226,4 @@ public class GuiTorchonomicon extends GuiScreen {
 		this.altar.visible = ButtonAltar;
 
 	}
-
 }

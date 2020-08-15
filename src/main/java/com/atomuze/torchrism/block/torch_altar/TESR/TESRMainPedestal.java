@@ -13,6 +13,8 @@ import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.ForgeHooksClient;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class TESRMainPedestal extends TileEntitySpecialRenderer<TileEntityMainPedestal> {
 	
@@ -29,8 +31,8 @@ public class TESRMainPedestal extends TileEntitySpecialRenderer<TileEntityMainPe
 			GlStateManager.tryBlendFuncSeparate(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA, 1, 0);
 			GlStateManager.pushMatrix();
 			
-			double offset = Math.sin((te.getWorld().getTotalWorldTime() - te.lastChangeTime + partialTicks) / 8) / 4.0;
-			GlStateManager.translate(x + 0.5, y + 1.15 + TileEntityMainPedestal.Offset + offset, z + 0.5);
+			double offset = Math.sin((te.getWorld().getTotalWorldTime() - te.lastChangeTime + partialTicks) / 8) / 8.0;
+			GlStateManager.translate(x + 0.5, y + 1.15 + offset, z + 0.5);
 			GlStateManager.rotate((te.getWorld().getTotalWorldTime() + partialTicks) * 2, 0, 1, 0);
 			
 			IBakedModel model = Minecraft.getMinecraft().getRenderItem().getItemModelWithOverrides(stack, te.getWorld(), null);

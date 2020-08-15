@@ -2,6 +2,7 @@ package com.atomuze.torchrism.proxy;
 
 import net.minecraft.item.Item;
 import net.minecraft.util.text.translation.I18n;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class CommonProxy {
 	public void registerItemRenderer(Item item, int meta, String id) {
@@ -16,6 +17,10 @@ public class CommonProxy {
 	}
 
 	public void registerModel(Item item, int metadata) {
+
+	}
+
+	public void preInit(FMLPreInitializationEvent event) {
 
 	}
 }

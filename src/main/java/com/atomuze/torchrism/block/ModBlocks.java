@@ -1,6 +1,6 @@
 package com.atomuze.torchrism.block;
 
-import com.atomuze.torchrism.TorchrismMod;
+import com.atomuze.torchrism.Torchrism;
 import com.atomuze.torchrism.block.modblocks.BlockIlluminate;
 import com.atomuze.torchrism.block.modblocks.BlockWall;
 import com.atomuze.torchrism.block.modblocks.BlockWallLight;
@@ -11,6 +11,7 @@ import com.atomuze.torchrism.block.torch_altar.block.BlockAltarPedestal;
 import com.atomuze.torchrism.block.torch_altar.block.BlockAltarPillar;
 import com.atomuze.torchrism.block.torch_altar.block.BlockAltarPurePedestal;
 import com.atomuze.torchrism.block.torch_altar.block.BlockMainPedestal;
+import com.atomuze.torchrism.block.torch_altar.block.BlockSunMoon;
 import com.atomuze.torchrism.block.torch_castle.TileEntityGreatWallBuilder;
 import com.atomuze.torchrism.block.torch_castle.BlockGreatWallBuilder;
 import com.atomuze.torchrism.block.torch_dice.BlockTorchDice;
@@ -28,38 +29,40 @@ import net.minecraftforge.registries.IForgeRegistry;
 
 public class ModBlocks {
 	
-	public static BlockTorchPlacer torchPlacer = new BlockTorchPlacer("torch_placer").setCreativeTab(TorchrismMod.creativeTab);
-	public static BlockCompactedTorch compactedTorch = new BlockCompactedTorch("compacted_torch").setCreativeTab(TorchrismMod.creativeTab);
-	public static BlockDoubleCompactedTorch doublecompactedTorch = new BlockDoubleCompactedTorch("double_compacted_torch").setCreativeTab(TorchrismMod.creativeTab);
-	public static BlockTorchDice torchDice = new BlockTorchDice("torch_dice").setCreativeTab(TorchrismMod.creativeTab);
+	public static BlockTorchPlacer torchPlacer = new BlockTorchPlacer("torch_placer").setCreativeTab(Torchrism.creativeTab);
+	public static BlockCompactedTorch compactedTorch = new BlockCompactedTorch("compacted_torch").setCreativeTab(Torchrism.creativeTab);
+	public static BlockDoubleCompactedTorch doublecompactedTorch = new BlockDoubleCompactedTorch("double_compacted_torch").setCreativeTab(Torchrism.creativeTab);
+	public static BlockTorchDice torchDice = new BlockTorchDice("torch_dice").setCreativeTab(Torchrism.creativeTab);
 	
-	public static BlockMainPedestal torchAltar = new BlockMainPedestal("torch_altar").setCreativeTab(TorchrismMod.creativeTab);
-	public static BlockMainPedestal torchAltar_night = new BlockMainPedestal("torch_altar_night").setCreativeTab(TorchrismMod.creativeTab);
-	public static BlockAltarPedestal altarPedestal = new BlockAltarPedestal("altar_pedestal").setCreativeTab(TorchrismMod.creativeTab);
-	public static BlockAltarPurePedestal altarPurePedestal = new BlockAltarPurePedestal("altar_pure_pedestal").setCreativeTab(TorchrismMod.creativeTab);
-	public static BlockAltarPillar pillar = new BlockAltarPillar("pillar").setCreativeTab(TorchrismMod.creativeTab);
-	public static BlockAltarBase altarBase = new BlockAltarBase("altar_base").setCreativeTab(TorchrismMod.creativeTab);
+	public static BlockMainPedestal torchAltar = new BlockMainPedestal("torch_altar").setCreativeTab(Torchrism.creativeTab);
+	public static BlockMainPedestal torchAltar_night = new BlockMainPedestal("torch_altar_night").setCreativeTab(Torchrism.creativeTab);
+	public static BlockAltarPedestal altarPedestal = new BlockAltarPedestal("altar_pedestal").setCreativeTab(Torchrism.creativeTab);
+	public static BlockAltarPurePedestal altarPurePedestal = new BlockAltarPurePedestal("altar_pure_pedestal").setCreativeTab(Torchrism.creativeTab);
+	public static BlockAltarPillar pillar = new BlockAltarPillar("pillar").setCreativeTab(Torchrism.creativeTab);
+	public static BlockAltarBase altarBase = new BlockAltarBase("altar_base").setCreativeTab(Torchrism.creativeTab);
+	public static BlockSunMoon sunMoonBlock = new BlockSunMoon("sun_moon_block").setCreativeTab(Torchrism.creativeTab);
+	public static BlockSunMoon sunMoonBlock_night = new BlockSunMoon("sun_moon_block_moon").setCreativeTab(Torchrism.creativeTab);
 	
-	public static BlockGreatWallBuilder greatWallBuilder = new BlockGreatWallBuilder("great_wall_builder").setCreativeTab(TorchrismMod.creativeTab);
-	public static BlockIlluminate illuminateBlock = new BlockIlluminate("illuminate_block").setCreativeTab(TorchrismMod.creativeTab);
-	public static BlockWall wall = new BlockWall("wall").setCreativeTab(TorchrismMod.creativeTab);
-	public static BlockWallLight wallLight = new BlockWallLight("fake_illuminate_block").setCreativeTab(TorchrismMod.creativeTab);
-	
-	
+	public static BlockGreatWallBuilder greatWallBuilder = new BlockGreatWallBuilder("great_wall_builder").setCreativeTab(Torchrism.creativeTab);
+	public static BlockIlluminate illuminateBlock = new BlockIlluminate("illuminate_block").setCreativeTab(Torchrism.creativeTab);
+	public static BlockWall wall = new BlockWall("wall").setCreativeTab(Torchrism.creativeTab);
+	public static BlockWallLight wallLight = new BlockWallLight("fake_illuminate_block").setCreativeTab(Torchrism.creativeTab);
 	
 	public static void register(IForgeRegistry<Block> registry) {
 		registry.registerAll(
 				torchPlacer,
-				torchAltar_night,
 				compactedTorch,
 				doublecompactedTorch,
 				torchDice,
 				
 				torchAltar,
+				torchAltar_night,
 				altarPedestal,
 				altarPurePedestal,
 				pillar,
 				altarBase,
+				sunMoonBlock,
+				sunMoonBlock_night,
 				
 				greatWallBuilder,
 				illuminateBlock,
@@ -69,6 +72,7 @@ public class ModBlocks {
 		);
 		GameRegistry.registerTileEntity(torchAltar.getTileEntityClass(), torchAltar.getRegistryName().toString());
 		GameRegistry.registerTileEntity(altarPedestal.getTileEntityClass(), altarPedestal.getRegistryName().toString());
+		GameRegistry.registerTileEntity(sunMoonBlock.getTileEntityClass(), sunMoonBlock.getRegistryName().toString());
 		GameRegistry.registerTileEntity(greatWallBuilder.getTileEntityClass(), greatWallBuilder.getRegistryName().toString());
 	}
 	
@@ -84,6 +88,7 @@ public class ModBlocks {
 				altarPurePedestal.createItemBlock(),
 				pillar.createItemBlock(),
 				altarBase.createItemBlock(),
+				sunMoonBlock.createItemBlock(),
 				
 				greatWallBuilder.createItemBlock(),
 				illuminateBlock.createItemBlock(),
@@ -106,6 +111,7 @@ public class ModBlocks {
 		altarPurePedestal.registerItemModel(Item.getItemFromBlock(altarPurePedestal));
 		pillar.registerItemModel(Item.getItemFromBlock(pillar));
 		altarBase.registerItemModel(Item.getItemFromBlock(altarBase));
+		sunMoonBlock.registerItemModel(Item.getItemFromBlock(sunMoonBlock));
 		
 		greatWallBuilder.registerItemModel(Item.getItemFromBlock(greatWallBuilder));
 		illuminateBlock.registerItemModel(Item.getItemFromBlock(illuminateBlock));

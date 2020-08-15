@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
-public class PacketRequestUpdatePedestal  implements IMessage {
+public class PacketRequestUpdatePedestal implements IMessage {
 
 	private BlockPos pos;
 	private int dimension;
