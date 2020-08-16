@@ -10,18 +10,18 @@ import net.minecraft.world.World;
 
 public class CheckAltar {
 	public static boolean checkingAltar(World world, BlockPos pos, EntityPlayer player) {
-		if (check(world, pos, pos.down().down().north().north().north().north().north().up(),ModBlocks.altarPurePedestal, player) 
-				&& check(world, pos, pos.down().down().west().west().west().west().west().up(), ModBlocks.altarPurePedestal, player) 
-				&& check(world, pos, pos.down().down().east().east().east().east().east().up(), ModBlocks.altarPurePedestal, player) 
-				&& check(world, pos, pos.down().down().south().south().south().south().south().up(), ModBlocks.altarPurePedestal, player) 
-				&& check(world, pos, pos.down().north().north().west().west().up().up(), ModBlocks.altarPedestal, player) 
-				&& check(world, pos, pos.down().north().north().east().east().up().up(), ModBlocks.altarPedestal, player) 
-				&& check(world, pos, pos.down().south().south().west().west().up().up(), ModBlocks.altarPedestal, player) 
-				&& check(world, pos, pos.down().south().south().east().east().up().up(), ModBlocks.altarPedestal, player)
-				&& check(world, pos, pos.north().north().north().north().east().east().east().east(), ModBlocks.altarPurePedestal, player) 
-				&& check(world, pos, pos.north().north().north().north().west().west().west().west(), ModBlocks.altarPurePedestal, player) 
-				&& check(world, pos, pos.south().south().south().south().east().east().east().east(), ModBlocks.altarPurePedestal, player) 
-				&& check(world, pos, pos.south().south().south().south().west().west().west().west(), ModBlocks.altarPurePedestal, player)) {
+		if (check(world, pos, pos.down().down().north().north().north().north().north().up(),ModBlocks.altarOutsidePedestal, player) 
+				&& check(world, pos, pos.down().down().west().west().west().west().west().up(), ModBlocks.altarOutsidePedestal, player) 
+				&& check(world, pos, pos.down().down().east().east().east().east().east().up(), ModBlocks.altarOutsidePedestal, player) 
+				&& check(world, pos, pos.down().down().south().south().south().south().south().up(), ModBlocks.altarOutsidePedestal, player) 
+				&& check(world, pos, pos.down().north().north().west().west().up().up(), ModBlocks.altarInsidePedestal, player) 
+				&& check(world, pos, pos.down().north().north().east().east().up().up(), ModBlocks.altarInsidePedestal, player) 
+				&& check(world, pos, pos.down().south().south().west().west().up().up(), ModBlocks.altarInsidePedestal, player) 
+				&& check(world, pos, pos.down().south().south().east().east().up().up(), ModBlocks.altarInsidePedestal, player)
+				&& check(world, pos, pos.north().north().north().north().east().east().east().east(), ModBlocks.altarOutsidePedestal, player) 
+				&& check(world, pos, pos.north().north().north().north().west().west().west().west(), ModBlocks.altarOutsidePedestal, player) 
+				&& check(world, pos, pos.south().south().south().south().east().east().east().east(), ModBlocks.altarOutsidePedestal, player) 
+				&& check(world, pos, pos.south().south().south().south().west().west().west().west(), ModBlocks.altarOutsidePedestal, player)) {
 			return true;
 		} else {
 			return false;

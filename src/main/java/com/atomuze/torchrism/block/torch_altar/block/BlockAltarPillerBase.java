@@ -6,8 +6,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 
-public class BlockAltarBase extends BlockBase {
-	public BlockAltarBase(String name) {
+public class BlockAltarPillerBase extends BlockBase {
+	public BlockAltarPillerBase(String name) {
 		super(Material.GLASS, name);
 
 		setHardness(3f);
@@ -16,7 +16,7 @@ public class BlockAltarBase extends BlockBase {
 	}
 
 	@Override
-	public BlockAltarBase setCreativeTab(CreativeTabs tab) {
+	public BlockAltarPillerBase setCreativeTab(CreativeTabs tab) {
 		super.setCreativeTab(tab);
 		return this;
 	}

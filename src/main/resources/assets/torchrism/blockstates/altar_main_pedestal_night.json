@@ -2,10 +2,10 @@
 	"forge_marker": 1,
   "variants": {
     "normal": {
-      "model": "torchrism:torch_altar_night"
+      "model": "torchrism:altar_main_pedestal_night"
     },
     "inventory": {
-      "model": "torchrism:torch_altar_night",
+      "model": "torchrism:altar_main_pedestal_night",
       "transform": "forge:default-block"
     }
   }

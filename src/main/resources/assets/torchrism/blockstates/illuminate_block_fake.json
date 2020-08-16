@@ -2,10 +2,10 @@
 	"forge_marker": 1,
   "variants": {
     "normal": {
-      "model": "torchrism:fake_illuminate_block"
+      "model": "torchrism:illuminate_block_fake"
     },
     "inventory": {
-      "model": "torchrism:fake_illuminate_block",
+      "model": "torchrism:illuminate_block_fake",
       "transform": "forge:default-block"
     }
   }

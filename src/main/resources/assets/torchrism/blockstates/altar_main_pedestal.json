@@ -1,0 +1,12 @@
+{
+	"forge_marker": 1,
+  "variants": {
+    "normal": {
+      "model": "torchrism:altar_main_pedestal"
+    },
+    "inventory": {
+      "model": "torchrism:altar_main_pedestal",
+      "transform": "forge:default-block"
+    }
+  }
+}

@@ -32,7 +32,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 
-public class BlockMainPedestal extends BlockTileEntity<TileEntityMainPedestal> {
+public class BlockAltarMainPedestal extends BlockTileEntity<TileEntityMainPedestal> {
 
 	public static boolean crafting;
 	public static EntityItem craftingResult;
@@ -40,7 +40,7 @@ public class BlockMainPedestal extends BlockTileEntity<TileEntityMainPedestal> {
 	World world;
 	BlockPos pos;
 
-	public BlockMainPedestal(String name) {
+	public BlockAltarMainPedestal(String name) {
 
 		super(Material.ROCK, name);
 
@@ -52,7 +52,7 @@ public class BlockMainPedestal extends BlockTileEntity<TileEntityMainPedestal> {
 	
 
 	@Override
-	public BlockMainPedestal setCreativeTab(CreativeTabs tab) {
+	public BlockAltarMainPedestal setCreativeTab(CreativeTabs tab) {
 		super.setCreativeTab(tab);
 		return this;
 	}
@@ -146,13 +146,13 @@ public class BlockMainPedestal extends BlockTileEntity<TileEntityMainPedestal> {
 
         if (active)
         {
-            worldIn.setBlockState(pos, ModBlocks.torchAltar.getDefaultState(), 3);
-            worldIn.setBlockState(pos, ModBlocks.torchAltar.getDefaultState(), 3);
+            worldIn.setBlockState(pos, ModBlocks.altarMainPedestal.getDefaultState(), 3);
+            worldIn.setBlockState(pos, ModBlocks.altarMainPedestal.getDefaultState(), 3);
         }
         else
         {
-            worldIn.setBlockState(pos, ModBlocks.torchAltar_night.getDefaultState(), 3);
-            worldIn.setBlockState(pos, ModBlocks.torchAltar_night.getDefaultState(), 3);
+            worldIn.setBlockState(pos, ModBlocks.altarMainPedestal_night.getDefaultState(), 3);
+            worldIn.setBlockState(pos, ModBlocks.altarMainPedestal_night.getDefaultState(), 3);
         }
 
         keepInventory = false;
@@ -190,6 +190,6 @@ public class BlockMainPedestal extends BlockTileEntity<TileEntityMainPedestal> {
 	
 	@Override
 	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
-		return new ItemStack(ModBlocks.torchAltar);
+		return new ItemStack(ModBlocks.altarMainPedestal);
 	}
 }

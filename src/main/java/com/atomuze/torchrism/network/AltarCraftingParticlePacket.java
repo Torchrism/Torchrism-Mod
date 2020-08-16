@@ -2,7 +2,7 @@ package com.atomuze.torchrism.network;
 
 import javax.xml.ws.handler.MessageContext;
 
-import com.atomuze.torchrism.block.torch_altar.block.BlockMainPedestal;
+import com.atomuze.torchrism.block.torch_altar.block.BlockAltarMainPedestal;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
@@ -62,7 +62,7 @@ public class AltarCraftingParticlePacket implements IMessage {
 		}
 
 		void processMessage(AltarCraftingParticlePacket message, WorldClient worldClient) {
-			BlockMainPedestal.crafting = crafting;
+			BlockAltarMainPedestal.crafting = crafting;
 		}
 
 	}

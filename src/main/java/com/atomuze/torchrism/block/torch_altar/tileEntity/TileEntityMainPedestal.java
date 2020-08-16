@@ -7,7 +7,7 @@ import javax.swing.Icon;
 
 import com.atomuze.torchrism.Torchrism;
 import com.atomuze.torchrism.block.ModBlocks;
-import com.atomuze.torchrism.block.torch_altar.block.BlockMainPedestal;
+import com.atomuze.torchrism.block.torch_altar.block.BlockAltarMainPedestal;
 import com.atomuze.torchrism.network.AltarCraftingParticlePacket;
 import com.atomuze.torchrism.network.PacketUpdatePedestal;
 import com.atomuze.torchrism.network.TorchrimNetworkHandler;
@@ -46,9 +46,9 @@ public class TileEntityMainPedestal extends TileEntityPedestal implements ITicka
 
 	@Override
 	public void update() {
-		if (BlockMainPedestal.crafting) {
+		if (BlockAltarMainPedestal.crafting) {
 			if (!world.isRemote) {
-				TorchrimNetworkHandler.network.sendToAllAround(new AltarCraftingParticlePacket(BlockMainPedestal.crafting), new NetworkRegistry.TargetPoint(world.provider.getDimension(), pos.getX(), pos.getY(), pos.getZ(), 64));
+				TorchrimNetworkHandler.network.sendToAllAround(new AltarCraftingParticlePacket(BlockAltarMainPedestal.crafting), new NetworkRegistry.TargetPoint(world.provider.getDimension(), pos.getX(), pos.getY(), pos.getZ(), 64));
 			}
 			long processingTime = world.getTotalWorldTime() - initTime;
 			this.spawnParticles1(world, pos);
@@ -56,7 +56,7 @@ public class TileEntityMainPedestal extends TileEntityPedestal implements ITicka
 				this.spawnParticles1(world, pos);
 				this.spawnParticles2(world, pos);
 			} else if (processingTime > 80.0) {
-				BlockMainPedestal.crafting = false;
+				BlockAltarMainPedestal.crafting = false;
 				craftingEffect();
 			}
 			
@@ -67,10 +67,10 @@ public class TileEntityMainPedestal extends TileEntityPedestal implements ITicka
 //		System.out.println("BlockMainPedestal.crafting "+ BlockMainPedestal.crafting);
 		
 		if (world.getWorldTime() % 24000 < 12000 && !altarT) {
-			BlockMainPedestal.setState(true, world, pos);
+			BlockAltarMainPedestal.setState(true, world, pos);
 			altarT = true;
 		} else if (world.getWorldTime() % 24000 > 12000 && altarT) {
-			BlockMainPedestal.setState(false, world, pos);
+			BlockAltarMainPedestal.setState(false, world, pos);
 			altarT = false;
 		}
 	}
@@ -90,7 +90,7 @@ public class TileEntityMainPedestal extends TileEntityPedestal implements ITicka
 		extractItem(world, pos.south().south().south().south().east().east().east().east());
 		extractItem(world, pos.south().south().south().south().west().west().west().west());
 		if(!world.isRemote) {
-			world.spawnEntity(BlockMainPedestal.craftingResult);
+			world.spawnEntity(BlockAltarMainPedestal.craftingResult);
 		}
 		
 	}

@@ -1,23 +1,35 @@
 tile.torchrism.torch_placer.name=火把放置器
+tile.torchrism.torch_dice.name=火把骰子
+tile.torchrism.great_wall_builder.name=火把長城
+tile.torchrism.torch_correcter.name=火把矯正器
+
+tile.torchrism.altar_main_pedestal.name=火把祭壇
+tile.torchrism.altar_inside_pedestal.name=祭壇基座
+tile.torchrism.altar_outside_pedestal.name=純淨的祭壇基座
+tile.torchrism.altar_pillar.name=祭壇支柱
+tile.torchrism.altar_piller_base.name=祭壇底部
+
 tile.torchrism.compacted_torch.name=壓縮火把
 tile.torchrism.double_compacted_torch.name=雙重壓縮火把
-tile.torchrism.torch_dice.name=火把骰子
-tile.torchrism.torch_altar.name=火把祭壇
-tile.torchrism.altar_pedestal.name=祭壇基座
-tile.torchrism.altar_pure_pedestal.name=純淨的祭壇基座
-tile.torchrism.pillar.name=祭壇支柱
-tile.torchrism.altar_base.name=祭壇底部
-tile.torchrism.great_wall_builder.name=火把長城
+
 tile.torchrism.wall.name=城牆
 tile.torchrism.illuminate_block.name=伊魯禰奈忒方塊
-tile.torchrism.fake_illuminate_block.name=伊魯禰奈忒方塊(假)
+tile.torchrism.sun_moon_block.name=日月方塊
+
+
 
 item.torchrism.torch_wand.name=火把權杖
 item.torchrism.torchonomicon.name=火把福音
 
+
+
 entity.torchrism.flying_torch.name=飛行的火把
 
+
+
 itemGroup.torchrism=火把教
+
+
 
 torchrism.bookButton.menu=回首頁
 torchrism.bookButton.next_page=下一頁

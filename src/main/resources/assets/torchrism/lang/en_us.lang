@@ -1,23 +1,34 @@
 tile.torchrism.torch_placer.name=Torch Placer
+tile.torchrism.torch_dice.name=Torch Dice
+tile.torchrism.great_wall_builder.name=Torch Great Wall
+tile.torchrism.torch_correcter.name=Torch Corrector
+
+tile.torchrism.altar_main_pedestal.name=Torch Altar
+tile.torchrism.altar_inside_pedestal.name=Altar Pedestal
+tile.torchrism.altar_outside_pedestal.name=Altar Pure Pedestal
+tile.torchrism.altar_pillar.name=Pillar
+tile.torchrism.altar_piller_base.name=Altar Base
+
 tile.torchrism.compacted_torch.name=Compacted Torch
 tile.torchrism.double_compacted_torch.name=Double Compacted Torch
-tile.torchrism.torch_dice.name=Torch Dice
-tile.torchrism.torch_altar.name=Torch Altar
-tile.torchrism.altar_pedestal.name=Altar Pedestal
-tile.torchrism.altar_pure_pedestal.name=Altar Pure Pedestal
-tile.torchrism.pillar.name=Pillar
-tile.torchrism.altar_base.name=Altar Base
-tile.torchrism.great_wall_builder.name=Torch Great Wall
 tile.torchrism.wall.name=Wall
 tile.torchrism.illuminate_block.name=Illuminate Block
-tile.torchrism.fake_illuminate_block.name=FAKE Illuminate Block
+tile.torchrism.sun_moon_block.name=Illuminate Block
+
+
 
 item.torchrism.torch_wand.name=Torch Staff
 item.torchrism.torchonomicon.name=Torchonomicon
 
+
+
 entity.torchrism.flying_torch.name=Flying Torch
 
+
+
 itemGroup.torchrism=Torchrism Mod
+
+
 
 torchrism.bookButton.menu=Back to Menu
 torchrism.bookButton.next_page=Next

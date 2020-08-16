@@ -18,8 +18,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 
-public class BlockAltarPurePedestal extends BlockTileEntity<TileEntityOtherPedestal> {
-	public BlockAltarPurePedestal(String name) {
+public class BlockAltarOutsidePedestal extends BlockTileEntity<TileEntityOtherPedestal> {
+	public BlockAltarOutsidePedestal(String name) {
 		super(Material.ROCK, name);
 
 		setHardness(5f);
@@ -27,7 +27,7 @@ public class BlockAltarPurePedestal extends BlockTileEntity<TileEntityOtherPedes
 	}
 	
 	@Override
-	public BlockAltarPurePedestal setCreativeTab(CreativeTabs tab) {
+	public BlockAltarOutsidePedestal setCreativeTab(CreativeTabs tab) {
 		super.setCreativeTab(tab);
 		return this;
 	}
