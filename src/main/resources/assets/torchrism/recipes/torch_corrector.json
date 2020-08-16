@@ -1,0 +1,45 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "#R#",
+        "#T#"
+    ],
+    "key": {
+        "#": [
+		  {
+			"item": "minecraft:planks",
+			"data": 0
+		  },
+		  {
+			"item": "minecraft:planks",
+			"data": 1
+		  },
+		  {
+			"item": "minecraft:planks",
+			"data": 2
+		  },
+		  {
+			"item": "minecraft:planks",
+			"data": 3
+		  },
+		  {
+			"item": "minecraft:planks",
+			"data": 4
+		  },
+		  {
+			"item": "minecraft:planks",
+			"data": 5
+		  }
+		],
+        "T": {
+            "item": "minecraft:torch"
+        },
+        "R":  {
+			"item": "minecraft:redstone"
+		}
+    },
+    "result": {
+        "item": "torchrism:torch_correcter"
+    }
+}

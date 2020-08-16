@@ -1,44 +1,12 @@
 {
-  "forge_marker": 1,
-  "defaults": {
-    "model": "torchrism:torch_wand.obj"
-  },
+	"forge_marker": 1,
   "variants": {
-    "inventory": [
-      {
-        "transform": {
-          "thirdperson_lefthand": {
-            "rotation": [ { "x": 0 }, { "y": 0 }, { "z": 0 } ],
-            "translation": [ -0.5, 0, 0.5 ],
-            "scale": 1
-          },
-          "thirdperson_righthand": {
-            "rotation": [ { "x": 0 }, { "y": 0 }, { "z": 0 } ],
-            "translation": [ 0.5, 0, 0.5 ],
-            "scale": 1
-          },
-          "gui": {
-            "rotation": [ { "x": 45 }, { "y": 90 }, { "z": 0 } ],
-            "translation": [ 0.4, 0.5, 0 ],
-            "scale": 0.7
-          },
-          "firstperson_righthand": {
-            "rotation": [ { "x": 180 }, { "y": 180 }, { "z": 180 } ],
-            "translation": [ 0.5, 0, 0 ],
-            "scale": 1
-          },
-          "firstperson_lefthand": {
-            "rotation": [ { "x": 180 }, { "y": 180 }, { "z": 180 } ],
-            "translation": [ -0.5, 0, 0 ],
-            "scale": 1
-          },
-          "ground": {
-            "rotation": [ { "x": 0 }, { "y": 45 }, { "z": 0 } ],
-            "translation": [ 0.6, 1, 0 ],
-			"scale": 1
-          }
-        }
-      }
-    ]
+    "normal": {
+      "model": "torchrism:torchrism"
+    },
+    "inventory": {
+      "model": "torchrism:torchrism",
+      "transform": "forge:default-block"
+    }
   }
 }

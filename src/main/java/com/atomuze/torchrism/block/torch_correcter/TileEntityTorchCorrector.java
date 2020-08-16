@@ -28,6 +28,7 @@ public class TileEntityTorchCorrector  extends TileEntity implements ITickable {
 	public void update() {
 		if (!world.isRemote) {
 			if (checking) {
+				
 				if(outlay <= 64) {
 					movePos1(outlay);
 					outlay++;
@@ -92,10 +93,13 @@ public class TileEntityTorchCorrector  extends TileEntity implements ITickable {
 
 			IBlockState iblockstate = world.getBlockState(PlacePos);
 			Material m = world.getBlockState(PlacePos).getMaterial();
+
+			
 			
 			if (m == Material.LEAVES) {
 
-			} else if (iblockstate == Blocks.TORCH.getBlockState()) {
+			} else if (iblockstate == Blocks.TORCH.getDefaultState()) {
+				
 				if((activatepos.getX()-pos.getX())%offset == 0 && (activatepos.getZ()-pos.getZ())%offset == 0) {
 					break;
 				}

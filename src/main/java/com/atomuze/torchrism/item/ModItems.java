@@ -1,14 +1,12 @@
 package com.atomuze.torchrism.item;
 
 import com.atomuze.torchrism.Torchrism;
-import com.atomuze.torchrism.block.torch_placer.BlockTorchPlacer;
+import com.atomuze.torchrism.item.staff.Staff;
 import com.atomuze.torchrism.item.torchonomicon.ItemTorchonomicon;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 
 public class ModItems {

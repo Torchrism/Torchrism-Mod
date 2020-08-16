@@ -15,7 +15,6 @@ public class ItemTorchonomicon extends ItemBase {
 
 	public ItemTorchonomicon(String name) {
 		super(name);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

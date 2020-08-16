@@ -3,7 +3,7 @@
   "textures": {
     "particle": "torchrism:blocks/torch_placer_bottom",
     "side": "torchrism:blocks/torch_placer_side",
-    "up": "torchrism:blocks/torch_placer_bottom",
+    "up": "torchrism:blocks/torch_corrector",
     "down": "torchrism:blocks/torch_placer_bottom"
   },
   "elements": [

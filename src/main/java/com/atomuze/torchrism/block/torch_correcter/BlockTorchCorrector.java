@@ -18,7 +18,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class BlockTorchCorrector extends BlockTileEntity<TileEntityTorchCorrector> {
-	public static final PropertyDirection FACING = BlockHorizontal.FACING;
 	public static EntityPlayer player = null;
 
 	public BlockTorchCorrector(String name) {
@@ -26,7 +25,6 @@ public class BlockTorchCorrector extends BlockTileEntity<TileEntityTorchCorrecto
 		setHardness(3f);
 		setResistance(4f);
 		setLightLevel(1f);
-		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
 	}
 
 	@Override
@@ -38,6 +36,7 @@ public class BlockTorchCorrector extends BlockTileEntity<TileEntityTorchCorrecto
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
 		this.player = player;
+		System.out.println("activate");
 		final TileEntityTorchCorrector tileEntity = (TileEntityTorchCorrector) world.getTileEntity(pos);
 		if (tileEntity != null) {
 
@@ -81,29 +80,5 @@ public class BlockTorchCorrector extends BlockTileEntity<TileEntityTorchCorrecto
 	@Override
 	public boolean isFullCube(IBlockState state) {
 		return true;
-	}
-
-	@Override
-	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY,
-			float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
-		return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing());
-	}
-
-	@Override
-	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, FACING);
-	}
-	
-	@Override
-	public int getMetaFromState(IBlockState state) {
-		return ((EnumFacing) state.getValue(FACING)).getIndex();
-	}
-	
-	@Override
-	public IBlockState getStateFromMeta(int meta) 
-	{
-		EnumFacing facing = EnumFacing.getFront(meta);
-		if(facing.getAxis() == EnumFacing.Axis.Y) facing = EnumFacing.NORTH;
-		return this.getDefaultState().withProperty(FACING, facing);
 	}
 }

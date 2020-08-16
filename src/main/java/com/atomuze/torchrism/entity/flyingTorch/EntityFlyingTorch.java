@@ -52,6 +52,7 @@ public class EntityFlyingTorch extends EntityBat {
 
 	@Override
 	protected void updateAITasks() {
+	//	System.out.println("updateAITasks");
 		super.updateAITasks();
 		BlockPos blockpos = new BlockPos(this);
 		BlockPos blockpos1 = blockpos.up();
@@ -67,9 +68,14 @@ public class EntityFlyingTorch extends EntityBat {
 		double d0 = (double) this.spawnPosition.getX() + 0.5D - this.posX;
 		double d1 = (double) this.spawnPosition.getY() + 0.1D - this.posY;
 		double d2 = (double) this.spawnPosition.getZ() + 0.5D - this.posZ;
-		this.motionX += (Math.signum(d0) * 0.5D - this.motionX) * 0.001D;
-		this.motionY += (Math.signum(d1) * 0.699999988079071D - this.motionY) * 0.001D;
-		this.motionZ += (Math.signum(d2) * 0.5D - this.motionZ) * 0.001D;
+		
+		if(this.spawnPosition.getX()+this.motionX + (Math.signum(d0) * 0.5D ) * 0.0001D < this.spawnPosition.getX() + 10D)
+		
+			System.out.println("updateAITasks");
+			
+		this.motionX += (Math.signum(d0) * 0.5D ) * 0.0001D;
+		this.motionY += (Math.signum(d1) * 0.699999988079071D - this.motionY) * 0.0001D;
+		this.motionZ += (Math.signum(d2) * 0.5D - this.motionZ) * 0.1D;
 		float f = (float) (MathHelper.atan2(this.motionZ, this.motionX)) - 90.0F;
 		float f1 = MathHelper.wrapDegrees(f - this.rotationYaw) * 0.01f;
 		this.moveForward = 10.0F;
@@ -79,6 +85,7 @@ public class EntityFlyingTorch extends EntityBat {
 	
 	public boolean getCanSpawnHere()
     {
+		System.out.println("getCanSpawnHere");
         BlockPos blockpos = new BlockPos(this.posX, this.getEntityBoundingBox().minY, this.posZ);
         
             int i = this.world.getLightFromNeighbors(blockpos);
