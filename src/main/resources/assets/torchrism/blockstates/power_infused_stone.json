@@ -1,0 +1,12 @@
+{
+	"forge_marker": 1,
+  "variants": {
+    "normal": {
+      "model": "torchrism:power_infused_stone"
+    },
+    "inventory": {
+      "model": "torchrism:power_infused_stone",
+      "transform": "forge:default-block"
+    }
+  }
+}

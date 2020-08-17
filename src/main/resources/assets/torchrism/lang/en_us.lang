@@ -14,8 +14,11 @@ tile.torchrism.double_compacted_torch.name=Double Compacted Torch
 tile.torchrism.wall.name=Wall
 tile.torchrism.illuminate_block.name=Illuminate Block
 tile.torchrism.sun_moon_block.name=Sun Moon Block
-
-
+tile.torchrism.un_powered_stone.name=Un Powered Stone
+tile.torchrism.power_infused_stone.name=Power Infused Stone
+tile.torchrism.powered_stone.name=Powered Stone
+tile.torchrism.powered_stone_slab_half.name=Powered Stone Slab
+tile.torchrism.powered_stone_slab_double.name=Double Powered Stone Slab
 
 item.torchrism.torch_wand.name=Torch Staff
 item.torchrism.torchonomicon.name=Torchonomicon

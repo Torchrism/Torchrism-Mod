@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "torchrism:powered_stone"
+    }
+  },
+  "result": {
+    "item": "torchrism:powered_stone_slab_half",
+	"data": 0,
+    "count": 6
+  }
+}

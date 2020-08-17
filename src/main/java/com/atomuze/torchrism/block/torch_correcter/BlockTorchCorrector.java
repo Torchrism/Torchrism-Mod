@@ -36,7 +36,6 @@ public class BlockTorchCorrector extends BlockTileEntity<TileEntityTorchCorrecto
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
 		this.player = player;
-		System.out.println("activate");
 		final TileEntityTorchCorrector tileEntity = (TileEntityTorchCorrector) world.getTileEntity(pos);
 		if (tileEntity != null) {
 
