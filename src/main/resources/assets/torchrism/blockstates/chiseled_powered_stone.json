@@ -2,10 +2,10 @@
 	"forge_marker": 1,
 	"variants": {
 		"normal": {
-			"model": "torchrism:powered_stone"
+			"model": "torchrism:chiseled_powered_stone"
 		},
 		"inventory": {
-			"model": "torchrism:powered_stone",
+			"model": "torchrism:chiseled_powered_stone",
 			"transform": "forge:default-block"
 		}
 	}

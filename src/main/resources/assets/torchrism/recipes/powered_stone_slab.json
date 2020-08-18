@@ -4,9 +4,16 @@
     "###"
   ],
   "key": {
-    "#": {
-      "item": "torchrism:powered_stone"
-    }
+    "#": [
+      {
+        "item": "torchrism:powered_stone",
+        "data": 0
+      },
+      {
+        "item": "torchrism:powered_stone",
+        "data": 1
+      }
+    ]
   },
   "result": {
     "item": "torchrism:powered_stone_slab_half",

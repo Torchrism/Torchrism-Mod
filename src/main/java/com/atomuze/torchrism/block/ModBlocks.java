@@ -61,13 +61,14 @@ public class ModBlocks {
 	public static final BlockWall wall = new BlockWall("wall").setCreativeTab(Torchrism.creativeTab);
 	public static final BlockWallLight wallLight = new BlockWallLight("illuminate_block_fake").setCreativeTab(Torchrism.creativeTab);
 	public static final BlockPoweredStone poweredStone = new BlockPoweredStone("powered_stone").setCreativeTab(Torchrism.creativeTab);
+	public static final BlockPoweredStone cheiseledPoweredStone = new BlockPoweredStone("chiseled_powered_stone").setCreativeTab(Torchrism.creativeTab);
 	public static final BlockPowerInfusedStone powerInfusedStone = new BlockPowerInfusedStone("power_infused_stone").setCreativeTab(Torchrism.creativeTab);
 	public static final BlockunPoweredStone unPoweredStone = new BlockunPoweredStone("un_powered_stone").setCreativeTab(Torchrism.creativeTab);
 	public static final BlockDoubleSlabBase poweredStoneSlabDouble = (BlockDoubleSlabBase) new BlockDoubleSlabBase("powered_stone_slab_double", Material.ROCK, Torchrism.creativeTab, ModBlocks.poweredStoneSlabHalf).setHardness(1.5F).setResistance(10.0F);
 	public static final BlockHalfSlabBase poweredStoneSlabHalf = (BlockHalfSlabBase) new BlockHalfSlabBase("powered_stone_slab_half", Material.ROCK, Torchrism.creativeTab, ModBlocks.poweredStoneSlabHalf, ModBlocks.poweredStoneSlabDouble).setHardness(1.5F).setResistance(10.0F);
 
 	public static final ItemBlock poweredStoneSlab = new ItemSlab(ModBlocks.poweredStoneSlabHalf, ModBlocks.poweredStoneSlabHalf, ModBlocks.poweredStoneSlabDouble);
-	
+
 	public static void register(IForgeRegistry<Block> registry) {
 		registry.registerAll(
 				torchPlacer,
@@ -90,13 +91,13 @@ public class ModBlocks {
 				wallLight,
 				wall,
 				poweredStone,
+				cheiseledPoweredStone,
 				powerInfusedStone,
 				unPoweredStone,
 				poweredStoneSlabHalf,
 				poweredStoneSlabDouble
 				
 		);
-		
 		
 		GameRegistry.registerTileEntity(torchCorrecter.getTileEntityClass(), torchCorrecter.getRegistryName().toString());
 		GameRegistry.registerTileEntity(altarMainPedestal.getTileEntityClass(), altarMainPedestal.getRegistryName().toString());
@@ -108,7 +109,6 @@ public class ModBlocks {
 	public static void registerItemBlocks(IForgeRegistry<Item> registry) {
 		
 		poweredStoneSlab.setRegistryName(ModBlocks.poweredStoneSlabHalf.getRegistryName());
-		System.out.println(ModBlocks.poweredStoneSlabHalf.getRegistryName());
 		
 		registry.registerAll(
 				torchPlacer.createItemBlock(),
@@ -127,12 +127,14 @@ public class ModBlocks {
 							
 				illuminateBlock.createItemBlock(),
 				wall.createItemBlock(),
+				cheiseledPoweredStone.createItemBlock(),
 				poweredStone.createItemBlock(),
 				powerInfusedStone.createItemBlock(),
 				unPoweredStone.createItemBlock(),
 				poweredStoneSlab
 		);
 		
+
 		
 	}
 	
@@ -154,6 +156,7 @@ public class ModBlocks {
 		illuminateBlock.registerItemModel(Item.getItemFromBlock(illuminateBlock));
 		wall.registerItemModel(Item.getItemFromBlock(wall));
 		poweredStone.registerItemModel(Item.getItemFromBlock(poweredStone));
+		cheiseledPoweredStone.registerItemModel(Item.getItemFromBlock(cheiseledPoweredStone));
 		powerInfusedStone.registerItemModel(Item.getItemFromBlock(powerInfusedStone));
 		unPoweredStone.registerItemModel(Item.getItemFromBlock(unPoweredStone));
 		poweredStoneSlabHalf.registerItemModel(Item.getItemFromBlock(poweredStoneSlabHalf));

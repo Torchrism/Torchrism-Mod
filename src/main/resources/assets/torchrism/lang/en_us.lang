@@ -17,6 +17,7 @@ tile.torchrism.sun_moon_block.name=Sun Moon Block
 tile.torchrism.un_powered_stone.name=Un Powered Stone
 tile.torchrism.power_infused_stone.name=Power Infused Stone
 tile.torchrism.powered_stone.name=Powered Stone
+tile.torchrism.chiseled_powered_stone.name=Chiseled Powered Stone
 tile.torchrism.powered_stone_slab_half.name=Powered Stone Slab
 tile.torchrism.powered_stone_slab_double.name=Double Powered Stone Slab
 
