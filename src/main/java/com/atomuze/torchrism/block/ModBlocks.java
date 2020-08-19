@@ -129,7 +129,6 @@ public class ModBlocks {
 				wall.createItemBlock(),
 				cheiseledPoweredStone.createItemBlock(),
 				poweredStone.createItemBlock(),
-				powerInfusedStone.createItemBlock(),
 				unPoweredStone.createItemBlock(),
 				poweredStoneSlab
 		);
@@ -157,7 +156,6 @@ public class ModBlocks {
 		wall.registerItemModel(Item.getItemFromBlock(wall));
 		poweredStone.registerItemModel(Item.getItemFromBlock(poweredStone));
 		cheiseledPoweredStone.registerItemModel(Item.getItemFromBlock(cheiseledPoweredStone));
-		powerInfusedStone.registerItemModel(Item.getItemFromBlock(powerInfusedStone));
 		unPoweredStone.registerItemModel(Item.getItemFromBlock(unPoweredStone));
 		poweredStoneSlabHalf.registerItemModel(Item.getItemFromBlock(poweredStoneSlabHalf));
 	}

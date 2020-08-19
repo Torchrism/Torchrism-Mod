@@ -70,8 +70,6 @@ public class EntityFlyingTorch extends EntityBat {
 		double d2 = (double) this.spawnPosition.getZ() + 0.5D - this.posZ;
 		
 		if(this.spawnPosition.getX()+this.motionX + (Math.signum(d0) * 0.5D ) * 0.0001D < this.spawnPosition.getX() + 10D)
-		
-			System.out.println("updateAITasks");
 			
 		this.motionX += (Math.signum(d0) * 0.5D ) * 0.0001D;
 		this.motionY += (Math.signum(d1) * 0.699999988079071D - this.motionY) * 0.0001D;
@@ -85,7 +83,7 @@ public class EntityFlyingTorch extends EntityBat {
 	
 	public boolean getCanSpawnHere()
     {
-		System.out.println("getCanSpawnHere");
+	//	System.out.println("getCanSpawnHere");
         BlockPos blockpos = new BlockPos(this.posX, this.getEntityBoundingBox().minY, this.posZ);
         
             int i = this.world.getLightFromNeighbors(blockpos);

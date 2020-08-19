@@ -10,21 +10,177 @@ import net.minecraft.world.World;
 
 public class CheckAltar {
 	public static boolean checkingAltar(World world, BlockPos pos, EntityPlayer player) {
-		if (check(world, pos, pos.down().down().north().north().north().north().north().up(),ModBlocks.altarOutsidePedestal, player) 
-				&& check(world, pos, pos.down().down().west().west().west().west().west().up(), ModBlocks.altarOutsidePedestal, player) 
-				&& check(world, pos, pos.down().down().east().east().east().east().east().up(), ModBlocks.altarOutsidePedestal, player) 
-				&& check(world, pos, pos.down().down().south().south().south().south().south().up(), ModBlocks.altarOutsidePedestal, player) 
-				&& check(world, pos, pos.down().north().north().west().west().up().up(), ModBlocks.altarInsidePedestal, player) 
-				&& check(world, pos, pos.down().north().north().east().east().up().up(), ModBlocks.altarInsidePedestal, player) 
-				&& check(world, pos, pos.down().south().south().west().west().up().up(), ModBlocks.altarInsidePedestal, player) 
-				&& check(world, pos, pos.down().south().south().east().east().up().up(), ModBlocks.altarInsidePedestal, player)
-				&& check(world, pos, pos.north().north().north().north().east().east().east().east(), ModBlocks.altarOutsidePedestal, player) 
-				&& check(world, pos, pos.north().north().north().north().west().west().west().west(), ModBlocks.altarOutsidePedestal, player) 
-				&& check(world, pos, pos.south().south().south().south().east().east().east().east(), ModBlocks.altarOutsidePedestal, player) 
-				&& check(world, pos, pos.south().south().south().south().west().west().west().west(), ModBlocks.altarOutsidePedestal, player)) {
-			return true;
-		} else {
-			return false;
+		long time = world.getWorldTime();
+		if(time % 24000 < 12000) {
+			if (
+					//center
+					check(world, pos, pos.down(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().north(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().north().west(), ModBlocks.cheiseledPoweredStone,player)&&
+					check(world, pos, pos.down().north().east(), ModBlocks.cheiseledPoweredStone,player)&&
+					check(world, pos, pos.down().east(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().west(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().south(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().south().west(), ModBlocks.cheiseledPoweredStone, player)&&
+					check(world, pos, pos.down().south().east(), ModBlocks.cheiseledPoweredStone, player)&&
+					
+					//branch
+					check(world, pos, pos.down().down().north().north(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().north().north().north(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().north().north().north().north(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().north().north().north().north().north(), ModBlocks.illuminateBlock, player)&&
+					
+					check(world, pos, pos.down().down().west().west(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().west().west().west(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().west().west().west().west(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().west().west().west().west().west(), ModBlocks.illuminateBlock, player)&&
+					
+					check(world, pos, pos.down().down().east().east(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().east().east().east(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().east().east().east().east(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().east().east().east().east().east(), ModBlocks.illuminateBlock, player)&&
+					
+					check(world, pos, pos.down().down().south().south(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().south().south().south(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().south().south().south().south(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().south().south().south().south().south(), ModBlocks.illuminateBlock, player)&&
+					
+					//pillar
+					check(world, pos, pos.down().north().north().west().west(), ModBlocks.sunMoonBlock, player)&&
+					check(world, pos, pos.north().north().west().west(), ModBlocks.altarPillerBase, player)&&
+					
+					check(world, pos, pos.down().north().north().east().east(), ModBlocks.sunMoonBlock, player)&&
+					check(world, pos, pos.north().north().east().east(), ModBlocks.altarPillerBase, player)&&
+					
+					check(world, pos, pos.down().south().south().west().west(), ModBlocks.sunMoonBlock, player)&&
+					check(world, pos, pos.south().south().west().west(), ModBlocks.altarPillerBase, player)&&
+					
+					check(world, pos, pos.down().south().south().east().east(), ModBlocks.sunMoonBlock, player)&&
+					check(world, pos, pos.south().south().east().east(), ModBlocks.altarPillerBase, player)&&
+					
+					//out
+					check(world, pos, pos.down().down().north().north().north().north().east().east().east(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().north().north().north().east().east().east().east(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().north().north().north().north().east().east().east().east(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().north().north().north().north().east().east().east().east(), ModBlocks.illuminateBlock, player)&&
+					
+					check(world, pos, pos.down().down().north().north().north().north().west().west().west(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().north().north().north().west().west().west().west(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().north().north().north().north().west().west().west().west(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().north().north().north().north().west().west().west().west(), ModBlocks.illuminateBlock, player)&&
+					
+					check(world, pos, pos.down().down().south().south().south().south().east().east().east(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().south().south().south().east().east().east().east(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().south().south().south().south().east().east().east().east(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().south().south().south().south().east().east().east().east(), ModBlocks.illuminateBlock, player)&&
+					
+					check(world, pos, pos.down().down().south().south().south().south().west().west().west(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().south().south().south().west().west().west().west(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().south().south().south().south().west().west().west().west(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().south().south().south().south().west().west().west().west(), ModBlocks.illuminateBlock, player)
+					
+					//altar
+					&&check(world, pos, pos.down().down().north().north().north().north().north().up(),ModBlocks.altarOutsidePedestal, player) 
+					&& check(world, pos, pos.down().down().west().west().west().west().west().up(), ModBlocks.altarOutsidePedestal, player) 
+					&& check(world, pos, pos.down().down().east().east().east().east().east().up(), ModBlocks.altarOutsidePedestal, player) 
+					&& check(world, pos, pos.down().down().south().south().south().south().south().up(), ModBlocks.altarOutsidePedestal, player) 
+					&& check(world, pos, pos.down().north().north().west().west().up().up(), ModBlocks.altarInsidePedestal, player) 
+					&& check(world, pos, pos.down().north().north().east().east().up().up(), ModBlocks.altarInsidePedestal, player) 
+					&& check(world, pos, pos.down().south().south().west().west().up().up(), ModBlocks.altarInsidePedestal, player) 
+					&& check(world, pos, pos.down().south().south().east().east().up().up(), ModBlocks.altarInsidePedestal, player)
+					&& check(world, pos, pos.north().north().north().north().east().east().east().east(), ModBlocks.altarOutsidePedestal, player) 
+					&& check(world, pos, pos.north().north().north().north().west().west().west().west(), ModBlocks.altarOutsidePedestal, player) 
+					&& check(world, pos, pos.south().south().south().south().east().east().east().east(), ModBlocks.altarOutsidePedestal, player) 
+					&& check(world, pos, pos.south().south().south().south().west().west().west().west(), ModBlocks.altarOutsidePedestal, player)) {
+				return true;
+			} else {
+				return false;
+			}
+		}else {
+			if (
+					//center
+					check(world, pos, pos.down(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().north(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().north().west(), ModBlocks.cheiseledPoweredStone,player)&&
+					check(world, pos, pos.down().north().east(), ModBlocks.cheiseledPoweredStone,player)&&
+					check(world, pos, pos.down().east(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().west(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().south(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().south().west(), ModBlocks.cheiseledPoweredStone, player)&&
+					check(world, pos, pos.down().south().east(), ModBlocks.cheiseledPoweredStone, player)&&
+					
+					//branch
+					check(world, pos, pos.down().down().north().north(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().north().north().north(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().north().north().north().north(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().north().north().north().north().north(), ModBlocks.illuminateBlock, player)&&
+					
+					check(world, pos, pos.down().down().west().west(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().west().west().west(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().west().west().west().west(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().west().west().west().west().west(), ModBlocks.illuminateBlock, player)&&
+					
+					check(world, pos, pos.down().down().east().east(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().east().east().east(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().east().east().east().east(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().east().east().east().east().east(), ModBlocks.illuminateBlock, player)&&
+					
+					check(world, pos, pos.down().down().south().south(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().south().south().south(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().south().south().south().south(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().south().south().south().south().south(), ModBlocks.illuminateBlock, player)&&
+					
+					//pillar
+					check(world, pos, pos.down().north().north().west().west(), ModBlocks.sunMoonBlock_night, player)&&
+					check(world, pos, pos.north().north().west().west(), ModBlocks.altarPillerBase, player)&&
+					
+					check(world, pos, pos.down().north().north().east().east(), ModBlocks.sunMoonBlock_night, player)&&
+					check(world, pos, pos.north().north().east().east(), ModBlocks.altarPillerBase, player)&&
+					
+					check(world, pos, pos.down().south().south().west().west(), ModBlocks.sunMoonBlock_night, player)&&
+					check(world, pos, pos.south().south().west().west(), ModBlocks.altarPillerBase, player)&&
+					
+					check(world, pos, pos.down().south().south().east().east(), ModBlocks.sunMoonBlock_night, player)&&
+					check(world, pos, pos.south().south().east().east(), ModBlocks.altarPillerBase, player)&&
+					
+					//out
+					check(world, pos, pos.down().down().north().north().north().north().east().east().east(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().north().north().north().east().east().east().east(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().north().north().north().north().east().east().east().east(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().north().north().north().north().east().east().east().east(), ModBlocks.illuminateBlock, player)&&
+					
+					check(world, pos, pos.down().down().north().north().north().north().west().west().west(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().north().north().north().west().west().west().west(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().north().north().north().north().west().west().west().west(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().north().north().north().north().west().west().west().west(), ModBlocks.illuminateBlock, player)&&
+					
+					check(world, pos, pos.down().down().south().south().south().south().east().east().east(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().south().south().south().east().east().east().east(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().south().south().south().south().east().east().east().east(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().south().south().south().south().east().east().east().east(), ModBlocks.illuminateBlock, player)&&
+					
+					check(world, pos, pos.down().down().south().south().south().south().west().west().west(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().south().south().south().west().west().west().west(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().down().south().south().south().south().west().west().west().west(), ModBlocks.poweredStone, player)&&
+					check(world, pos, pos.down().south().south().south().south().west().west().west().west(), ModBlocks.illuminateBlock, player)
+					
+					//altar
+					&&check(world, pos, pos.down().down().north().north().north().north().north().up(),ModBlocks.altarOutsidePedestal, player) 
+					&& check(world, pos, pos.down().down().west().west().west().west().west().up(), ModBlocks.altarOutsidePedestal, player) 
+					&& check(world, pos, pos.down().down().east().east().east().east().east().up(), ModBlocks.altarOutsidePedestal, player) 
+					&& check(world, pos, pos.down().down().south().south().south().south().south().up(), ModBlocks.altarOutsidePedestal, player) 
+					&& check(world, pos, pos.down().north().north().west().west().up().up(), ModBlocks.altarInsidePedestal, player) 
+					&& check(world, pos, pos.down().north().north().east().east().up().up(), ModBlocks.altarInsidePedestal, player) 
+					&& check(world, pos, pos.down().south().south().west().west().up().up(), ModBlocks.altarInsidePedestal, player) 
+					&& check(world, pos, pos.down().south().south().east().east().up().up(), ModBlocks.altarInsidePedestal, player)
+					&& check(world, pos, pos.north().north().north().north().east().east().east().east(), ModBlocks.altarOutsidePedestal, player) 
+					&& check(world, pos, pos.north().north().north().north().west().west().west().west(), ModBlocks.altarOutsidePedestal, player) 
+					&& check(world, pos, pos.south().south().south().south().east().east().east().east(), ModBlocks.altarOutsidePedestal, player) 
+					&& check(world, pos, pos.south().south().south().south().west().west().west().west(), ModBlocks.altarOutsidePedestal, player)) {
+				return true;
+			} else {
+				return false;
+			}
 		}
 	}
 
@@ -39,77 +195,3 @@ public class CheckAltar {
 		return true;
 	}
 }
-
-//check(world, pos, pos.down(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().north(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().north().west(), Blocks.QUARTZ_BLOCK,player)&&
-//check(world, pos, pos.down().north().east(), Blocks.QUARTZ_BLOCK,player)&&
-//check(world, pos, pos.down().east(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().west(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().south(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().south().west(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().south().east(), Blocks.QUARTZ_BLOCK, player)&&
-//
-//check(world, pos, pos.down().down().north().north(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().down().north().north().north(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().down().north().north().north().north(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().down().north().north().north().north().north(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().down().north().north().north().north().north().up(), ModBlocks.altarPurePedestal, player)&&
-//
-//check(world, pos, pos.down().down().west().west(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().down().west().west().west(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().down().west().west().west().west(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().down().west().west().west().west().west(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().down().west().west().west().west().west().up(), ModBlocks.altarPurePedestal, player)&&
-//
-//check(world, pos, pos.down().down().east().east(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().down().east().east().east(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().down().east().east().east().east(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().down().east().east().east().east().east(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().down().east().east().east().east().east().up(), ModBlocks.altarPurePedestal, player)&&
-//
-//check(world, pos, pos.down().down().south().south(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().down().south().south().south(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().down().south().south().south().south(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().down().south().south().south().south().south(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().down().south().south().south().south().south().up(), ModBlocks.altarPurePedestal, player)&&
-//
-//check(world, pos, pos.down().north().north().west().west(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().north().north().west().west().up(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().north().north().west().west().up().up(), ModBlocks.altarPedestal, player)&&
-//
-//check(world, pos, pos.down().north().north().east().east(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().north().north().east().east().up(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().north().north().east().east().up().up(), ModBlocks.altarPedestal, player)&&
-//
-//check(world, pos, pos.down().south().south().west().west(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().south().south().west().west().up(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().south().south().west().west().up().up(), ModBlocks.altarPedestal, player)&&
-//
-//check(world, pos, pos.down().south().south().east().east(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().south().south().east().east().up(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().south().south().east().east().up().up(), ModBlocks.altarPedestal, player)&&
-//
-//check(world, pos, pos.down().down().north().north().north().north().east().east().east(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().down().north().north().north().east().east().east().east(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().down().north().north().north().north().east().east().east().east(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().north().north().north().north().east().east().east().east(), ModBlocks.illuminateBlock, player)&&
-//check(world, pos, pos.north().north().north().north().east().east().east().east(), ModBlocks.altarPurePedestal, player)&&
-//
-//check(world, pos, pos.down().down().north().north().north().north().west().west().west(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().down().north().north().north().west().west().west().west(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().down().north().north().north().north().west().west().west().west(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().north().north().north().north().west().west().west().west(), ModBlocks.illuminateBlock, player)&&
-//check(world, pos, pos.north().north().north().north().west().west().west().west(), ModBlocks.altarPurePedestal, player)&&
-//
-//check(world, pos, pos.down().down().south().south().south().south().east().east().east(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().down().south().south().south().east().east().east().east(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().down().south().south().south().south().east().east().east().east(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().south().south().south().south().east().east().east().east(), ModBlocks.illuminateBlock, player)&&
-//check(world, pos, pos.south().south().south().south().east().east().east().east(), ModBlocks.altarPurePedestal, player)&&
-//
-//check(world, pos, pos.down().down().south().south().south().south().west().west().west(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().down().south().south().south().west().west().west().west(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().down().south().south().south().south().west().west().west().west(), Blocks.QUARTZ_BLOCK, player)&&
-//check(world, pos, pos.down().south().south().south().south().west().west().west().west(), ModBlocks.illuminateBlock, player)&&
-//check(world, pos, pos.south().south().south().south().west().west().west().west(), ModBlocks.altarPurePedestal, player)
