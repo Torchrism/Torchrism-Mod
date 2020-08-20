@@ -2,14 +2,13 @@
     "type": "minecraft:crafting_shaped",
 	"group": "pedestal",
     "pattern": [
-        "S S",
-        " P ",
-        " P "
+        "PPP",
+        "PTP",
+        "PPP"
     ],
     "key": {
-        "S": {
-            "item": "torchrism:powered_stone_slab_half",
-			"data": 0
+        "T": {
+            "item": "minecraft:clock"
         },
         "P": {
             "item": "torchrism:powered_stone",
@@ -17,6 +16,6 @@
         }
     },
     "result": {
-		"item": "torchrism:altar_inside_pedestal"
+		"item": "torchrism:sun_moon_block"
 	}
 }

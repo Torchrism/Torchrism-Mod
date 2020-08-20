@@ -2,9 +2,9 @@
     "type": "minecraft:crafting_shaped",
 	"group": "pedestal",
     "pattern": [
+        "S S",
         " P ",
-        " P ",
-        "SSS"
+        "PPP"
     ],
     "key": {
         "S": {

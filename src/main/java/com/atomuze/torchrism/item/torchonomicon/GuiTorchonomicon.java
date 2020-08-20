@@ -18,7 +18,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class GuiTorchonomicon extends GuiScreen {
 	private static final ResourceLocation PG = new ResourceLocation(Torchrism.MODID, "textures/gui/torchonomicon_bg.png");
-	private GuiButton exit, menu, nextPage, PreviousPage, overview, utilities, altar, ch1, ch2, ch3, ch4;
+	private GuiButton exit, menu, nextPage, PreviousPage, overview, utilities, altar, ch1, ch2, ch3, ch4, blocks;
 	private int crrBG;
 	private int branch = 0;
 	private int crrPage = 1;
@@ -29,6 +29,7 @@ public class GuiTorchonomicon extends GuiScreen {
 	private boolean ButtonOverview = true;
 	private boolean ButtonUtilities = true;
 	private boolean ButtonAltar = true;
+	private boolean ButtonBlock = true;
 
 	private int PagesMenu = 1;
 	private int totalPages = 1;
@@ -38,6 +39,7 @@ public class GuiTorchonomicon extends GuiScreen {
 	String StringOverView = I18n.format(modid + "." + "book.overview_text");
 	String StringuUilities = I18n.format(modid + "." + "book.utilities_text");
 	String StringAltar = I18n.format(modid + "." + "book.altar_text");
+	String StringBlocks = I18n.format(modid + "." + "book.blocks");
 
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
@@ -65,6 +67,10 @@ public class GuiTorchonomicon extends GuiScreen {
 		case 3:
 			StrText = StringAltar;
 			StrTitle = I18n.format(modid + "." + "bookTitle.altar");
+			break;
+		case 4:
+			StrText = StringBlocks;
+			StrTitle = I18n.format(modid + "." + "bookTitle.blocks");
 			break;
 		default:
 			StrText = "";
@@ -138,6 +144,8 @@ public class GuiTorchonomicon extends GuiScreen {
 		this.buttonList.add(this.overview = new ButtonTorchonomicon(11, this.width / 2 - 60, this.height / 2 - 60, 57, 186, 70, 19, I18n.format(modid + "." + "bookButton.overview")));
 		this.buttonList.add(this.utilities = new ButtonTorchonomicon(12, this.width / 2 - 60, this.height / 2 - 30, 57, 186, 70, 19, I18n.format(modid + "." + "bookButton.utilities")));
 		this.buttonList.add(this.altar = new ButtonTorchonomicon(13, this.width / 2 - 60, this.height / 2, 57, 186, 70, 19, I18n.format(modid + "." + "bookButton.altar")));
+		this.buttonList.add(this.blocks = new ButtonTorchonomicon(14, this.width / 2 - 60, this.height / 2 + 30, 57, 186, 70, 19, I18n.format(modid + "." + "bookButton.blocks")));
+
 		ButtonUpdate();
 
 	}
@@ -157,6 +165,7 @@ public class GuiTorchonomicon extends GuiScreen {
 				ButtonOverview = true;
 				ButtonUtilities = true;
 				ButtonAltar = true;
+				ButtonBlock = true;
 				crrPage = 1;
 			} else if (button.id == 2) {
 				if (totalPages > crrPage) {
@@ -176,6 +185,10 @@ public class GuiTorchonomicon extends GuiScreen {
 				totalPages = 1;
 			} else if (button.id == 13) {
 				branch = 3;
+				crrPage = 1;
+				totalPages = 1;
+			} else if (button.id == 14) {
+				branch = 4;
 				crrPage = 1;
 				totalPages = 1;
 			}
@@ -204,6 +217,7 @@ public class GuiTorchonomicon extends GuiScreen {
 			ButtonOverview = false;
 			ButtonUtilities = false;
 			ButtonAltar = false;
+			ButtonBlock = false;
 			ButtonMenu = true;
 
 			if (totalPages == crrPage) {
@@ -224,6 +238,7 @@ public class GuiTorchonomicon extends GuiScreen {
 		this.overview.visible = ButtonOverview;
 		this.utilities.visible = ButtonUtilities;
 		this.altar.visible = ButtonAltar;
+		this.blocks.visible = ButtonBlock;
 
 	}
 }

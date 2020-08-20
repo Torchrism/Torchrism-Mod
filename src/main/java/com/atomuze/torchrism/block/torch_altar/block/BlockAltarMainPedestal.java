@@ -38,7 +38,7 @@ public class BlockAltarMainPedestal extends BlockTileEntity<TileEntityMainPedest
 	public static EntityItem craftingResult;
 	private static boolean keepInventory;
 	World world;
-	BlockPos pos;
+	public static BlockPos pos;
 
 	public BlockAltarMainPedestal(String name) {
 

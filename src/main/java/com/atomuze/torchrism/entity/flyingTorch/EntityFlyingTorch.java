@@ -2,12 +2,14 @@ package com.atomuze.torchrism.entity.flyingTorch;
 
 import javax.annotation.Nullable;
 
+import com.atomuze.torchrism.block.torch_altar.block.BlockAltarMainPedestal;
 import com.atomuze.torchrism.entity.ModLootTable;
 import com.atomuze.torchrism.sound.ModSound;
 
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.passive.EntityBat;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -20,13 +22,12 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class EntityFlyingTorch extends EntityBat {
-	
-	private BlockPos spawnPosition;
+
+	public static BlockPos spawnPosition;
 	private boolean persistenceRequired = true;
-	
+
 	public EntityFlyingTorch(World worldIn) {
 		super(worldIn);
-		this.persistenceRequired = true;
 	}
 
 	@Override
@@ -35,11 +36,10 @@ public class EntityFlyingTorch extends EntityBat {
 	}
 
 	@Override
-    protected float getSoundVolume()
-    {
-        return 2.5F;
-    }
-	
+	protected float getSoundVolume() {
+		return 2.5F;
+	}
+
 	@Override
 	protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
 		return ModSound.ENTITY_FLYINGTORCH_HURT;
@@ -52,7 +52,7 @@ public class EntityFlyingTorch extends EntityBat {
 
 	@Override
 	protected void updateAITasks() {
-	//	System.out.println("updateAITasks");
+//		System.out.println("updateAITasks");
 		super.updateAITasks();
 		BlockPos blockpos = new BlockPos(this);
 		BlockPos blockpos1 = blockpos.up();
@@ -68,56 +68,50 @@ public class EntityFlyingTorch extends EntityBat {
 		double d0 = (double) this.spawnPosition.getX() + 0.5D - this.posX;
 		double d1 = (double) this.spawnPosition.getY() + 0.1D - this.posY;
 		double d2 = (double) this.spawnPosition.getZ() + 0.5D - this.posZ;
-		
-		if(this.spawnPosition.getX()+this.motionX + (Math.signum(d0) * 0.5D ) * 0.0001D < this.spawnPosition.getX() + 10D)
-			
-		this.motionX += (Math.signum(d0) * 0.5D ) * 0.0001D;
+
+//		if(this.spawnPosition.getX()+this.motionX + (Math.signum(d0) * 0.5D ) * 0.0001D < this.spawnPosition.getX() + 10D)
+
+		this.motionX += (Math.signum(d0) * 0.5D) * 0.0001D;
 		this.motionY += (Math.signum(d1) * 0.699999988079071D - this.motionY) * 0.0001D;
 		this.motionZ += (Math.signum(d2) * 0.5D - this.motionZ) * 0.1D;
 		float f = (float) (MathHelper.atan2(this.motionZ, this.motionX)) - 90.0F;
 		float f1 = MathHelper.wrapDegrees(f - this.rotationYaw) * 0.01f;
 		this.moveForward = 10.0F;
 		this.rotationYaw += f1;
-		
+
 	}
-	
-	public boolean getCanSpawnHere()
-    {
-	//	System.out.println("getCanSpawnHere");
-        BlockPos blockpos = new BlockPos(this.posX, this.getEntityBoundingBox().minY, this.posZ);
-        
-            int i = this.world.getLightFromNeighbors(blockpos);
-            int j = 4;
 
-            if (this.rand.nextBoolean())
-            {
-                return false;
-            }
+	@Override
+	public boolean getCanSpawnHere() {
+//		System.out.println("getCanSpawnHere");
+		return true;
 
-            return i > this.rand.nextInt(j) ? false : super.getCanSpawnHere();
-        
-    }
-	
+	}
+
 	/**
-     * (abstract) Protected helper method to read subclass entity data from NBT.
-     */
-    public void readEntityFromNBT(NBTTagCompound compound)
-    {
-        super.readEntityFromNBT(compound);
-        compound.setBoolean("PersistenceRequired", this.persistenceRequired );
-    }
+	 * (abstract) Protected helper method to read subclass entity data from NBT.
+	 */
+	@Override
+	public void readEntityFromNBT(NBTTagCompound compound) {
+		super.readEntityFromNBT(compound);
+	}
 
-    /**
-     * (abstract) Protected helper method to write subclass entity data to NBT.
-     */
-    public void writeEntityToNBT(NBTTagCompound compound)
-    {
-        super.writeEntityToNBT(compound);
-    }
-    
-    @Nullable
-    protected ResourceLocation getLootTable()
-    {
-        return ModLootTable.FLYINGTORCH;
-    }
+	/**
+	 * (abstract) Protected helper method to write subclass entity data to NBT.
+	 */
+	@Override
+	public void writeEntityToNBT(NBTTagCompound compound) {
+		super.writeEntityToNBT(compound);
+	}
+
+	@Nullable
+	protected ResourceLocation getLootTable() {
+		return ModLootTable.FLYINGTORCH;
+	}
+
+	@Override
+	protected void applyEntityAttributes() {
+		super.applyEntityAttributes();
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(1.0D);
+	}
 }

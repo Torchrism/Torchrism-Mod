@@ -3,8 +3,6 @@ package com.atomuze.torchrism;
 import com.atomuze.torchrism.block.ModBlocks;
 import com.atomuze.torchrism.entity.ModEntity;
 import com.atomuze.torchrism.item.ModItems;
-import com.atomuze.torchrism.network.PacketRequestUpdatePedestal;
-import com.atomuze.torchrism.network.PacketUpdatePedestal;
 import com.atomuze.torchrism.network.TorchrimNetworkHandler;
 import com.atomuze.torchrism.proxy.CommonProxy;
 import com.atomuze.torchrism.sound.ModSound;
@@ -21,7 +19,6 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
-import net.minecraftforge.fml.relauncher.Side;
 
 @Mod(modid = Torchrism.MODID, name = Torchrism.NAME, version = Torchrism.VERSION)
 public class Torchrism
