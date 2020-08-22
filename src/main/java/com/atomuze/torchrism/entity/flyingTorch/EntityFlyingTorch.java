@@ -2,17 +2,11 @@ package com.atomuze.torchrism.entity.flyingTorch;
 
 import javax.annotation.Nullable;
 
-import com.atomuze.torchrism.block.torch_altar.block.BlockAltarMainPedestal;
 import com.atomuze.torchrism.entity.ModLootTable;
 import com.atomuze.torchrism.sound.ModSound;
 
-import net.minecraft.client.renderer.entity.Render;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.passive.EntityBat;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;

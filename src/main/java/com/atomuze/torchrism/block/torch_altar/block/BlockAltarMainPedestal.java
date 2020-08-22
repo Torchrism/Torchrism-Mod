@@ -75,7 +75,7 @@ public class BlockAltarMainPedestal extends BlockTileEntity<TileEntityMainPedest
 		TileEntityMainPedestal tile = getTileEntity(world, pos);
 
 		if (!world.isRemote) {
-			if (player.getHeldItem(hand).getItem() == new ItemStack(ModItems.torchwand).getItem()) {
+			if (player.getHeldItem(hand).getItem() == new ItemStack(ModItems.torchStaff).getItem()) {
 				if (CheckAltar.checkingAltar(world, pos, player)) {
 					craftingProgress(world, pos, side);
 				}

@@ -37,7 +37,7 @@ public class BlockunPoweredStone extends BlockBase {
 	
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		
-		if (playerIn.getHeldItem(hand).getItem() == new ItemStack(ModItems.torchwand).getItem()) {
+		if (playerIn.getHeldItem(hand).getItem() == new ItemStack(ModItems.torchStaff).getItem()) {
 			if(worldIn.getBlockState(pos.down()).getBlock() == Blocks.TORCH) {
 				worldIn.setBlockState(pos, ModBlocks.powerInfusedStone.getDefaultState());
 			}

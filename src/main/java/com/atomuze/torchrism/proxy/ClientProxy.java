@@ -26,7 +26,7 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {
 		OBJLoader.INSTANCE.addDomain(Torchrism.MODID);
-		registerModel(ModItems.torchwand, 0);
+		registerModel(ModItems.torchStaff, 0);
 	}
 	
 	@Override

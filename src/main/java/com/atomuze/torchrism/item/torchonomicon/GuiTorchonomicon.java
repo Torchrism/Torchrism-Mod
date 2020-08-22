@@ -3,7 +3,6 @@ package com.atomuze.torchrism.item.torchonomicon;
 import java.io.IOException;
 import java.util.Random;
 
-import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
 import com.atomuze.torchrism.Torchrism;
