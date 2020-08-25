@@ -1,0 +1,22 @@
+{
+    "type": "torchrism:altar_crafting",
+	"group": "test",
+    "pattern": [
+        "S S",
+        " P ",
+        " P "
+    ],
+    "key": {
+        "S": {
+            "item": "torchrism:powered_stone_slab_half",
+			"data": 0
+        },
+        "P": {
+            "item": "torchrism:powered_stone",
+			"data": 0
+        }
+    },
+    "result": {
+		"item": "torchrism:altar_inside_pedestal"
+	}
+}

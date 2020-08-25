@@ -80,7 +80,7 @@ public class ItemStaff extends net.minecraft.item.ItemTool {
 
 		} else if (worldIn.getBlockState(pos).isNormalCube() && player.getHeldItem(hand).getItemDamage() > 0) {
 			
-			Material m = worldIn.getBlockState(pos.up()).getMaterial();
+			Material m;
 			if(facing == EnumFacing.NORTH) {
 				m = worldIn.getBlockState(pos.north()).getMaterial();
 			}else if(facing == EnumFacing.SOUTH ) {
@@ -89,6 +89,10 @@ public class ItemStaff extends net.minecraft.item.ItemTool {
 				m = worldIn.getBlockState(pos.east()).getMaterial();
 			}else if(facing == EnumFacing.WEST ) {
 				m = worldIn.getBlockState(pos.west()).getMaterial();
+			}else if(facing == EnumFacing.UP ) {
+				m = worldIn.getBlockState(pos.up()).getMaterial();
+			}else {
+				return EnumActionResult.FAIL;
 			}
 			
 			if(facing == EnumFacing.NORTH && (m == Material.VINE || m == Material.SNOW || m == Material.AIR) &&  m != Material.WATER) {
