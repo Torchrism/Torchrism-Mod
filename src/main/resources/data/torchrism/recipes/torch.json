@@ -1,0 +1,12 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "torchrism:compacted_torch"
+		}
+	],
+	"result": {
+		"item": "minecraft:torch",
+		"count": 8
+	}
+}

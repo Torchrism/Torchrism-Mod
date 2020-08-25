@@ -1,6 +1,0 @@
-{
-    "variants":
-    {
-        "variant=default": { "model": "torchrism:powered_stone_slab_double" }
-    }
-}
