@@ -1,10 +1,10 @@
-package com.atomuze.torchrism.block.torch_altar.block;
+package com.atomuze.torchrism.block.altar.block;
 
 import javax.annotation.Nullable;
 
 import com.atomuze.torchrism.block.BlockTileEntity;
 import com.atomuze.torchrism.block.ModBlocks;
-import com.atomuze.torchrism.block.torch_altar.tileEntity.TileEntitySunMoon;
+import com.atomuze.torchrism.block.altar.tileEntity.TileEntitySunMoon;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;

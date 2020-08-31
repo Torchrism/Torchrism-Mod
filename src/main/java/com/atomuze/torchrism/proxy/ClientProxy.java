@@ -1,10 +1,10 @@
 package com.atomuze.torchrism.proxy;
 
 import com.atomuze.torchrism.Torchrism;
-import com.atomuze.torchrism.block.torch_altar.TESR.TESRMainPedestal;
-import com.atomuze.torchrism.block.torch_altar.TESR.TESROtherPedestal;
-import com.atomuze.torchrism.block.torch_altar.tileEntity.TileEntityMainPedestal;
-import com.atomuze.torchrism.block.torch_altar.tileEntity.TileEntityOtherPedestal;
+import com.atomuze.torchrism.block.altar.TESR.TESRMainPedestal;
+import com.atomuze.torchrism.block.altar.TESR.TESROtherPedestal;
+import com.atomuze.torchrism.block.altar.tileEntity.TileEntityMainPedestal;
+import com.atomuze.torchrism.block.altar.tileEntity.TileEntityOtherPedestal;
 import com.atomuze.torchrism.entity.flyingTorch.EntityFlyingTorch;
 import com.atomuze.torchrism.entity.flyingTorch.RenderFlyingTorch;
 import com.atomuze.torchrism.item.ModItems;

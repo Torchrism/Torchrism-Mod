@@ -1,6 +1,6 @@
-package com.atomuze.torchrism.block.torch_altar.tileEntity;
+package com.atomuze.torchrism.block.altar.tileEntity;
 
-import com.atomuze.torchrism.block.torch_altar.block.BlockSunMoon;
+import com.atomuze.torchrism.block.altar.block.BlockSunMoon;
 
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;

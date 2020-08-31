@@ -9,18 +9,20 @@ import com.atomuze.torchrism.block.modblocks.BlockWallLight;
 import com.atomuze.torchrism.block.modblocks.BlockunPoweredStone;
 import com.atomuze.torchrism.block.slab.BlockDoubleSlabBase;
 import com.atomuze.torchrism.block.slab.BlockHalfSlabBase;
-import com.atomuze.torchrism.block.torch.BlockCompactedTorch;
-import com.atomuze.torchrism.block.torch.BlockDoubleCompactedTorch;
-import com.atomuze.torchrism.block.torch_altar.block.BlockAltarInsidePedestal;
-import com.atomuze.torchrism.block.torch_altar.block.BlockAltarMainPedestal;
-import com.atomuze.torchrism.block.torch_altar.block.BlockAltarOutsidePedestal;
-import com.atomuze.torchrism.block.torch_altar.block.BlockAltarPillar;
-import com.atomuze.torchrism.block.torch_altar.block.BlockAltarPillerBase;
-import com.atomuze.torchrism.block.torch_altar.block.BlockSunMoon;
+import com.atomuze.torchrism.block.slab.BlockSlabBase;
+import com.atomuze.torchrism.block.stair.BlockStairBase;
+import com.atomuze.torchrism.block.altar.block.BlockAltarInsidePedestal;
+import com.atomuze.torchrism.block.altar.block.BlockAltarMainPedestal;
+import com.atomuze.torchrism.block.altar.block.BlockAltarOutsidePedestal;
+import com.atomuze.torchrism.block.altar.block.BlockAltarPillar;
+import com.atomuze.torchrism.block.altar.block.BlockAltarPillerBase;
+import com.atomuze.torchrism.block.altar.block.BlockSunMoon;
 import com.atomuze.torchrism.block.torch_castle.BlockGreatWallBuilder;
 import com.atomuze.torchrism.block.torch_correcter.BlockTorchCorrector;
 import com.atomuze.torchrism.block.torch_dice.BlockTorchDice;
 import com.atomuze.torchrism.block.torch_placer.BlockTorchPlacer;
+import com.atomuze.torchrism.block.torchs.BlockCompactedTorch;
+import com.atomuze.torchrism.block.torchs.BlockDoubleCompactedTorch;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -55,11 +57,12 @@ public class ModBlocks {
 	public static final BlockPoweredStone cheiseledPoweredStone = new BlockPoweredStone("chiseled_powered_stone").setCreativeTab(Torchrism.creativeTab);
 	public static final BlockPowerInfusedStone powerInfusedStone = new BlockPowerInfusedStone("power_infused_stone").setCreativeTab(Torchrism.creativeTab);
 	public static final BlockunPoweredStone unPoweredStone = new BlockunPoweredStone("un_powered_stone").setCreativeTab(Torchrism.creativeTab);
-	public static final BlockDoubleSlabBase poweredStoneSlabDouble = (BlockDoubleSlabBase) new BlockDoubleSlabBase("powered_stone_slab_double", Material.ROCK, Torchrism.creativeTab, ModBlocks.poweredStoneSlabHalf).setHardness(1.5F).setResistance(10.0F);
-	public static final BlockHalfSlabBase poweredStoneSlabHalf = (BlockHalfSlabBase) new BlockHalfSlabBase("powered_stone_slab_half", Material.ROCK, Torchrism.creativeTab, ModBlocks.poweredStoneSlabHalf, ModBlocks.poweredStoneSlabDouble).setHardness(1.5F).setResistance(10.0F);
-
+	public static final BlockSlabBase poweredStoneSlabHalf = new BlockHalfSlabBase("powered_stone_slab_half");
+	public static final BlockSlabBase poweredStoneSlabDouble = new BlockDoubleSlabBase("powered_stone_slab_double");
 	public static final ItemBlock poweredStoneSlab = new ItemSlab(ModBlocks.poweredStoneSlabHalf, ModBlocks.poweredStoneSlabHalf, ModBlocks.poweredStoneSlabDouble);
+	public static final BlockStairBase poweredStoneStair = new BlockStairBase(new Block(Material.ROCK).setHardness(3f).setResistance(4f).getDefaultState(), "powered_stone_stairs");
 
+	
 	public static void register(IForgeRegistry<Block> registry) {
 		registry.registerAll(
 				torchPlacer,
@@ -86,7 +89,8 @@ public class ModBlocks {
 				powerInfusedStone,
 				unPoweredStone,
 				poweredStoneSlabHalf,
-				poweredStoneSlabDouble
+				poweredStoneSlabDouble,
+				poweredStoneStair
 				
 		);
 		
@@ -121,7 +125,8 @@ public class ModBlocks {
 				cheiseledPoweredStone.createItemBlock(),
 				poweredStone.createItemBlock(),
 				unPoweredStone.createItemBlock(),
-				poweredStoneSlab
+				poweredStoneSlab,
+				poweredStoneStair.createItemBlock()
 		);
 		
 
@@ -149,5 +154,6 @@ public class ModBlocks {
 		cheiseledPoweredStone.registerItemModel(Item.getItemFromBlock(cheiseledPoweredStone));
 		unPoweredStone.registerItemModel(Item.getItemFromBlock(unPoweredStone));
 		poweredStoneSlabHalf.registerItemModel(Item.getItemFromBlock(poweredStoneSlabHalf));
+		poweredStoneStair.registerItemModel(Item.getItemFromBlock(poweredStoneStair));
 	}
 }

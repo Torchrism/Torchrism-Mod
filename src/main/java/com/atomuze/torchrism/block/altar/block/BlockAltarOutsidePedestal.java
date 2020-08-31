@@ -1,9 +1,9 @@
-package com.atomuze.torchrism.block.torch_altar.block;
+package com.atomuze.torchrism.block.altar.block;
 
 import javax.annotation.Nullable;
 
 import com.atomuze.torchrism.block.BlockTileEntity;
-import com.atomuze.torchrism.block.torch_altar.tileEntity.TileEntityOtherPedestal;
+import com.atomuze.torchrism.block.altar.tileEntity.TileEntityOtherPedestal;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -18,21 +18,16 @@ import net.minecraft.world.World;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 
-public class BlockAltarInsidePedestal extends BlockTileEntity<TileEntityOtherPedestal> {
-
-	World world;
-	BlockPos pos;
-	EnumFacing side;
-	
-	public BlockAltarInsidePedestal(String name) {
+public class BlockAltarOutsidePedestal extends BlockTileEntity<TileEntityOtherPedestal> {
+	public BlockAltarOutsidePedestal(String name) {
 		super(Material.ROCK, name);
 
-		setHardness(3f);
-		setResistance(5f);
+		setHardness(5f);
+		setResistance(8f);
 	}
 	
 	@Override
-	public BlockAltarInsidePedestal setCreativeTab(CreativeTabs tab) {
+	public BlockAltarOutsidePedestal setCreativeTab(CreativeTabs tab) {
 		super.setCreativeTab(tab);
 		return this;
 	}
@@ -53,9 +48,7 @@ public class BlockAltarInsidePedestal extends BlockTileEntity<TileEntityOtherPed
 		if (!world.isRemote) {
 			TileEntityOtherPedestal tile = getTileEntity(world, pos);
 			IItemHandler itemHandler = tile.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, side);
-			this.world = world;
-			this.pos = pos;
-			this.side = side;
+			
 			if (player.getHeldItem(hand).isEmpty() || player.getHeldItem(hand).getItem() == itemHandler.getStackInSlot(0).getItem()) {
 				player.addItemStackToInventory(itemHandler.extractItem(0, 1, false));
 			} else if (itemHandler.getStackInSlot(0).isEmpty()){
@@ -69,13 +62,6 @@ public class BlockAltarInsidePedestal extends BlockTileEntity<TileEntityOtherPed
 	}
 	
 
-	public void extractItem() {
-		TileEntityOtherPedestal tile = getTileEntity(world, pos);
-		IItemHandler itemHandler = tile.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, side);
-		itemHandler.extractItem(0, 1, false);
-		tile.markDirty();
-	}
-	
 	
 	@Override
 	public void breakBlock(World world, BlockPos pos, IBlockState state) {

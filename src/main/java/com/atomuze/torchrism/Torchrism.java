@@ -3,7 +3,7 @@ package com.atomuze.torchrism;
 import com.atomuze.torchrism.block.ModBlocks;
 import com.atomuze.torchrism.entity.ModEntity;
 import com.atomuze.torchrism.item.ModItems;
-import com.atomuze.torchrism.network.TorchrimNetworkHandler;
+import com.atomuze.torchrism.network.ModNetworks;
 import com.atomuze.torchrism.proxy.CommonProxy;
 import com.atomuze.torchrism.sound.ModSound;
 
@@ -26,7 +26,7 @@ public class Torchrism
 {
     public static final String MODID = "torchrism";
     public static final String NAME = "Torchrism";
-    public static final String VERSION = "1.1.7";
+    public static final String VERSION = "1.1.8";
     public static SimpleNetworkWrapper wrapper;
     public static final Item.ToolMaterial testMaterial = EnumHelper.addToolMaterial("TORCH_STAFF", 0, 65535, 0, 0, 0);
 
@@ -48,7 +48,7 @@ public class Torchrism
 		ModEntity.registerEntities();
 		
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new ModGuiHandler());
-		TorchrimNetworkHandler.networkRegister();
+		ModNetworks.networkRegister();
 //		network.registerMessage(new IsCraftingMessage.Handler(), IsCraftingMessage.class, 0, Side.SERVER);
 //		network.registerMessage(new IsCraftingRequestMessage.Handler(), IsCraftingRequestMessage.class, 1, Side.CLIENT);
 		proxy.registerRenderers();

@@ -1,4 +1,4 @@
-package com.atomuze.torchrism.block.torch_altar;
+package com.atomuze.torchrism.block.altar;
 
 import javax.annotation.Nullable;
 

@@ -1,15 +1,13 @@
-package com.atomuze.torchrism.block.torch_altar.block;
-
-import java.util.Random;
+package com.atomuze.torchrism.block.altar.block;
 
 import javax.annotation.Nullable;
 
 import com.atomuze.torchrism.block.BlockTileEntity;
 import com.atomuze.torchrism.block.ModBlocks;
-import com.atomuze.torchrism.block.torch_altar.CheckAltar;
-import com.atomuze.torchrism.block.torch_altar.RecipeAltar;
-import com.atomuze.torchrism.block.torch_altar.tileEntity.TileEntityMainPedestal;
-import com.atomuze.torchrism.block.torch_altar.tileEntity.TileEntityPedestal;
+import com.atomuze.torchrism.block.altar.CheckAltar;
+import com.atomuze.torchrism.block.altar.RecipeAltar;
+import com.atomuze.torchrism.block.altar.tileEntity.TileEntityMainPedestal;
+import com.atomuze.torchrism.block.altar.tileEntity.TileEntityPedestal;
 import com.atomuze.torchrism.item.ModItems;
 
 import net.minecraft.block.material.Material;
@@ -17,18 +15,13 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 
@@ -37,8 +30,11 @@ public class BlockAltarMainPedestal extends BlockTileEntity<TileEntityMainPedest
 	public static boolean crafting;
 	public static EntityItem craftingResult;
 	private static boolean keepInventory;
-	World world;
+	public static World world;
 	public static BlockPos pos;
+
+//	Container container = new ContainerAltar(world,pos);
+//   InventoryCrafting inv = new InventoryCrafting(container, 3, 3);
 
 	public BlockAltarMainPedestal(String name) {
 
@@ -91,13 +87,26 @@ public class BlockAltarMainPedestal extends BlockTileEntity<TileEntityMainPedest
 				}
 				tile.markDirty();
 			}
-
 		}              
 		return true;
 	}
 
 	private void craftingProgress(World world, BlockPos pos, EnumFacing side) {
-
+//		System.out.println("go craft");
+//		AltarRecipe rec = new AltarRecipe(world, pos);
+//		rec.getCraftingResult(inv);
+//		
+//		inv.setInventorySlotContents(0, getAltarItems(world, pos.north().north().north().north().west().west().west().west()));
+//		inv.setInventorySlotContents(1, getAltarItems(world, pos.down().north().north().north().north().north()));
+//		inv.setInventorySlotContents(2, getAltarItems(world, pos.north().north().north().north().east().east().east().east()));
+//		inv.setInventorySlotContents(3, getAltarItems(world, pos.down().west().west().west().west().west()));
+//		inv.setInventorySlotContents(4, getAltarItems(world, pos));
+//		inv.setInventorySlotContents(5, getAltarItems(world, pos.down().east().east().east().east().east()));
+//		inv.setInventorySlotContents(6, getAltarItems(world, pos.south().south().south().south().west().west().west().west()));
+//		inv.setInventorySlotContents(7, getAltarItems(world, pos.down().south().south().south().south().south()));
+//		inv.setInventorySlotContents(8, getAltarItems(world, pos.south().south().south().south().east().east().east().east()));
+//	
+		
 		int Recipes = 1;
 		@Nullable
 		ItemStack ingredient[] = new ItemStack[13];
@@ -129,41 +138,32 @@ public class BlockAltarMainPedestal extends BlockTileEntity<TileEntityMainPedest
 	}
 
 	private ItemStack getAltarItems(World world, BlockPos pos) {
-		TileEntityPedestal tile = getTileEntity(world, pos);
+		TileEntityPedestal tile = (TileEntityPedestal) world.getTileEntity(pos);
 		ItemStack stack = tile.inventory.getStackInSlot(0);
-		if (!stack.isEmpty()) {
-			return stack;
+		return !stack.isEmpty() ? stack : ItemStack.EMPTY;
+	}
+
+	public static void setState(boolean active, World worldIn, BlockPos pos) {
+		IBlockState iblockstate = worldIn.getBlockState(pos);
+		TileEntity tileentity = worldIn.getTileEntity(pos);
+		keepInventory = true;
+
+		if (active) {
+			worldIn.setBlockState(pos, ModBlocks.altarMainPedestal.getDefaultState(), 3);
+			worldIn.setBlockState(pos, ModBlocks.altarMainPedestal.getDefaultState(), 3);
 		} else {
-			return ItemStack.EMPTY;
+			worldIn.setBlockState(pos, ModBlocks.altarMainPedestal_night.getDefaultState(), 3);
+			worldIn.setBlockState(pos, ModBlocks.altarMainPedestal_night.getDefaultState(), 3);
+		}
+
+		keepInventory = false;
+
+		if (tileentity != null) {
+			tileentity.validate();
+			worldIn.setTileEntity(pos, tileentity);
 		}
 	}
 
-	public static void setState(boolean active, World worldIn, BlockPos pos)
-    {
-        IBlockState iblockstate = worldIn.getBlockState(pos);
-        TileEntity tileentity = worldIn.getTileEntity(pos);
-        keepInventory = true;
-
-        if (active)
-        {
-            worldIn.setBlockState(pos, ModBlocks.altarMainPedestal.getDefaultState(), 3);
-            worldIn.setBlockState(pos, ModBlocks.altarMainPedestal.getDefaultState(), 3);
-        }
-        else
-        {
-            worldIn.setBlockState(pos, ModBlocks.altarMainPedestal_night.getDefaultState(), 3);
-            worldIn.setBlockState(pos, ModBlocks.altarMainPedestal_night.getDefaultState(), 3);
-        }
-
-        keepInventory = false;
-
-        if (tileentity != null)
-        {
-            tileentity.validate();
-            worldIn.setTileEntity(pos, tileentity);
-        }
-    }
-	
 	@Override
 	public void breakBlock(World world, BlockPos pos, IBlockState state) {
 		if (!keepInventory) {

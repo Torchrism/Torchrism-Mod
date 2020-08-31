@@ -32,6 +32,9 @@ public class GuiTorchonomicon extends GuiScreen {
 
 	private int PagesMenu = 1;
 	private int totalPages = 1;
+	private int bookWidth = 175;
+	private int bookHeight = 209;
+	
 
 	protected String modid = Torchrism.MODID;
 
@@ -124,7 +127,7 @@ public class GuiTorchonomicon extends GuiScreen {
 		default:
 			this.mc.getTextureManager().bindTexture(PG);
 		}
-		this.drawTexturedModalRect((float) (this.width - 146) / 2, (float) (this.height - 180) / 2, 0, 0, 146, 180);
+		this.drawTexturedModalRect((float) (this.width - bookWidth) / 2, (float) (this.height - bookHeight - 10) / 2, 0, 0, bookWidth, bookHeight);
 		// 146x180
 	}
 

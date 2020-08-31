@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.atomuze.torchrism.Torchrism;
 import com.atomuze.torchrism.block.BlockBase;
+import com.atomuze.torchrism.block.ModBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
@@ -13,40 +14,40 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 public abstract class BlockSlabBase extends BlockSlab {
-	Block half;
 	protected String name;
 	public static final PropertyEnum<Variant> VARIANT = PropertyEnum.<Variant>create("variant", Variant.class);
 
-	public BlockSlabBase(String name, Material material, BlockSlab half) {
+	public BlockSlabBase(String name, Material material) {
 		super(material);
 		setUnlocalizedName(Torchrism.MODID + "." + name);
 		setRegistryName(name);
 		setCreativeTab(Torchrism.creativeTab);
 		this.useNeighborBrightness = !this.isDouble();
-
 		IBlockState state = this.blockState.getBaseState().withProperty(VARIANT, Variant.DEFAULT);
 		if (!this.isDouble())
 			state = state.withProperty(HALF, EnumBlockHalf.BOTTOM);
-		this.half = half;
 		this.name = name;
 	}
 
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-		return Item.getItemFromBlock(half);
+		//temporary fixed
+		return ModBlocks.poweredStoneSlab;
 	}
 
 	@Override
 	public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
-		return new ItemStack(half);
+		 return new ItemStack(ModBlocks.poweredStoneSlab, 1, this.damageDropped(state));
 	}
 
 	@Override

@@ -22,6 +22,7 @@ tile.torchrism.powered_stone.name=Powered Stone
 tile.torchrism.chiseled_powered_stone.name=Chiseled Powered Stone
 tile.torchrism.powered_stone_slab_half.name=Powered Stone Slab
 tile.torchrism.powered_stone_slab_double.name=Double Powered Stone Slab
+tile.torchrism.powered_stone_stairs.name=Powered Stone Stair
 
 item.torchrism.torch_staff.name=Torch Staff
 item.torchrism.torchonomicon.name=Torchonomicon

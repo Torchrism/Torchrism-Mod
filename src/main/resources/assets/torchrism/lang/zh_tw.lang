@@ -22,6 +22,7 @@ tile.torchrism.powered_stone.name=活化石頭
 tile.torchrism.chiseled_powered_stone.name=雕刻活化石頭
 tile.torchrism.powered_stone_slab_half.name=活化的石半磚
 tile.torchrism.powered_stone_slab_double.name=雙層活化石半磚
+tile.torchrism.powered_stone_stairs.name=活化石階梯
 
 item.torchrism.torch_staff.name=火把權杖
 item.torchrism.torchonomicon.name=火把福音

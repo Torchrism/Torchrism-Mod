@@ -1,4 +1,4 @@
-package com.atomuze.torchrism.block.torch_altar.tileEntity;
+package com.atomuze.torchrism.block.altar.tileEntity;
 
 import javax.annotation.Nullable;
 

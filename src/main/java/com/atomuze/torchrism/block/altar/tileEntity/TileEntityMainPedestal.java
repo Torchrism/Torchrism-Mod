@@ -1,4 +1,4 @@
-package com.atomuze.torchrism.block.torch_altar.tileEntity;
+package com.atomuze.torchrism.block.altar.tileEntity;
 
 import java.util.Random;
 
@@ -6,10 +6,10 @@ import javax.annotation.Nullable;
 
 import com.atomuze.torchrism.ModConfig;
 import com.atomuze.torchrism.block.ModBlocks;
-import com.atomuze.torchrism.block.torch_altar.block.BlockAltarMainPedestal;
+import com.atomuze.torchrism.block.altar.block.BlockAltarMainPedestal;
 import com.atomuze.torchrism.entity.flyingTorch.EntityFlyingTorch;
 import com.atomuze.torchrism.network.AltarCraftingParticlePacket;
-import com.atomuze.torchrism.network.TorchrimNetworkHandler;
+import com.atomuze.torchrism.network.ModNetworks;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -40,22 +40,25 @@ public class TileEntityMainPedestal extends TileEntityPedestal implements ITicka
 
 	@Override
 	public void update() {
-		if (BlockAltarMainPedestal.crafting) {
-			if (!world.isRemote) {
-				TorchrimNetworkHandler.network.sendToAllAround(new AltarCraftingParticlePacket(BlockAltarMainPedestal.crafting), new NetworkRegistry.TargetPoint(world.provider.getDimension(), pos.getX(), pos.getY(), pos.getZ(), 64));
-			}
-			long processingTime = world.getTotalWorldTime() - initTime;
-			this.spawnParticles1(world, pos);
-			if (processingTime > 60.0 && processingTime < 80.0) {
-				this.spawnParticles1(world, pos);
-				this.spawnParticles2(world, pos);
-			} else if (processingTime > 80.0) {
-				BlockAltarMainPedestal.crafting = false;
-				craftingEffect();
-			}
+		if (this.pos.equals(BlockAltarMainPedestal.pos)) {
+			if (BlockAltarMainPedestal.crafting) {
 
-		} else {
-			initTime = world.getTotalWorldTime();
+				if (!world.isRemote) {
+					ModNetworks.network.sendToAllAround(new AltarCraftingParticlePacket(BlockAltarMainPedestal.crafting), new NetworkRegistry.TargetPoint(world.provider.getDimension(), pos.getX(), pos.getY(), pos.getZ(), 64));
+				}
+				long processingTime = world.getTotalWorldTime() - initTime;
+				this.spawnParticles1(world, pos);
+				if (processingTime > 60.0 && processingTime < 80.0) {
+					this.spawnParticles1(world, pos);
+					this.spawnParticles2(world, pos);
+				} else if (processingTime > 80.0) {
+					BlockAltarMainPedestal.crafting = false;
+					craftingEffect();
+				}
+
+			} else {
+				initTime = world.getTotalWorldTime();
+			}
 		}
 
 //		System.out.println("BlockMainPedestal.crafting "+ BlockMainPedestal.crafting);
@@ -84,6 +87,7 @@ public class TileEntityMainPedestal extends TileEntityPedestal implements ITicka
 		extractItem(world, pos.north().north().north().north().west().west().west().west());
 		extractItem(world, pos.south().south().south().south().east().east().east().east());
 		extractItem(world, pos.south().south().south().south().west().west().west().west());
+		
 		if (!world.isRemote) {
 			world.spawnEntity(BlockAltarMainPedestal.craftingResult);
 			System.out.println(world.spawnEntity(flyingTorch));

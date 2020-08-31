@@ -1,4 +1,4 @@
-package com.atomuze.torchrism.block.torch_altar.block;
+package com.atomuze.torchrism.block.altar.block;
 
 import com.atomuze.torchrism.block.BlockBase;
 

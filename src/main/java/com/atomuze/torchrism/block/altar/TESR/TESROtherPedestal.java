@@ -1,10 +1,10 @@
-package com.atomuze.torchrism.block.torch_altar.TESR;
+package com.atomuze.torchrism.block.altar.TESR;
 
 import org.lwjgl.opengl.GL11;
 
-import com.atomuze.torchrism.block.torch_altar.block.BlockAltarMainPedestal;
-import com.atomuze.torchrism.block.torch_altar.tileEntity.TileEntityMainPedestal;
-import com.atomuze.torchrism.block.torch_altar.tileEntity.TileEntityOtherPedestal;
+import com.atomuze.torchrism.block.altar.block.BlockAltarMainPedestal;
+import com.atomuze.torchrism.block.altar.tileEntity.TileEntityMainPedestal;
+import com.atomuze.torchrism.block.altar.tileEntity.TileEntityOtherPedestal;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
