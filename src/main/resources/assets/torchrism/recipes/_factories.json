@@ -1,0 +1,5 @@
+{
+	"recipes": {
+		"test_crafting": "com.atomuze.torchrism.crafting.test.TestCrafting$Factory"
+    }
+}

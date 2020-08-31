@@ -23,14 +23,16 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-public abstract class BlockSlabBase extends BlockSlab {
+public abstract class BlockPoweredStoneSlab extends BlockSlab {
 	protected String name;
 	public static final PropertyEnum<Variant> VARIANT = PropertyEnum.<Variant>create("variant", Variant.class);
 
-	public BlockSlabBase(String name, Material material) {
-		super(material);
+	public BlockPoweredStoneSlab(String name) {
+		super(Material.ROCK);
 		setUnlocalizedName(Torchrism.MODID + "." + name);
 		setRegistryName(name);
+		setHardness(3f);
+		setResistance(4f);
 		setCreativeTab(Torchrism.creativeTab);
 		this.useNeighborBrightness = !this.isDouble();
 		IBlockState state = this.blockState.getBaseState().withProperty(VARIANT, Variant.DEFAULT);
@@ -41,7 +43,6 @@ public abstract class BlockSlabBase extends BlockSlab {
 
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-		//temporary fixed
 		return ModBlocks.poweredStoneSlab;
 	}
 

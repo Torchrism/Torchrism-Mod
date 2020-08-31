@@ -7,9 +7,9 @@ import com.atomuze.torchrism.block.modblocks.BlockPoweredStone;
 import com.atomuze.torchrism.block.modblocks.BlockWall;
 import com.atomuze.torchrism.block.modblocks.BlockWallLight;
 import com.atomuze.torchrism.block.modblocks.BlockunPoweredStone;
-import com.atomuze.torchrism.block.slab.BlockDoubleSlabBase;
-import com.atomuze.torchrism.block.slab.BlockHalfSlabBase;
-import com.atomuze.torchrism.block.slab.BlockSlabBase;
+import com.atomuze.torchrism.block.slab.BlockDoublePoweredStoneSlab;
+import com.atomuze.torchrism.block.slab.BlockHalfPoweredStoneSlab;
+import com.atomuze.torchrism.block.slab.BlockPoweredStoneSlab;
 import com.atomuze.torchrism.block.stair.BlockStairBase;
 import com.atomuze.torchrism.block.altar.block.BlockAltarInsidePedestal;
 import com.atomuze.torchrism.block.altar.block.BlockAltarMainPedestal;
@@ -57,8 +57,8 @@ public class ModBlocks {
 	public static final BlockPoweredStone cheiseledPoweredStone = new BlockPoweredStone("chiseled_powered_stone").setCreativeTab(Torchrism.creativeTab);
 	public static final BlockPowerInfusedStone powerInfusedStone = new BlockPowerInfusedStone("power_infused_stone").setCreativeTab(Torchrism.creativeTab);
 	public static final BlockunPoweredStone unPoweredStone = new BlockunPoweredStone("un_powered_stone").setCreativeTab(Torchrism.creativeTab);
-	public static final BlockSlabBase poweredStoneSlabHalf = new BlockHalfSlabBase("powered_stone_slab_half");
-	public static final BlockSlabBase poweredStoneSlabDouble = new BlockDoubleSlabBase("powered_stone_slab_double");
+	public static final BlockPoweredStoneSlab poweredStoneSlabHalf = new BlockHalfPoweredStoneSlab("powered_stone_slab_half");
+	public static final BlockPoweredStoneSlab poweredStoneSlabDouble = new BlockDoublePoweredStoneSlab("powered_stone_slab_double");
 	public static final ItemBlock poweredStoneSlab = new ItemSlab(ModBlocks.poweredStoneSlabHalf, ModBlocks.poweredStoneSlabHalf, ModBlocks.poweredStoneSlabDouble);
 	public static final BlockStairBase poweredStoneStair = new BlockStairBase(new Block(Material.ROCK).setHardness(3f).setResistance(4f).getDefaultState(), "powered_stone_stairs");
 

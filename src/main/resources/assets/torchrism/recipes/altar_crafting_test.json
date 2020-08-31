@@ -1,0 +1,22 @@
+{
+    "type": "torchrism:test_crafting",
+	"group": "test1",
+    "pattern": [
+        "CCC",
+        "CQC",
+        "CCC"
+    ],
+    "key": {
+        "C": {
+            "item": "torchrism:compacted_torch",
+			"data": 0
+        },
+        "Q": {
+            "item": "minecraft:quartz_block",
+			"data": 0
+        }
+    },
+    "result": {
+		"item": "torchrism:illuminate_block"
+	}
+}

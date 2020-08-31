@@ -1,36 +1,6 @@
 {
-  "parent": "block/cube_all",
-  "textures": {
-  "particle": "torchrism:blocks/illuminate_block",
-    "side": "torchrism:blocks/illuminate_block",
-    "up": "torchrism:blocks/illuminate_block",
-    "down": "torchrism:blocks/illuminate_block"
-    
-  },
-  "elements": [
-    {
-      "from": [ 0, 0, 0 ],
-      "to": [ 16, 16, 16 ],
-      "faces": {
-        "down": {
-          "texture": "down"
-        },
-        "up": {
-          "texture": "#up"
-        },
-        "north": {
-          "texture": "#side"
-        },
-        "south": {
-          "texture": "#side"
-        },
-        "west": {
-          "texture": "#side"
-        },
-        "east": {
-          "texture": "#side"
-        }
-      }
+    "parent": "block/cube_all",
+    "textures":{
+        "all": "torchrism:blocks/illuminate_block"
     }
-  ]
 }

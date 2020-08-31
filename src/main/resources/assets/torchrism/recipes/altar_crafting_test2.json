@@ -1,0 +1,22 @@
+{
+    "type": "torchrism:test_crafting",
+	"group": "test",
+    "pattern": [
+        "CCC",
+        "CQC",
+        "CCC"
+    ],
+    "key": {
+        "C": {
+            "item": "minecraft:clock",
+			"data": 0
+        },
+        "Q": {
+            "item": "minecraft:quartz_block",
+			"data": 0
+        }
+    },
+    "result": {
+		"item": "torchrism:sun_moon_block"
+	}
+}
