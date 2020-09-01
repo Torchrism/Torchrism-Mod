@@ -1,5 +1,5 @@
 {
-    "type": "torchrism:test_crafting",
+    "type": "torchrism:altar_crafting",
 	"group": "test",
     "pattern": [
         "CCC",

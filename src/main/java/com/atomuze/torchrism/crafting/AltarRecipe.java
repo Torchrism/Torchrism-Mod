@@ -5,7 +5,6 @@ import java.util.Set;
 
 import javax.annotation.Nonnull;
 
-import com.atomuze.torchrism.block.ModBlocks;
 import com.atomuze.torchrism.block.altar.block.BlockAltarMainPedestal;
 import com.atomuze.torchrism.block.altar.tileEntity.TileEntityPedestal;
 import com.google.common.collect.Maps;
@@ -15,10 +14,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
 
-import net.minecraft.block.Block;
-import net.minecraft.inventory.Container;
 import net.minecraft.inventory.InventoryCrafting;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.Ingredient;
@@ -37,26 +33,19 @@ public class AltarRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IR
 	@Nonnull
 	protected ItemStack recipeOutput = ItemStack.EMPTY;
 	protected NonNullList<Ingredient> RecipeInput = null;
-	protected int width = 3;
-	protected int height = 3;
+	protected final int width = 3;
+	protected final int height = 3;
 	protected boolean mirrored = true;
 	protected ResourceLocation group;
 	public BlockPos pos = BlockAltarMainPedestal.pos;
 	public World world = BlockAltarMainPedestal.world;
+	InventoryCrafting inv;
 
 	public AltarRecipe(ResourceLocation group, ItemStack result, ShapedPrimer primer) {
 		this.group = group;
 		this.recipeOutput = result.copy();
-		this.width = primer.width;
-		this.height = primer.height;
 		this.RecipeInput = primer.input;
 		this.mirrored = primer.mirrored;
-	}
-	
-	public AltarRecipe(World world, BlockPos pos) {
-		this.world = world;
-		this.pos = pos;
-		
 	}
 	
 	private ItemStack getAltarItems(World world, BlockPos pos) {
@@ -74,7 +63,7 @@ public class AltarRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IR
 	@Override
 	@Nonnull
 	public ItemStack getRecipeOutput() {
-		System.out.println("getRecipeOutput");
+//		System.out.println("getRecipeOutput");
 		return recipeOutput;
 	}
 
@@ -94,10 +83,12 @@ public class AltarRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IR
 				}
 			}
 		}
-		return false;
+		System.out.println("false");
+		return true;
 	}
 
 	private boolean checkMatch(InventoryCrafting inv, int startX, int startY, boolean mirror) {
+		
 		for (int x = 0; x < inv.getWidth(); x++) {
 			for (int y = 0; y < inv.getHeight(); y++) {
 				int subX = x - startX;
@@ -111,8 +102,10 @@ public class AltarRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IR
 						target = RecipeInput.get(subX + subY * width);
 					}
 				}
-
+				
 				if (!target.apply(inv.getStackInRowAndColumn(x, y))) {
+					System.out.println("target" + inv.getStackInSlot(0));
+					System.out.println("getStackInRowAndColumn" + inv.getStackInRowAndColumn(x, y));
 					return false;
 				}
 			}
@@ -122,7 +115,8 @@ public class AltarRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IR
 
 	@Override
 	public boolean canFit(int width, int height) {
-		System.out.println("canFit");
+		System.out.print("canFit:¡@");
+		System.out.println(this.width == width && this.height == height ? true : false);
 		return this.width == width && this.height == height ? true : false;
 	}
 

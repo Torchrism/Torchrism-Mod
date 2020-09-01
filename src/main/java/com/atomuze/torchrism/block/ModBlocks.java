@@ -61,7 +61,6 @@ public class ModBlocks {
 	public static final BlockPoweredStoneSlab poweredStoneSlabDouble = new BlockDoublePoweredStoneSlab("powered_stone_slab_double");
 	public static final ItemBlock poweredStoneSlab = new ItemSlab(ModBlocks.poweredStoneSlabHalf, ModBlocks.poweredStoneSlabHalf, ModBlocks.poweredStoneSlabDouble);
 	public static final BlockStairBase poweredStoneStair = new BlockStairBase(new Block(Material.ROCK).setHardness(3f).setResistance(4f).getDefaultState(), "powered_stone_stairs");
-
 	
 	public static void register(IForgeRegistry<Block> registry) {
 		registry.registerAll(
@@ -91,7 +90,6 @@ public class ModBlocks {
 				poweredStoneSlabHalf,
 				poweredStoneSlabDouble,
 				poweredStoneStair
-				
 		);
 		
 		GameRegistry.registerTileEntity(torchCorrecter.getTileEntityClass(), torchCorrecter.getRegistryName().toString());
@@ -128,9 +126,6 @@ public class ModBlocks {
 				poweredStoneSlab,
 				poweredStoneStair.createItemBlock()
 		);
-		
-
-		
 	}
 	
 	public static void registerModels() {

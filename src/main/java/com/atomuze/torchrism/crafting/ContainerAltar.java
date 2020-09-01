@@ -25,19 +25,24 @@ public class ContainerAltar extends Container {
 
     public InventoryCrafting craftMatrix = new InventoryCrafting(this, 3, 3);
     public InventoryCraftResult craftResult = new InventoryCraftResult();
-
-    private World world = null;
-    private BlockPos pos = null;
+   
+    private final World world;
+    private final BlockPos pos;
+    private final EntityPlayer player;
     
-    public ContainerAltar(World worldIn, BlockPos posIn) {
+    public ContainerAltar(InventoryPlayer playerInventory, World worldIn, BlockPos posIn) {
     	this.world = worldIn;
     	this.pos = posIn;
+        this.player = playerInventory.player;
     	System.out.println("addSlotToContainer-----------------------------------------------");
-    	this.addSlotToContainer(new SlotCrafting(null, this.craftMatrix, this.craftResult, 0, 0, 0));
-    	for(int i =0 ; i<9; i++) {
-    		this.addSlotToContainer(new Slot(this.craftMatrix, i, 0, 0));
-    	}
-    	
+    	this.addSlotToContainer(new SlotCrafting(playerInventory.player, this.craftMatrix, this.craftResult, 0, 0, 0));
+
+		for (int i = 0; i < 3; ++i) {
+			for (int j = 0; j < 3; ++j) {
+				this.addSlotToContainer(new Slot(this.craftMatrix, j + i * 3, 30 + j * 18, 17 + i * 18));
+			}
+		}
+		
     }
     
     @Override
@@ -48,6 +53,14 @@ public class ContainerAltar extends Container {
 		} else {
 			return playerIn.getDistanceSq((double) this.pos.getX() + 0.5D, (double) this.pos.getY() + 0.5D, (double) this.pos.getZ() + 0.5D) <= 64.0D;
 		}
+	}
+    
+	public void onCraftMatrixChanged(IInventory inventoryIn) {
+		this.slotChangedCraftingGrid(this.world, this.player, this.craftMatrix, this.craftResult);
+	}
+
+	public boolean canMergeSlot(ItemStack stack, Slot slotIn) {
+		return slotIn.inventory != this.craftResult && super.canMergeSlot(stack, slotIn);
 	}
 	
 }
