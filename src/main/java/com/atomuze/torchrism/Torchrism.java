@@ -49,8 +49,6 @@ public class Torchrism
 		
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new ModGuiHandler());
 		ModNetworks.networkRegister();
-//		network.registerMessage(new IsCraftingMessage.Handler(), IsCraftingMessage.class, 0, Side.SERVER);
-//		network.registerMessage(new IsCraftingRequestMessage.Handler(), IsCraftingRequestMessage.class, 1, Side.CLIENT);
 		proxy.registerRenderers();
 		proxy.preInit(event);
 		

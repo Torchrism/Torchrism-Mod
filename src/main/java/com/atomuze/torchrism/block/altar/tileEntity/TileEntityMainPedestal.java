@@ -2,30 +2,13 @@ package com.atomuze.torchrism.block.altar.tileEntity;
 
 import java.util.Random;
 
-import javax.annotation.Nullable;
-
-import com.atomuze.torchrism.ModConfig;
-import com.atomuze.torchrism.block.ModBlocks;
 import com.atomuze.torchrism.block.altar.block.BlockAltarMainPedestal;
 import com.atomuze.torchrism.entity.flyingTorch.EntityFlyingTorch;
 import com.atomuze.torchrism.network.AltarCraftingParticlePacket;
 import com.atomuze.torchrism.network.ModNetworks;
 
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
-import net.minecraft.network.play.server.SPacketUpdateTileEntity;
-import net.minecraft.tileentity.MobSpawnerBaseLogic;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ITickable;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.WeightedSpawnerEntity;
-import net.minecraft.util.datafix.DataFixer;
-import net.minecraft.util.datafix.FixTypes;
-import net.minecraft.util.datafix.IDataFixer;
-import net.minecraft.util.datafix.IDataWalker;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
@@ -34,7 +17,7 @@ import net.minecraftforge.items.IItemHandler;
 public class TileEntityMainPedestal extends TileEntityPedestal implements ITickable {
 
 	long initTime = 0;
-	public boolean altarT = true;
+	private boolean altarT = true;
 	EntityFlyingTorch flyingTorch = new EntityFlyingTorch(world);
 	Random ran = new Random();
 
@@ -42,7 +25,6 @@ public class TileEntityMainPedestal extends TileEntityPedestal implements ITicka
 	public void update() {
 		if (this.pos.equals(BlockAltarMainPedestal.pos)) {
 			if (BlockAltarMainPedestal.crafting) {
-
 				if (!world.isRemote) {
 					ModNetworks.network.sendToAllAround(new AltarCraftingParticlePacket(BlockAltarMainPedestal.crafting), new NetworkRegistry.TargetPoint(world.provider.getDimension(), pos.getX(), pos.getY(), pos.getZ(), 64));
 				}
@@ -54,11 +36,13 @@ public class TileEntityMainPedestal extends TileEntityPedestal implements ITicka
 				} else if (processingTime > 80.0) {
 					BlockAltarMainPedestal.crafting = false;
 					craftingEffect();
+					BlockAltarMainPedestal.stackResult = null;
 				}
-
 			} else {
 				initTime = world.getTotalWorldTime();
 			}
+		} else {
+			initTime = world.getTotalWorldTime();
 		}
 
 //		System.out.println("BlockMainPedestal.crafting "+ BlockMainPedestal.crafting);
@@ -87,10 +71,9 @@ public class TileEntityMainPedestal extends TileEntityPedestal implements ITicka
 		extractItem(world, pos.north().north().north().north().west().west().west().west());
 		extractItem(world, pos.south().south().south().south().east().east().east().east());
 		extractItem(world, pos.south().south().south().south().west().west().west().west());
-		
+
 		if (!world.isRemote) {
 			world.spawnEntity(BlockAltarMainPedestal.craftingResult);
-			System.out.println(world.spawnEntity(flyingTorch));
 		}
 
 	}

@@ -186,8 +186,8 @@ public class CheckAltar {
 
 	private static boolean check(World world, BlockPos initPos, BlockPos checkPos, Block toCheckBlock, EntityPlayer player) {
 		if (!world.getBlockState(checkPos).getBlock().equals(toCheckBlock)) {
-			System.out.println(world.getBlockState(checkPos).getBlock().getUnlocalizedName());
-			System.out.println(toCheckBlock.getUnlocalizedName());
+//			System.out.println(world.getBlockState(checkPos).getBlock().getUnlocalizedName());
+//			System.out.println(toCheckBlock.getUnlocalizedName());
 			player.sendMessage(new TextComponentString("Altar Invalid at x:" + (checkPos.getX() - initPos.getX()) + " y:" + (checkPos.getY() - initPos.getY()) + " z:" + (checkPos.getZ() - initPos.getZ())));
 			return false;
 		}

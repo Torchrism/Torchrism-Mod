@@ -35,93 +35,96 @@ public class AltarRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IR
 	protected NonNullList<Ingredient> RecipeInput = null;
 	protected final int width = 3;
 	protected final int height = 3;
-	protected boolean mirrored = true;
 	protected ResourceLocation group;
-	public BlockPos pos = BlockAltarMainPedestal.pos;
-	public World world = BlockAltarMainPedestal.world;
-	InventoryCrafting inv;
+	public BlockPos pos;
+	public World world;
 
 	public AltarRecipe(ResourceLocation group, ItemStack result, ShapedPrimer primer) {
 		this.group = group;
 		this.recipeOutput = result.copy();
 		this.RecipeInput = primer.input;
-		this.mirrored = primer.mirrored;
 	}
-	
-	private ItemStack getAltarItems(World world, BlockPos pos) {
-		TileEntityPedestal tile = (TileEntityPedestal) world.getTileEntity(pos);
-		ItemStack stack = tile.inventory.getStackInSlot(0);
-		return !stack.isEmpty() ? stack : ItemStack.EMPTY;
-	}
-	
+
 	@Override
 	public ItemStack getCraftingResult(InventoryCrafting inv) {
-		System.out.println("AltarCrafting.getCraftingResult");
+		BlockAltarMainPedestal.stackResult = this.getRecipeOutput().copy();
 		return this.getRecipeOutput().copy();
 	}
-	
+
 	@Override
 	@Nonnull
 	public ItemStack getRecipeOutput() {
-//		System.out.println("getRecipeOutput");
 		return recipeOutput;
 	}
 
 	@Override
 	public boolean matches(InventoryCrafting inv, World worldIn) {
-		System.out.println("matches");
-		System.out.println(recipeOutput.getUnlocalizedName());
-		
-		for (int x = 0; x <= inv.getWidth() - width; x++) {
-			for (int y = 0; y <= inv.getHeight() - height; ++y) {
-				if (checkMatch(inv, x, y, false)) {
-					return true;
-				}
-
-				if (mirrored && checkMatch(inv, x, y, true)) {
-					return true;
-				}
-			}
+		pos = BlockAltarMainPedestal.pos;
+		world = BlockAltarMainPedestal.world;
+		for (int x = 0; x < 9; x++) {
+			if (!checkMatch(x))
+				return false;
 		}
-		System.out.println("false");
 		return true;
 	}
 
-	private boolean checkMatch(InventoryCrafting inv, int startX, int startY, boolean mirror) {
-		
-		for (int x = 0; x < inv.getWidth(); x++) {
-			for (int y = 0; y < inv.getHeight(); y++) {
-				int subX = x - startX;
-				int subY = y - startY;
-				Ingredient target = Ingredient.EMPTY;
-
-				if (subX >= 0 && subY >= 0 && subX < width && subY < height) {
-					if (mirror) {
-						target = RecipeInput.get(width - subX - 1 + subY * width);
-					} else {
-						target = RecipeInput.get(subX + subY * width);
-					}
-				}
-				
-				if (!target.apply(inv.getStackInRowAndColumn(x, y))) {
-					System.out.println("target" + inv.getStackInSlot(0));
-					System.out.println("getStackInRowAndColumn" + inv.getStackInRowAndColumn(x, y));
-					return false;
-				}
-			}
+	private boolean checkMatch(int slot) {
+		Ingredient target = Ingredient.EMPTY;
+		target = RecipeInput.get(slot);
+		switch (slot) {
+		case 0:
+			if (!target.apply(getAltarItems(world, pos.north().north().north().north().west().west().west().west())))
+				return false;
+			break;
+		case 1:
+			if (!target.apply(getAltarItems(world, pos.down().north().north().north().north().north())))
+				return false;
+			break;
+		case 2:
+			if (!target.apply(getAltarItems(world, pos.north().north().north().north().east().east().east().east())))
+				return false;
+			break;
+		case 3:
+			if (!target.apply(getAltarItems(world, pos.down().west().west().west().west().west())))
+				return false;
+			break;
+		case 4:
+			if (!target.apply(getAltarItems(world, pos)))
+				return false;
+			break;
+		case 5:
+			if (!target.apply(getAltarItems(world, pos.down().east().east().east().east().east())))
+				return false;
+			break;
+		case 6:
+			if (!target.apply(getAltarItems(world, pos.south().south().south().south().west().west().west().west())))
+				return false;
+			break;
+		case 7:
+			if (!target.apply(getAltarItems(world, pos.down().south().south().south().south().south())))
+				return false;
+			break;
+		case 8:
+			if (!target.apply(getAltarItems(world, pos.south().south().south().south().east().east().east().east())))
+				return false;
+			break;
 		}
 		return true;
+
 	}
 
 	@Override
 	public boolean canFit(int width, int height) {
-		System.out.print("canFit:¡@");
-		System.out.println(this.width == width && this.height == height ? true : false);
 		return this.width == width && this.height == height ? true : false;
 	}
 
+	private ItemStack getAltarItems(World world, BlockPos pos) {
+		TileEntityPedestal tile = (TileEntityPedestal) world.getTileEntity(pos);
+		ItemStack stack = tile.inventory.getStackInSlot(0);
+		return !stack.isEmpty() ? stack : ItemStack.EMPTY;
+	}
+
 	public static CraftingHelper.ShapedPrimer parseShaped(JsonContext context, JsonObject json) {
-		System.out.println("run ShapedPrimer");
 		final Map<Character, Ingredient> ingredientMap = Maps.newHashMap();
 		for (final Map.Entry<String, JsonElement> entry : JsonUtils.getJsonObject(json, "key").entrySet()) {
 			if (entry.getKey().length() != 1)
@@ -150,7 +153,6 @@ public class AltarRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IR
 		final CraftingHelper.ShapedPrimer primer = new CraftingHelper.ShapedPrimer();
 		primer.width = pattern[0].length();
 		primer.height = pattern.length;
-		primer.mirrored = JsonUtils.getBoolean(json, "mirrored", true);
 		primer.input = NonNullList.withSize(primer.width * primer.height, Ingredient.EMPTY);
 
 		final Set<Character> keys = Sets.newHashSet(ingredientMap.keySet());

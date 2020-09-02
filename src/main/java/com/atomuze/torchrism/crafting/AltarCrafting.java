@@ -28,7 +28,6 @@ public class AltarCrafting extends AltarRecipe {
 			String group = JsonUtils.getString(json, "group", "");
 			CraftingHelper.ShapedPrimer primer = AltarRecipe.parseShaped(context, json);
 			ItemStack result = CraftingHelper.getItemStack(JsonUtils.getJsonObject(json, "result"), context);
-			System.out.println("AltarCrafting-----result: " + result.getDisplayName());
 			return new AltarCrafting(group.isEmpty() ? null : new ResourceLocation(group), result, primer);
 		}
 	}
