@@ -40,6 +40,7 @@ public class AltarRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IR
 	public World world;
 
 	public AltarRecipe(ResourceLocation group, ItemStack result, ShapedPrimer primer) {
+//		System.out.println("AltarRecipe*--------------------------------------------------");
 		this.group = group;
 		this.recipeOutput = result.copy();
 		this.RecipeInput = primer.input;
@@ -47,6 +48,7 @@ public class AltarRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IR
 
 	@Override
 	public ItemStack getCraftingResult(InventoryCrafting inv) {
+//		System.out.println("getCraftingResult*--------------------------------------------------");
 		BlockAltarMainPedestal.stackResult = this.getRecipeOutput().copy();
 		return this.getRecipeOutput().copy();
 	}
@@ -54,11 +56,14 @@ public class AltarRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IR
 	@Override
 	@Nonnull
 	public ItemStack getRecipeOutput() {
+//		System.out.println("getRecipeOutput*--------------------------------------------------");
 		return recipeOutput;
 	}
 
 	@Override
 	public boolean matches(InventoryCrafting inv, World worldIn) {
+//		System.out.println("matches*--------------------------------------------------" + inv.getHeight());
+		if(inv.getHeight() != 0) return false;
 		pos = BlockAltarMainPedestal.pos;
 		world = BlockAltarMainPedestal.world;
 		for (int x = 0; x < 9; x++) {

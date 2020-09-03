@@ -14,5 +14,6 @@ public class ModNetworks {
 		network.registerMessage(new PacketUpdatePedestal.Handler(), PacketUpdatePedestal.class, 0, Side.CLIENT);
 		network.registerMessage(new PacketRequestUpdatePedestal.Handler(), PacketRequestUpdatePedestal.class, 1, Side.SERVER);
 		network.registerMessage(new AltarCraftingParticlePacket.Handler(), AltarCraftingParticlePacket.class, 2, Side.CLIENT);
+//		network.registerMessage(new ModParticlePacket.Handler(), ModParticlePacket.class, 3, Side.CLIENT);
 	}
 }

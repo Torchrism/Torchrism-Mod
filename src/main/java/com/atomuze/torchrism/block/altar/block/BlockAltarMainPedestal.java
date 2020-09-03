@@ -21,7 +21,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
@@ -36,7 +35,7 @@ public class BlockAltarMainPedestal extends BlockTileEntity<TileEntityMainPedest
 	public static World world;
 	public static BlockPos pos;
 	private static boolean keepInventory;
-	
+
 	public BlockAltarMainPedestal(String name) {
 		super(Material.ROCK, name);
 		setHardness(3f);
@@ -50,7 +49,8 @@ public class BlockAltarMainPedestal extends BlockTileEntity<TileEntityMainPedest
 		TileEntityMainPedestal tile = getTileEntity(world, pos);
 		if (!world.isRemote && !crafting) {
 			if (player.getHeldItem(hand).getItem() == new ItemStack(ModItems.torchStaff).getItem()) {
-				if (CheckAltar.checkingAltar(world, pos, player)) {
+				CheckAltar check = new CheckAltar(world, pos, player);
+				if (check.checkingAltar(world, pos)) {
 					craftingProgress(world, pos, player);
 				}
 				tile.markDirty();
@@ -73,7 +73,7 @@ public class BlockAltarMainPedestal extends BlockTileEntity<TileEntityMainPedest
 		this.world = world;
 		this.pos = pos;
 		InventoryPlayer playerInventory = player.inventory;
-		Container container = new ContainerAltar(playerInventory, world, pos);
+		ContainerAltar container = new ContainerAltar(playerInventory, world, pos);
 		InventoryCrafting inv = new InventoryCrafting(container, 3, 3);
 
 		if (stackResult != null) {
@@ -133,7 +133,7 @@ public class BlockAltarMainPedestal extends BlockTileEntity<TileEntityMainPedest
 	public TileEntityMainPedestal createTileEntity(World world, IBlockState state) {
 		return new TileEntityMainPedestal();
 	}
-	
+
 	@Override
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;

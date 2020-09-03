@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "torchrism:powered_stone",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "torchrism:powered_stone_stairs",
+    "count": 4
+  }
+}
