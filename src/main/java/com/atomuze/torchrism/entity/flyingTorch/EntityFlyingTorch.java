@@ -59,18 +59,22 @@ public class EntityFlyingTorch extends EntityBat {
 			this.spawnPosition = new BlockPos((int) this.posX + this.rand.nextInt(7) - this.rand.nextInt(7), (int) this.posY + this.rand.nextInt(6) - 2, (int) this.posZ + this.rand.nextInt(7) - this.rand.nextInt(7));
 		}
 
+//		if(this.spawnPosition.getX()+this.motionX + (Math.signum(d0) * 0.5D ) * 0.0001D < this.spawnPosition.getX() + 10D)
+
 		double d0 = (double) this.spawnPosition.getX() + 0.5D - this.posX;
 		double d1 = (double) this.spawnPosition.getY() + 0.1D - this.posY;
 		double d2 = (double) this.spawnPosition.getZ() + 0.5D - this.posZ;
 
-//		if(this.spawnPosition.getX()+this.motionX + (Math.signum(d0) * 0.5D ) * 0.0001D < this.spawnPosition.getX() + 10D)
-
-		this.motionX += (Math.signum(d0) * 0.5D) * 0.0001D;
-		this.motionY += (Math.signum(d1) * 0.699999988079071D - this.motionY) * 0.0001D;
-		this.motionZ += (Math.signum(d2) * 0.5D - this.motionZ) * 0.1D;
+		if(Math.sqrt(Math.pow(d0, 2) + Math.pow(d2, 2)) > 32) {
+//			System.out.println("kill entity : spawn pos" + this.spawnPosition.getX() + "z" + this.spawnPosition.getZ());
+			this.onKillCommand();
+		}
+		
+		this.motionX += (Math.signum(d0) * 0.001D);
+		this.motionY += (Math.signum(d1) * 0.001D);
+		this.motionZ += (Math.signum(d2) * 0.001D);
 		float f = (float) (MathHelper.atan2(this.motionZ, this.motionX)) - 90.0F;
-		float f1 = MathHelper.wrapDegrees(f - this.rotationYaw) * 0.01f;
-		this.moveForward = 10.0F;
+		float f1 = MathHelper.wrapDegrees(f - this.rotationYaw) * 0.000001f;
 		this.rotationYaw += f1;
 
 	}

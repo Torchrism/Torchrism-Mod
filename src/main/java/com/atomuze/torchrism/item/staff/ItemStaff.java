@@ -78,6 +78,17 @@ public class ItemStaff extends net.minecraft.item.ItemTool {
 			}
 			return EnumActionResult.SUCCESS;
 
+		} else if (worldIn.getBlockState(pos).getBlock().isReplaceable(worldIn, pos) && player.getHeldItem(hand).getItemDamage() > 0) {
+			
+			if(worldIn.getBlockState(pos.down()).isNormalCube()) {
+				worldIn.setBlockState(pos, Blocks.TORCH.getDefaultState());
+				if (!worldIn.isRemote) {
+					player.getHeldItem(hand).damageItem(-1, player);
+				}
+				return EnumActionResult.SUCCESS;
+			}
+			return EnumActionResult.FAIL;
+			
 		} else if (worldIn.getBlockState(pos).isNormalCube() && player.getHeldItem(hand).getItemDamage() > 0) {
 			
 			Material m;

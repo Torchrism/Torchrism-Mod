@@ -28,6 +28,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemMultiTexture;
 import net.minecraft.item.ItemSlab;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
@@ -53,15 +54,16 @@ public class ModBlocks {
 	public static final BlockIlluminate illuminateBlock = new BlockIlluminate("illuminate_block").setCreativeTab(Torchrism.creativeTab);
 	public static final BlockWall wall = new BlockWall("wall").setCreativeTab(Torchrism.creativeTab);
 	public static final BlockWallLight wallLight = new BlockWallLight("illuminate_block_fake").setCreativeTab(Torchrism.creativeTab);
-	public static final BlockPoweredStone poweredStone = new BlockPoweredStone("powered_stone").setCreativeTab(Torchrism.creativeTab);
-	public static final BlockPoweredStone cheiseledPoweredStone = new BlockPoweredStone("chiseled_powered_stone").setCreativeTab(Torchrism.creativeTab);
+	public static final BlockPoweredStone poweredStone = new BlockPoweredStone("powered_stone");
 	public static final BlockPowerInfusedStone powerInfusedStone = new BlockPowerInfusedStone("power_infused_stone").setCreativeTab(Torchrism.creativeTab);
 	public static final BlockunPoweredStone unPoweredStone = new BlockunPoweredStone("un_powered_stone").setCreativeTab(Torchrism.creativeTab);
 	public static final BlockPoweredStoneSlab poweredStoneSlabHalf = new BlockHalfPoweredStoneSlab("powered_stone_slab_half");
 	public static final BlockPoweredStoneSlab poweredStoneSlabDouble = new BlockDoublePoweredStoneSlab("powered_stone_slab_double");
-	public static final ItemBlock poweredStoneSlab = new ItemSlab(ModBlocks.poweredStoneSlabHalf, ModBlocks.poweredStoneSlabHalf, ModBlocks.poweredStoneSlabDouble);
 	public static final BlockStairBase poweredStoneStair = new BlockStairBase(new Block(Material.ROCK).setHardness(3f).setResistance(4f).getDefaultState(), "powered_stone_stairs");
-	
+
+	public static final ItemBlock poweredStoneItem = new ItemMultiTexture(ModBlocks.poweredStone, ModBlocks.poweredStone, new String[] {"default", "chiseled"});
+	public static final ItemBlock poweredStoneSlab = new ItemSlab(ModBlocks.poweredStoneSlabHalf, ModBlocks.poweredStoneSlabHalf, ModBlocks.poweredStoneSlabDouble);
+
 	public static void register(IForgeRegistry<Block> registry) {
 		registry.registerAll(
 				torchPlacer,
@@ -84,7 +86,6 @@ public class ModBlocks {
 				wallLight,
 				wall,
 				poweredStone,
-				cheiseledPoweredStone,
 				powerInfusedStone,
 				unPoweredStone,
 				poweredStoneSlabHalf,
@@ -102,6 +103,7 @@ public class ModBlocks {
 	public static void registerItemBlocks(IForgeRegistry<Item> registry) {
 		
 		poweredStoneSlab.setRegistryName(ModBlocks.poweredStoneSlabHalf.getRegistryName());
+		poweredStoneItem.setRegistryName(ModBlocks.poweredStone.getRegistryName());
 		
 		registry.registerAll(
 				torchPlacer.createItemBlock(),
@@ -120,8 +122,7 @@ public class ModBlocks {
 							
 				illuminateBlock.createItemBlock(),
 				wall.createItemBlock(),
-				cheiseledPoweredStone.createItemBlock(),
-				poweredStone.createItemBlock(),
+				poweredStoneItem,
 				unPoweredStone.createItemBlock(),
 				poweredStoneSlab,
 				poweredStoneStair.createItemBlock()
@@ -145,8 +146,8 @@ public class ModBlocks {
 			
 		illuminateBlock.registerItemModel(Item.getItemFromBlock(illuminateBlock));
 		wall.registerItemModel(Item.getItemFromBlock(wall));
-		poweredStone.registerItemModel(Item.getItemFromBlock(poweredStone));
-		cheiseledPoweredStone.registerItemModel(Item.getItemFromBlock(cheiseledPoweredStone));
+		poweredStone.registerItemModel(Item.getItemFromBlock(poweredStone), 0);
+		poweredStone.registerItemModel(Item.getItemFromBlock(poweredStone), 1);
 		unPoweredStone.registerItemModel(Item.getItemFromBlock(unPoweredStone));
 		poweredStoneSlabHalf.registerItemModel(Item.getItemFromBlock(poweredStoneSlabHalf));
 		poweredStoneStair.registerItemModel(Item.getItemFromBlock(poweredStoneStair));

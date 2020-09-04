@@ -32,13 +32,13 @@ public class CheckAltar {
 					//center
 					check(world, pos, pos.down(), ModBlocks.poweredStone)&&
 					check(world, pos, pos.down().north(), ModBlocks.poweredStone)&&
-					check(world, pos, pos.down().north().west(), ModBlocks.cheiseledPoweredStone)&&
-					check(world, pos, pos.down().north().east(), ModBlocks.cheiseledPoweredStone)&&
+					check(world, pos, pos.down().north().west(), ModBlocks.poweredStone.getStateFromMeta(1).getBlock())&&
+					check(world, pos, pos.down().north().east(), ModBlocks.poweredStone.getStateFromMeta(1).getBlock())&&
 					check(world, pos, pos.down().east(), ModBlocks.poweredStone)&&
 					check(world, pos, pos.down().west(), ModBlocks.poweredStone)&&
 					check(world, pos, pos.down().south(), ModBlocks.poweredStone)&&
-					check(world, pos, pos.down().south().west(), ModBlocks.cheiseledPoweredStone)&&
-					check(world, pos, pos.down().south().east(), ModBlocks.cheiseledPoweredStone)&&
+					check(world, pos, pos.down().south().west(), ModBlocks.poweredStone.getStateFromMeta(1).getBlock())&&
+					check(world, pos, pos.down().south().east(), ModBlocks.poweredStone.getStateFromMeta(1).getBlock())&&
 					
 					//branch
 					check(world, pos, pos.down().down().north().north(), ModBlocks.poweredStone)&&
@@ -117,13 +117,13 @@ public class CheckAltar {
 					//center
 					check(world, pos, pos.down(), ModBlocks.poweredStone)&&
 					check(world, pos, pos.down().north(), ModBlocks.poweredStone)&&
-					check(world, pos, pos.down().north().west(), ModBlocks.cheiseledPoweredStone)&&
-					check(world, pos, pos.down().north().east(), ModBlocks.cheiseledPoweredStone)&&
+					check(world, pos, pos.down().north().west(), ModBlocks.poweredStone.getStateFromMeta(1).getBlock())&&
+					check(world, pos, pos.down().north().east(), ModBlocks.poweredStone.getStateFromMeta(1).getBlock())&&
 					check(world, pos, pos.down().east(), ModBlocks.poweredStone)&&
 					check(world, pos, pos.down().west(), ModBlocks.poweredStone)&&
 					check(world, pos, pos.down().south(), ModBlocks.poweredStone)&&
-					check(world, pos, pos.down().south().west(), ModBlocks.cheiseledPoweredStone)&&
-					check(world, pos, pos.down().south().east(), ModBlocks.cheiseledPoweredStone)&&
+					check(world, pos, pos.down().south().west(), ModBlocks.poweredStone.getStateFromMeta(1).getBlock())&&
+					check(world, pos, pos.down().south().east(), ModBlocks.poweredStone.getStateFromMeta(1).getBlock())&&
 					
 					//branch
 					check(world, pos, pos.down().down().north().north(), ModBlocks.poweredStone)&&

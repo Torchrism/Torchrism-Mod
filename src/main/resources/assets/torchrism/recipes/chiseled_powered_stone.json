@@ -13,7 +13,7 @@
     ]
   },
   "result": {
-    "item": "torchrism:chiseled_powered_stone",
-	"data": 0
+    "item": "torchrism:powered_stone",
+	"data": 1
   }
 }

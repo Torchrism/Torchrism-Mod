@@ -25,4 +25,13 @@ public class ModConfig
     public static int getflyingTorchId() {
     	return flyingTorchId;
     }
+    
+    
+    @Name("Spawn Entity Nearby Altar")
+    public static boolean altarSpawnEntity = true;
+    
+    public static boolean getaltarSpawnEntity() {
+    	return altarSpawnEntity;
+    }
+    
 }

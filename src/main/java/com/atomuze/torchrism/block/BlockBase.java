@@ -27,10 +27,6 @@ public class BlockBase extends Block {
 		Torchrism.proxy.registerItemRenderer(itemBlock, 0, name);
 	}
 
-	public void registerModel(Item itemBlock) {
-		Torchrism.proxy.registerModel(Item.getItemFromBlock(this), 0);
-	}
-
 	public Item createItemBlock() {
 		return new ItemBlock(this).setRegistryName(getRegistryName());
 	}
