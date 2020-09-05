@@ -26,9 +26,9 @@ public class BlockPowerInfusedStone extends BlockBase {
 	public BlockPowerInfusedStone(String name) {
 		super(Material.ROCK, name);
 
-		setHardness(1.5F);
-		setResistance(10.0F);
-		setHarvestLevel("pickaxe", 2);
+		setHardness(3f);
+		setResistance(4f);
+		setHarvestLevel("pickaxe", 1);
 		setLightLevel(1f);
 
 	}

@@ -43,6 +43,7 @@ public class BlockPoweredStone extends Block {
 
 		setHardness(3f);
 		setResistance(4f);
+		setHarvestLevel("pickaxe", 1);
 		setCreativeTab(Torchrism.creativeTab);
 
 	}

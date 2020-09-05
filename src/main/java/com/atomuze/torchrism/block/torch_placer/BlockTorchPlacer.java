@@ -29,7 +29,7 @@ public class BlockTorchPlacer extends BlockBase {
 		super(Material.WOOD, name);
 
 		setHardness(1f);
-		setResistance(5f);
+		setResistance(4f);
 		setLightLevel(1f);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
 

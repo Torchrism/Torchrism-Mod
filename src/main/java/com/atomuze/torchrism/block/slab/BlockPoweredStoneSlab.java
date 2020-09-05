@@ -33,6 +33,7 @@ public abstract class BlockPoweredStoneSlab extends BlockSlab {
 		setRegistryName(name);
 		setHardness(3f);
 		setResistance(4f);
+		setHarvestLevel("pickaxe", 1);
 		setCreativeTab(Torchrism.creativeTab);
 		this.useNeighborBrightness = !this.isDouble();
 		IBlockState state = this.blockState.getBaseState().withProperty(VARIANT, Variant.DEFAULT);

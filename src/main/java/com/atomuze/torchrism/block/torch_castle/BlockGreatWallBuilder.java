@@ -23,6 +23,7 @@ public class BlockGreatWallBuilder extends BlockTileEntity<TileEntityGreatWallBu
 		super(Material.WOOD, name);
 		setHardness(3f);
 		setResistance(4f);
+		setHarvestLevel("axe", 1);
 		setLightLevel(1f);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
 	}

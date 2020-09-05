@@ -69,7 +69,9 @@ public class ItemStaff extends net.minecraft.item.ItemTool {
 					double d1 = (double) ((float) pos.getX() + random.nextFloat());
 					double d2 = (double) ((float) pos.getY() + random.nextFloat());
 					double d3 = (double) ((float) pos.getZ() + random.nextFloat());
-					worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, d1, d2, d3, 0.0D, 0.0D, 0.0D);
+					if (worldIn.isRemote) {
+						worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, d1, d2, d3, 0.0D, 0.0D, 0.0D);
+					}
 				}
 			} else {
 				if (worldIn.isRemote) {

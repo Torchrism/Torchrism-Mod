@@ -26,6 +26,7 @@ public class BlockWall extends BlockBase {
 		
 		setHardness(3f);
 		setResistance(4f);
+		setHarvestLevel("pickaxe", 1);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
 	}
 

@@ -24,6 +24,7 @@ public class BlockTorchCorrector extends BlockTileEntity<TileEntityTorchCorrecto
 		super(Material.WOOD, name);
 		setHardness(3f);
 		setResistance(4f);
+		setHarvestLevel("axe", 1);
 		setLightLevel(1f);
 	}
 

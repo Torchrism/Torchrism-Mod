@@ -5,6 +5,8 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import com.atomuze.torchrism.ModConfig;
+import com.atomuze.torchrism.particle.ModEnumParticleTypes;
+import com.atomuze.torchrism.particle.ParticleSpawner;
 import com.google.common.collect.Lists;
 
 import net.minecraft.entity.Entity;
@@ -25,7 +27,7 @@ import net.minecraft.world.chunk.storage.AnvilChunkLoader;
 
 public abstract class ModMobSpawnerBaseLogic extends MobSpawnerBaseLogic {
 	/** The delay to spawn. */
-	private int spawnDelay = 5;
+	private int spawnDelay = 100;
 	/** List of potential entities to spawn */
 	private final List<WeightedSpawnerEntity> potentialSpawns = Lists.<WeightedSpawnerEntity>newArrayList();
 	private WeightedSpawnerEntity spawnData = new WeightedSpawnerEntity();
@@ -33,8 +35,8 @@ public abstract class ModMobSpawnerBaseLogic extends MobSpawnerBaseLogic {
 	private double mobRotation;
 	/** the previous rotation of the mob inside the mob spawner */
 	private double prevMobRotation;
-	private int minSpawnDelay = 25;
-	private int maxSpawnDelay = 45;
+	private int minSpawnDelay = 2500;
+	private int maxSpawnDelay = 5000;
 	private int spawnCount = 1;
 	/** Cached instance of the entity to render inside the spawner. */
 	private Entity cachedEntity;
@@ -75,22 +77,23 @@ public abstract class ModMobSpawnerBaseLogic extends MobSpawnerBaseLogic {
 				double d3 = (double) ((float) blockpos.getX() + 2 + this.getSpawnerWorld().rand.nextFloat());
 				double d4 = (double) ((float) blockpos.getY() + this.getSpawnerWorld().rand.nextFloat());
 				double d5 = (double) ((float) blockpos.getZ() + 2 + this.getSpawnerWorld().rand.nextFloat());
-				this.getSpawnerWorld().spawnParticle(EnumParticleTypes.EXPLOSION_NORMAL, d3, d4, d5, 0.0D, 0.0D, 0.0D);
+			//	this.getSpawnerWorld().spawnParticle(ModEnumParticleTypes.ALTARPARTICLE, d3, d4, d5, 0.0D, 0.0D, 0.0D);
+				ParticleSpawner.spawnParticle(ModEnumParticleTypes.ALTARPARTICLE, d3, d4, d5, 0.0D, 0.0D, 0.0D);
 
 				d3 = (double) ((float) blockpos.getX() + 2 + this.getSpawnerWorld().rand.nextFloat());
 				d4 = (double) ((float) blockpos.getY() + this.getSpawnerWorld().rand.nextFloat());
 				d5 = (double) ((float) blockpos.getZ() - 2 + this.getSpawnerWorld().rand.nextFloat());
-				this.getSpawnerWorld().spawnParticle(EnumParticleTypes.EXPLOSION_NORMAL, d3, d4, d5, 0.0D, 0.0D, 0.0D);
+				ParticleSpawner.spawnParticle(ModEnumParticleTypes.ALTARPARTICLE, d3, d4, d5, 0.0D, 0.0D, 0.0D);
 
 				d3 = (double) ((float) blockpos.getX() - 2 + this.getSpawnerWorld().rand.nextFloat());
 				d4 = (double) ((float) blockpos.getY() + this.getSpawnerWorld().rand.nextFloat());
 				d5 = (double) ((float) blockpos.getZ() - 2 + this.getSpawnerWorld().rand.nextFloat());
-				this.getSpawnerWorld().spawnParticle(EnumParticleTypes.EXPLOSION_NORMAL, d3, d4, d5, 0.0D, 0.0D, 0.0D);
+				ParticleSpawner.spawnParticle(ModEnumParticleTypes.ALTARPARTICLE, d3, d4, d5, 0.0D, 0.0D, 0.0D);
 
 				d3 = (double) ((float) blockpos.getX() - 2 + this.getSpawnerWorld().rand.nextFloat());
 				d4 = (double) ((float) blockpos.getY() + this.getSpawnerWorld().rand.nextFloat());
 				d5 = (double) ((float) blockpos.getZ() + 2 + this.getSpawnerWorld().rand.nextFloat());
-				this.getSpawnerWorld().spawnParticle(EnumParticleTypes.EXPLOSION_NORMAL, d3, d4, d5, 0.0D, 0.0D, 0.0D);
+				ParticleSpawner.spawnParticle(ModEnumParticleTypes.ALTARPARTICLE, d3, d4, d5, 0.0D, 0.0D, 0.0D);
 
 				if (this.spawnDelay > 0) {
 					--this.spawnDelay;
@@ -133,7 +136,8 @@ public abstract class ModMobSpawnerBaseLogic extends MobSpawnerBaseLogic {
 
 					EntityLiving entityliving = entity instanceof EntityLiving ? (EntityLiving) entity : null;
 					entity.setLocationAndAngles(entity.posX, entity.posY, entity.posZ, world.rand.nextFloat() * 360.0F, 0.0F);
-
+					
+					
 					if (entityliving == null || net.minecraftforge.event.ForgeEventFactory.canEntitySpawnSpawner(entityliving, getSpawnerWorld(), (float) entity.posX, (float) entity.posY, (float) entity.posZ, this) && ModConfig.altarSpawnEntity) {
 						if (this.spawnData.getNbt().getSize() == 1 && this.spawnData.getNbt().hasKey("id", 8) && entity instanceof EntityLiving) {
 							if (!net.minecraftforge.event.ForgeEventFactory.doSpecialSpawn(entityliving, this.getSpawnerWorld(), (float) entity.posX, (float) entity.posY, (float) entity.posZ, this))

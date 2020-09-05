@@ -20,6 +20,7 @@ public class BlockWallLight extends BlockBase {
 
 		setHardness(3f);
 		setResistance(4f);
+		setHarvestLevel("pickaxe", 1);
 		setLightLevel(1f);
 	}
 

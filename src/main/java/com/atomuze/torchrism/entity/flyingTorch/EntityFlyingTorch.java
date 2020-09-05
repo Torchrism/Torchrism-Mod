@@ -46,27 +46,18 @@ public class EntityFlyingTorch extends EntityBat {
 
 	@Override
 	protected void updateAITasks() {
-//		System.out.println("updateAITasks");
 		super.updateAITasks();
-		BlockPos blockpos = new BlockPos(this);
-		BlockPos blockpos1 = blockpos.up();
-
-		if (this.spawnPosition != null && (!this.world.isAirBlock(this.spawnPosition) || this.spawnPosition.getY() < 1)) {
-			this.spawnPosition = null;
+		
+		if (this.spawnPosition == null) {
+			this.spawnPosition = new BlockPos((int) this.posX, (int) this.posY , (int) this.posZ);
 		}
-
-		if (this.spawnPosition == null || this.rand.nextInt(30) == 0 || this.spawnPosition.distanceSq((double) ((int) this.posX), (double) ((int) this.posY), (double) ((int) this.posZ)) < 4.0D) {
-			this.spawnPosition = new BlockPos((int) this.posX + this.rand.nextInt(7) - this.rand.nextInt(7), (int) this.posY + this.rand.nextInt(6) - 2, (int) this.posZ + this.rand.nextInt(7) - this.rand.nextInt(7));
-		}
-
-//		if(this.spawnPosition.getX()+this.motionX + (Math.signum(d0) * 0.5D ) * 0.0001D < this.spawnPosition.getX() + 10D)
-
+		
 		double d0 = (double) this.spawnPosition.getX() + 0.5D - this.posX;
 		double d1 = (double) this.spawnPosition.getY() + 0.1D - this.posY;
 		double d2 = (double) this.spawnPosition.getZ() + 0.5D - this.posZ;
 
 		if(Math.sqrt(Math.pow(d0, 2) + Math.pow(d2, 2)) > 32) {
-//			System.out.println("kill entity : spawn pos" + this.spawnPosition.getX() + "z" + this.spawnPosition.getZ());
+			System.out.println("kill entity : spawn pos" + this.spawnPosition.getX() +  " y" + this.posY  +  "z" + this.spawnPosition.getZ());
 			this.onKillCommand();
 		}
 		
@@ -81,22 +72,21 @@ public class EntityFlyingTorch extends EntityBat {
 
 	@Override
 	public boolean getCanSpawnHere() {
+		if(!this.world.isAirBlock(new BlockPos(this.posX, this.posY, this.posZ))) {
+			return false;
+		}
+		this.spawnPosition = new BlockPos(this.posX, this.posY, this.posZ);
+//		System.out.println("getCanSpawnHere : spawn pos" + this.posX +  " y" + this.posY  + " z" + this.posZ);
 //		System.out.println("getCanSpawnHere");
 		return true;
 
 	}
 
-	/**
-	 * (abstract) Protected helper method to read subclass entity data from NBT.
-	 */
 	@Override
 	public void readEntityFromNBT(NBTTagCompound compound) {
 		super.readEntityFromNBT(compound);
 	}
 
-	/**
-	 * (abstract) Protected helper method to write subclass entity data to NBT.
-	 */
 	@Override
 	public void writeEntityToNBT(NBTTagCompound compound) {
 		super.writeEntityToNBT(compound);

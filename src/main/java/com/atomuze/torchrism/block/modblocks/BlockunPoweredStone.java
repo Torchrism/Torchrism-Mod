@@ -22,10 +22,9 @@ public class BlockunPoweredStone extends BlockBase {
 	public BlockunPoweredStone(String name) {
 		super(Material.ROCK, name);
 
-		setHardness(1.5F);
-		setResistance(10.0F);
-		setHarvestLevel("pickaxe", 2);
-		setLightLevel(15f);
+		setHardness(2f);
+		setResistance(4f);
+		setHarvestLevel("pickaxe", 1);
 
 	}
 
