@@ -23,6 +23,7 @@ import com.atomuze.torchrism.block.torch_dice.BlockTorchDice;
 import com.atomuze.torchrism.block.torch_placer.BlockTorchPlacer;
 import com.atomuze.torchrism.block.torchs.BlockCompactedTorch;
 import com.atomuze.torchrism.block.torchs.BlockDoubleCompactedTorch;
+import com.atomuze.torchrism.block.torchs.BlockWaterTorch;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -38,6 +39,7 @@ public class ModBlocks {
 	public static final BlockTorchPlacer torchPlacer = new BlockTorchPlacer("torch_placer").setCreativeTab(Torchrism.creativeTab);
 	public static final BlockCompactedTorch compactedTorch = new BlockCompactedTorch("compacted_torch").setCreativeTab(Torchrism.creativeTab);
 	public static final BlockDoubleCompactedTorch doublecompactedTorch = new BlockDoubleCompactedTorch("double_compacted_torch").setCreativeTab(Torchrism.creativeTab);
+	public static final BlockWaterTorch waterTorch = new BlockWaterTorch("water_torch");
 	public static final BlockTorchDice torchDice = new BlockTorchDice("torch_dice").setCreativeTab(Torchrism.creativeTab);
 	public static final BlockTorchCorrector torchCorrecter = new BlockTorchCorrector("torch_correcter").setCreativeTab(Torchrism.creativeTab);
 	
@@ -69,6 +71,7 @@ public class ModBlocks {
 				torchPlacer,
 				compactedTorch,
 				doublecompactedTorch,
+				waterTorch,
 				torchDice,
 				greatWallBuilder,
 				torchCorrecter,
@@ -109,6 +112,7 @@ public class ModBlocks {
 				torchPlacer.createItemBlock(),
 				compactedTorch.createItemBlock(),
 				doublecompactedTorch.createItemBlock(),
+				waterTorch.createItemBlock(),
 				torchDice.createItemBlock(),
 				greatWallBuilder.createItemBlock(),
 				torchCorrecter.createItemBlock(),
@@ -133,6 +137,7 @@ public class ModBlocks {
 		torchPlacer.registerItemModel(Item.getItemFromBlock(torchPlacer));
 		compactedTorch.registerItemModel(Item.getItemFromBlock(compactedTorch));
 		doublecompactedTorch.registerItemModel(Item.getItemFromBlock(doublecompactedTorch));
+		waterTorch.registerItemModel(Item.getItemFromBlock(waterTorch));
 		torchDice.registerItemModel(Item.getItemFromBlock(torchDice));
 		greatWallBuilder.registerItemModel(Item.getItemFromBlock(greatWallBuilder));
 		torchCorrecter.registerItemModel(Item.getItemFromBlock(torchCorrecter));

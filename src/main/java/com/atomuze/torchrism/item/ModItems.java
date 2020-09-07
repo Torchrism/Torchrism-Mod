@@ -1,6 +1,7 @@
 package com.atomuze.torchrism.item;
 
 import com.atomuze.torchrism.Torchrism;
+import com.atomuze.torchrism.block.ModBlocks;
 import com.atomuze.torchrism.item.staff.ItemStaff;
 import com.atomuze.torchrism.item.torchonomicon.ItemTorchonomicon;
 
@@ -12,8 +13,8 @@ import net.minecraftforge.registries.IForgeRegistry;
 public class ModItems {
 	
 	public static final ItemStaff torchStaff = (ItemStaff) new ItemStaff(Torchrism.testMaterial, "torch_staff");
-	public static final ItemTorchonomicon torchonomicon = (ItemTorchonomicon) new ItemTorchonomicon("torchonomicon");	
-	
+	public static final ItemTorchonomicon torchonomicon = (ItemTorchonomicon) new ItemTorchonomicon("torchonomicon");
+
 	public static void register(IForgeRegistry<Item> registry) {
 		registry.registerAll(
 				torchStaff,

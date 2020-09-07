@@ -1,10 +1,12 @@
 package com.atomuze.torchrism.block.altar;
 
 import java.util.List;
+import java.util.Random;
 
 import javax.annotation.Nullable;
 
 import com.atomuze.torchrism.ModConfig;
+import com.atomuze.torchrism.block.ModBlocks;
 import com.atomuze.torchrism.particle.ModEnumParticleTypes;
 import com.atomuze.torchrism.particle.ParticleSpawner;
 import com.google.common.collect.Lists;
@@ -26,6 +28,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.storage.AnvilChunkLoader;
 
 public abstract class ModMobSpawnerBaseLogic extends MobSpawnerBaseLogic {
+	Random random = new Random();
 	/** The delay to spawn. */
 	private int spawnDelay = 100;
 	/** List of potential entities to spawn */
@@ -40,11 +43,12 @@ public abstract class ModMobSpawnerBaseLogic extends MobSpawnerBaseLogic {
 	private int spawnCount = 1;
 	/** Cached instance of the entity to render inside the spawner. */
 	private Entity cachedEntity;
-	private int maxNearbyEntities = 3;
+	private int maxNearbyEntities = 1;
 	/** The distance from which a player activates the spawner. */
 	private int activatingRangeFromPlayer = 6;
 	/** The range coefficient for spawning entities around. */
 	private int spawnRange = 1;
+	BlockPos pos = this.getSpawnerPosition();
 
 	@Nullable
 	private ResourceLocation getEntityId() {
@@ -72,35 +76,124 @@ public abstract class ModMobSpawnerBaseLogic extends MobSpawnerBaseLogic {
 			this.prevMobRotation = this.mobRotation;
 		} else {
 			BlockPos blockpos = this.getSpawnerPosition();
-
 			if (this.getSpawnerWorld().isRemote) {
-				double d3 = (double) ((float) blockpos.getX() + 2 + this.getSpawnerWorld().rand.nextFloat());
-				double d4 = (double) ((float) blockpos.getY() + this.getSpawnerWorld().rand.nextFloat());
-				double d5 = (double) ((float) blockpos.getZ() + 2 + this.getSpawnerWorld().rand.nextFloat());
-			//	this.getSpawnerWorld().spawnParticle(ModEnumParticleTypes.ALTARPARTICLE, d3, d4, d5, 0.0D, 0.0D, 0.0D);
-				ParticleSpawner.spawnParticle(ModEnumParticleTypes.ALTARPARTICLE, d3, d4, d5, 0.0D, 0.0D, 0.0D);
 
-				d3 = (double) ((float) blockpos.getX() + 2 + this.getSpawnerWorld().rand.nextFloat());
-				d4 = (double) ((float) blockpos.getY() + this.getSpawnerWorld().rand.nextFloat());
-				d5 = (double) ((float) blockpos.getZ() - 2 + this.getSpawnerWorld().rand.nextFloat());
-				ParticleSpawner.spawnParticle(ModEnumParticleTypes.ALTARPARTICLE, d3, d4, d5, 0.0D, 0.0D, 0.0D);
+				if (this.getSpawnerWorld().getWorldTime() % 10 == 0) {
 
-				d3 = (double) ((float) blockpos.getX() - 2 + this.getSpawnerWorld().rand.nextFloat());
-				d4 = (double) ((float) blockpos.getY() + this.getSpawnerWorld().rand.nextFloat());
-				d5 = (double) ((float) blockpos.getZ() - 2 + this.getSpawnerWorld().rand.nextFloat());
-				ParticleSpawner.spawnParticle(ModEnumParticleTypes.ALTARPARTICLE, d3, d4, d5, 0.0D, 0.0D, 0.0D);
+					int ran = random.nextInt(24);
+					
+					
+					switch (ran) {
+					case 1:
+						pos = new BlockPos(blockpos.getX() + 4, blockpos.getY() - 4, blockpos.getZ());
+						break;
+					case 2:
+						pos = new BlockPos(blockpos.getX(), blockpos.getY() - 4, blockpos.getZ() + 4);
+						break;
+					case 3:
+						pos = new BlockPos(blockpos.getX() - 4, blockpos.getY() - 4, blockpos.getZ());
+						break;
+					case 4:
+						pos = new BlockPos(blockpos.getX(), blockpos.getY() - 4, blockpos.getZ() - 4);
+						break;
+					case 5:
+						pos = new BlockPos(blockpos.getX() + 4, blockpos.getY() - 4, blockpos.getZ() + 3);
+						break;
+					case 6:
+						pos = new BlockPos(blockpos.getX() + 4, blockpos.getY() - 4, blockpos.getZ() - 3);
+						break;
+					case 7:
+						pos = new BlockPos(blockpos.getX() - 4, blockpos.getY() - 4, blockpos.getZ() + 3);
+						break;
+					case 8:
+						pos = new BlockPos(blockpos.getX() - 4, blockpos.getY() - 4, blockpos.getZ() - 3);
+						break;
+					case 9:
+						pos = new BlockPos(blockpos.getX() + 3, blockpos.getY() - 4, blockpos.getZ() + 4);
+						break;
+					case 30:
+						pos = new BlockPos(blockpos.getX() + 3, blockpos.getY() - 4, blockpos.getZ() - 4);
+						break;
+					case 31:
+						pos = new BlockPos(blockpos.getX() - 3, blockpos.getY() - 4, blockpos.getZ() + 4);
+						break;
+					case 32:
+						pos = new BlockPos(blockpos.getX() - 3, blockpos.getY() - 4, blockpos.getZ() - 4);
+						break;
+					case 33:
+						pos = new BlockPos(blockpos.getX() + 2, blockpos.getY() - 4, blockpos.getZ());
+						break;
+					case 14:
+						pos = new BlockPos(blockpos.getX(), blockpos.getY() - 4, blockpos.getZ() + 2);
+						break;
+					case 15:
+						pos = new BlockPos(blockpos.getX() - 2, blockpos.getY() - 4, blockpos.getZ());
+						break;
+					case 16:
+						pos = new BlockPos(blockpos.getX(), blockpos.getY() - 4, blockpos.getZ() - 2);
+						break;
+					case 17:
+						pos = new BlockPos(blockpos.getX() + 2, blockpos.getY() - 4, blockpos.getZ() + 1);
+						break;
+					case 18:
+						pos = new BlockPos(blockpos.getX() + 2, blockpos.getY() - 4, blockpos.getZ() - 1);
+						break;
+					case 19:
+						pos = new BlockPos(blockpos.getX() - 2, blockpos.getY() - 4, blockpos.getZ() + 1);
+						break;
+					case 20:
+						pos = new BlockPos(blockpos.getX() - 2, blockpos.getY() - 4, blockpos.getZ() - 1);
+						break;
+					case 21:
+						pos = new BlockPos(blockpos.getX() + 1, blockpos.getY() - 4, blockpos.getZ() + 2);
+						break;
+					case 22:
+						pos = new BlockPos(blockpos.getX() + 1, blockpos.getY() - 4, blockpos.getZ() - 2);
+						break;
+					case 23:
+						pos = new BlockPos(blockpos.getX() - 1, blockpos.getY() - 4, blockpos.getZ() + 2);
+						break;
+					case 24:
+						pos = new BlockPos(blockpos.getX() - 1, blockpos.getY() - 4, blockpos.getZ() - 2);
+						break;
+					default:
 
-				d3 = (double) ((float) blockpos.getX() - 2 + this.getSpawnerWorld().rand.nextFloat());
+					}
+				}
+
+				double d1 = (double) ((float) pos.getX() + this.getSpawnerWorld().rand.nextFloat());
+				double d4 = (double) ((float) pos.getY() + this.getSpawnerWorld().rand.nextFloat());
+				double d5 = (double) ((float) pos.getZ() + this.getSpawnerWorld().rand.nextFloat());
+				ParticleSpawner.spawnParticle(ModEnumParticleTypes.ALTARPARTICLE, d1, d4, d5, 0.0D, 0.0D, 0.0D);
+
+				d1 = (double) ((float) blockpos.getX() + 2 + this.getSpawnerWorld().rand.nextFloat());
 				d4 = (double) ((float) blockpos.getY() + this.getSpawnerWorld().rand.nextFloat());
 				d5 = (double) ((float) blockpos.getZ() + 2 + this.getSpawnerWorld().rand.nextFloat());
-				ParticleSpawner.spawnParticle(ModEnumParticleTypes.ALTARPARTICLE, d3, d4, d5, 0.0D, 0.0D, 0.0D);
+				// this.getSpawnerWorld().spawnParticle(ModEnumParticleTypes.ALTARPARTICLE, d1,
+				// d4, d5, 0.0D, 0.0D, 0.0D);
+				ParticleSpawner.spawnParticle(ModEnumParticleTypes.ALTARPARTICLE, d1, d4, d5, 0.0D, 0.0D, 0.0D);
+
+				d1 = (double) ((float) blockpos.getX() + 2 + this.getSpawnerWorld().rand.nextFloat());
+				d4 = (double) ((float) blockpos.getY() + this.getSpawnerWorld().rand.nextFloat());
+				d5 = (double) ((float) blockpos.getZ() - 2 + this.getSpawnerWorld().rand.nextFloat());
+				ParticleSpawner.spawnParticle(ModEnumParticleTypes.ALTARPARTICLE, d1, d4, d5, 0.0D, 0.0D, 0.0D);
+
+				d1 = (double) ((float) blockpos.getX() - 2 + this.getSpawnerWorld().rand.nextFloat());
+				d4 = (double) ((float) blockpos.getY() + this.getSpawnerWorld().rand.nextFloat());
+				d5 = (double) ((float) blockpos.getZ() - 2 + this.getSpawnerWorld().rand.nextFloat());
+				ParticleSpawner.spawnParticle(ModEnumParticleTypes.ALTARPARTICLE, d1, d4, d5, 0.0D, 0.0D, 0.0D);
+
+				d1 = (double) ((float) blockpos.getX() - 2 + this.getSpawnerWorld().rand.nextFloat());
+				d4 = (double) ((float) blockpos.getY() + this.getSpawnerWorld().rand.nextFloat());
+				d5 = (double) ((float) blockpos.getZ() + 2 + this.getSpawnerWorld().rand.nextFloat());
+				ParticleSpawner.spawnParticle(ModEnumParticleTypes.ALTARPARTICLE, d1, d4, d5, 0.0D, 0.0D, 0.0D);
 
 				if (this.spawnDelay > 0) {
 					--this.spawnDelay;
 				}
 
 				this.prevMobRotation = this.mobRotation;
-				this.mobRotation = (this.mobRotation + (double) (1000.0F / ((float) this.spawnDelay + 200.0F))) % 360.0D;
+				this.mobRotation = (this.mobRotation + (double) (1000.0F / ((float) this.spawnDelay + 200.0F))) % 160.0D;
 			} else {
 				if (this.spawnDelay == -1) {
 					this.resetTimer();
@@ -119,8 +212,8 @@ public abstract class ModMobSpawnerBaseLogic extends MobSpawnerBaseLogic {
 					World world = this.getSpawnerWorld();
 					int j = nbttaglist.tagCount();
 					double d0 = j >= 1 ? nbttaglist.getDoubleAt(0) : (double) blockpos.getX() + (world.rand.nextDouble() - world.rand.nextDouble()) * (double) this.spawnRange + 0.5D;
-					double d1 = j >= 2 ? nbttaglist.getDoubleAt(1) : (double) (blockpos.getY() + world.rand.nextInt(3) - 1);
-					double d2 = j >= 3 ? nbttaglist.getDoubleAt(2) : (double) blockpos.getZ() + (world.rand.nextDouble() - world.rand.nextDouble()) * (double) this.spawnRange + 0.5D;
+					double d1 = j >= 2 ? nbttaglist.getDoubleAt(1) : (double) (blockpos.getY() + world.rand.nextInt(1) - 1);
+					double d2 = j >= 1 ? nbttaglist.getDoubleAt(2) : (double) blockpos.getZ() + (world.rand.nextDouble() - world.rand.nextDouble()) * (double) this.spawnRange + 0.5D;
 					Entity entity = AnvilChunkLoader.readWorldEntityPos(nbttagcompound, world, d0, d1, d2, false);
 
 					if (entity == null) {
@@ -135,9 +228,8 @@ public abstract class ModMobSpawnerBaseLogic extends MobSpawnerBaseLogic {
 					}
 
 					EntityLiving entityliving = entity instanceof EntityLiving ? (EntityLiving) entity : null;
-					entity.setLocationAndAngles(entity.posX, entity.posY, entity.posZ, world.rand.nextFloat() * 360.0F, 0.0F);
-					
-					
+					entity.setLocationAndAngles(entity.posX, entity.posY, entity.posZ, world.rand.nextFloat() * 160.0F, 0.0F);
+
 					if (entityliving == null || net.minecraftforge.event.ForgeEventFactory.canEntitySpawnSpawner(entityliving, getSpawnerWorld(), (float) entity.posX, (float) entity.posY, (float) entity.posZ, this) && ModConfig.altarSpawnEntity) {
 						if (this.spawnData.getNbt().getSize() == 1 && this.spawnData.getNbt().hasKey("id", 8) && entity instanceof EntityLiving) {
 							if (!net.minecraftforge.event.ForgeEventFactory.doSpecialSpawn(entityliving, this.getSpawnerWorld(), (float) entity.posX, (float) entity.posY, (float) entity.posZ, this))
