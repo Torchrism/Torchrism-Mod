@@ -4,7 +4,9 @@
     "pattern": [
         "CCC",
         "CQC",
-        "CCC"
+        "CCC",
+		"   ",
+        "   "
     ],
     "key": {
         "C": {

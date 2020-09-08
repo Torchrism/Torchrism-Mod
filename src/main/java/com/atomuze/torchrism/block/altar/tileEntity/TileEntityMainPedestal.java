@@ -80,10 +80,6 @@ public class TileEntityMainPedestal extends TileEntityPedestal implements ITicka
 
 	public void craftingEffect() {
 		extractItem(world, pos);
-		extractItem(world, pos.down().north().north().west().west().up().up());
-		extractItem(world, pos.down().north().north().east().east().up().up());
-		extractItem(world, pos.down().south().south().west().west().up().up());
-		extractItem(world, pos.down().south().south().east().east().up().up());
 		extractItem(world, pos.down().down().north().north().north().north().north().up());
 		extractItem(world, pos.down().down().west().west().west().west().west().up());
 		extractItem(world, pos.down().down().east().east().east().east().east().up());

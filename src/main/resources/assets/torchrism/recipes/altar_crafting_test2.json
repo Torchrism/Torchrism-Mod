@@ -2,9 +2,11 @@
     "type": "torchrism:altar_crafting",
 	"group": "test",
     "pattern": [
-        "CCC",
+        " C ",
         "CQC",
-        "CCC"
+        " C ",
+		"PCQ",
+        "   "
     ],
     "key": {
         "C": {
@@ -13,6 +15,10 @@
         },
         "Q": {
             "item": "minecraft:quartz_block",
+			"data": 0
+        },
+        "P": {
+            "item": "minecraft:diamond_pickaxe",
 			"data": 0
         }
     },

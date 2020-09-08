@@ -57,7 +57,7 @@ public class EntityFlyingTorch extends EntityBat {
 		double d2 = (double) this.spawnPosition.getZ() + 0.5D - this.posZ;
 
 		if(Math.sqrt(Math.pow(d0, 2) + Math.pow(d2, 2)) > 32) {
-			System.out.println("kill entity : spawn pos" + this.spawnPosition.getX() +  " y" + this.posY  +  "z" + this.spawnPosition.getZ());
+//			System.out.println("kill entity : spawn pos" + this.spawnPosition.getX() +  " y" + this.posY  +  "z" + this.spawnPosition.getZ());
 			this.onKillCommand();
 		}
 		

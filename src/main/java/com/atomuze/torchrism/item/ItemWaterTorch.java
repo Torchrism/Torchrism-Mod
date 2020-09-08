@@ -43,7 +43,7 @@ public class ItemWaterTorch extends ItemBlock {
 			IBlockState iblockstate = worldIn.getBlockState(blockpos);
 			Material material = iblockstate.getMaterial();
 
-			if (material == Material.WATER && ((Integer) iblockstate.getValue(BlockLiquid.LEVEL)).intValue() == 0) {
+			if (material == Material.WATER && ((Integer) iblockstate.getValue(BlockLiquid.LEVEL)).intValue() == 0 && worldIn.getBlockState(blockpos.up()).getBlock() == Blocks.AIR) {
 				worldIn.setBlockState(blockpos.up(), ModBlocks.waterTorch.getDefaultState(), 11);
 				playerIn.addStat(StatList.getObjectUseStats(this));
 				playerIn.playSound(SoundEvents.BLOCK_STONE_PLACE, 1.0F, 1.0F);

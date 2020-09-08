@@ -14,6 +14,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
 
+import net.minecraft.init.Blocks;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
@@ -34,7 +35,7 @@ public class AltarRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IR
 	protected ItemStack recipeOutput = ItemStack.EMPTY;
 	protected NonNullList<Ingredient> RecipeInput = null;
 	protected final int width = 3;
-	protected final int height = 3;
+	protected final int height = 5;
 	protected ResourceLocation group;
 	public BlockPos pos;
 	public World world;
@@ -63,10 +64,11 @@ public class AltarRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IR
 	@Override
 	public boolean matches(InventoryCrafting inv, World worldIn) {
 //		System.out.println("matches*--------------------------------------------------" + inv.getHeight());
-		if(inv.getHeight() != 0) return false;
+		if (inv.getHeight() != 0)
+			return false;
 		pos = BlockAltarMainPedestal.pos;
 		world = BlockAltarMainPedestal.world;
-		for (int x = 0; x < 9; x++) {
+		for (int x = 0; x < 15; x++) {
 			if (!checkMatch(x))
 				return false;
 		}
@@ -76,6 +78,7 @@ public class AltarRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IR
 	private boolean checkMatch(int slot) {
 		Ingredient target = Ingredient.EMPTY;
 		target = RecipeInput.get(slot);
+		Boolean catalyst = false;
 		switch (slot) {
 		case 0:
 			if (!target.apply(getAltarItems(world, pos.north().north().north().north().west().west().west().west())))
@@ -113,6 +116,44 @@ public class AltarRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IR
 			if (!target.apply(getAltarItems(world, pos.south().south().south().south().east().east().east().east())))
 				return false;
 			break;
+		case 9:
+			if (target.apply(new ItemStack(Blocks.AIR))) 
+				break;
+			if (!(target.apply(getAltarItems(world, pos.north().north().east().east().up())) || target.apply(getAltarItems(world, pos.north().north().west().west().up())) || target.apply(getAltarItems(world, pos.south().south().west().west().up())) || target.apply(getAltarItems(world, pos.south().south().east().east().up())))) {
+				return false;
+			}
+			break;
+		case 10:
+			if (target.apply(new ItemStack(Blocks.AIR))) 
+				break;
+			if (!(target.apply(getAltarItems(world, pos.north().north().east().east().up())) || target.apply(getAltarItems(world, pos.north().north().west().west().up())) || target.apply(getAltarItems(world, pos.south().south().west().west().up())) || target.apply(getAltarItems(world, pos.south().south().east().east().up())))) {
+				return false;
+			}
+			break;
+		case 11:
+			if (target.apply(new ItemStack(Blocks.AIR))) 
+				break;
+			if (!(target.apply(getAltarItems(world, pos.north().north().east().east().up())) || target.apply(getAltarItems(world, pos.north().north().west().west().up())) || target.apply(getAltarItems(world, pos.south().south().west().west().up())) || target.apply(getAltarItems(world, pos.south().south().east().east().up())))) {
+				return false;
+			}
+			break;
+		case 12:
+			if (target.apply(new ItemStack(Blocks.AIR))) 
+				break;
+			if (!(target.apply(getAltarItems(world, pos.north().north().east().east().up())) || target.apply(getAltarItems(world, pos.north().north().west().west().up())) || target.apply(getAltarItems(world, pos.south().south().west().west().up())) || target.apply(getAltarItems(world, pos.south().south().east().east().up())))) {
+				return false;
+			}
+			break;
+		case 13:
+			if (!target.apply(new ItemStack(Blocks.AIR))) {
+				System.out.println("Torchrism Recipe Error:this slot must be air");
+				return false;
+			}
+		case 14:
+			if (!target.apply(new ItemStack(Blocks.AIR))) {
+				System.out.println("Torchrism Recipe Error:this slot must be air");
+				return false;
+			}
 		}
 		return true;
 

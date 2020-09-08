@@ -90,7 +90,6 @@ public class BlockWaterTorch extends Block {
 	private boolean canPlaceOn(World worldIn, BlockPos pos) {
 		IBlockState state = worldIn.getBlockState(pos);
 		if (state.getBlock() == Blocks.WATER) {
-			System.out.println("canPlaceOn water");
 			return true;
 		}
 		return state.getBlock().canPlaceTorchOnTop(state, worldIn, pos);
@@ -105,7 +104,7 @@ public class BlockWaterTorch extends Block {
 		return false;
 	}
 
-	private boolean canPlaceAt(World worldIn, BlockPos pos, EnumFacing facing) {
+	 private boolean canPlaceAt(World worldIn, BlockPos pos, EnumFacing facing) {
 		BlockPos blockpos = pos.offset(facing.getOpposite());
 		IBlockState iblockstate = worldIn.getBlockState(blockpos);
 		Block block = iblockstate.getBlock();

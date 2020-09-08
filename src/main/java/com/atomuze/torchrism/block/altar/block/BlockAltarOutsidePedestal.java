@@ -45,7 +45,7 @@ public class BlockAltarOutsidePedestal extends BlockTileEntity<TileEntityOtherPe
 	
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
-		if (!world.isRemote) {
+		if (!world.isRemote && !BlockAltarMainPedestal.crafting) {
 			TileEntityOtherPedestal tile = getTileEntity(world, pos);
 			IItemHandler itemHandler = tile.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, side);
 			

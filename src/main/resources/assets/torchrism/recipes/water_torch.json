@@ -1,0 +1,12 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "torchrism:water_torch"
+		}
+	],
+	"result": {
+		"item": "minecraft:torch",
+		"count": 1
+	}
+}

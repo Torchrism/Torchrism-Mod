@@ -11,6 +11,7 @@ tile.torchrism.altar_piller_base.name=祭壇底部
 
 tile.torchrism.compacted_torch.name=壓縮火把
 tile.torchrism.double_compacted_torch.name=雙重壓縮火把
+tile.torchrism.water_torch.name=防水火把
 
 tile.torchrism.wall.name=城牆
 tile.torchrism.illuminate_block.name=伊魯禰奈忒方塊

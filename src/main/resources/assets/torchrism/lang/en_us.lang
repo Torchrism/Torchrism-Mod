@@ -11,6 +11,7 @@ tile.torchrism.altar_piller_base.name=Altar Base
 
 tile.torchrism.compacted_torch.name=Compacted Torch
 tile.torchrism.double_compacted_torch.name=Double Compacted Torch
+tile.torchrism.water_torch.name=Water Prevent Torch
 
 tile.torchrism.wall.name=Wall
 tile.torchrism.illuminate_block.name=Illuminate Block
