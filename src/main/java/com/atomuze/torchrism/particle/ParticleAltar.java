@@ -32,9 +32,13 @@ public class ParticleAltar extends Particle {
 		if (par8 == 0.0F) {
 			par8 = 1.0F;
 		}
-		this.particleGreen = 1.0F;
-		this.particleRed = 1.0F;
-		this.particleBlue = 1.0F;
+		
+		float fa = ran.nextFloat();
+		
+		this.particleRed = 0.89F + fa/10f;
+		this.particleGreen = 0.90F + fa/10f;
+		this.particleBlue = 0.76F;
+		
 		this.particleScale *= scale;
 		this.setParticleTextureIndex(225 + ran.nextInt(15));
 		

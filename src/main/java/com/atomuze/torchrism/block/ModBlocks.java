@@ -21,9 +21,9 @@ import com.atomuze.torchrism.block.torch_castle.BlockGreatWallBuilder;
 import com.atomuze.torchrism.block.torch_correcter.BlockTorchCorrector;
 import com.atomuze.torchrism.block.torch_dice.BlockTorchDice;
 import com.atomuze.torchrism.block.torch_placer.BlockTorchPlacer;
-import com.atomuze.torchrism.block.torchs.BlockCompactedTorch;
-import com.atomuze.torchrism.block.torchs.BlockDoubleCompactedTorch;
-import com.atomuze.torchrism.block.torchs.BlockWaterTorch;
+import com.atomuze.torchrism.block.torches.BlockCompactedTorch;
+import com.atomuze.torchrism.block.torches.BlockDoubleCompactedTorch;
+import com.atomuze.torchrism.block.torches.BlockWaterTorch;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -112,7 +112,6 @@ public class ModBlocks {
 				torchPlacer.createItemBlock(),
 				compactedTorch.createItemBlock(),
 				doublecompactedTorch.createItemBlock(),
-				waterTorch.createItemBlock(),
 				torchDice.createItemBlock(),
 				greatWallBuilder.createItemBlock(),
 				torchCorrecter.createItemBlock(),
@@ -137,7 +136,6 @@ public class ModBlocks {
 		torchPlacer.registerItemModel(Item.getItemFromBlock(torchPlacer));
 		compactedTorch.registerItemModel(Item.getItemFromBlock(compactedTorch));
 		doublecompactedTorch.registerItemModel(Item.getItemFromBlock(doublecompactedTorch));
-		waterTorch.registerItemModel(Item.getItemFromBlock(waterTorch));
 		torchDice.registerItemModel(Item.getItemFromBlock(torchDice));
 		greatWallBuilder.registerItemModel(Item.getItemFromBlock(greatWallBuilder));
 		torchCorrecter.registerItemModel(Item.getItemFromBlock(torchCorrecter));

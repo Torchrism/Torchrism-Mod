@@ -79,6 +79,7 @@ public class AltarRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IR
 		Ingredient target = Ingredient.EMPTY;
 		target = RecipeInput.get(slot);
 		Boolean catalyst = false;
+		System.out.println("f" + slot);
 		switch (slot) {
 		case 0:
 			if (!target.apply(getAltarItems(world, pos.north().north().north().north().west().west().west().west())))

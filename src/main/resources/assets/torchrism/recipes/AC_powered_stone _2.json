@@ -1,0 +1,27 @@
+{
+    "type": "torchrism:altar_crafting",
+    "pattern": [
+        "PPP",
+        "PTP",
+        "PPP",
+		"D  ",
+        "   "
+    ],
+    "key": {
+        "P": {
+            "item": "minecraft:stone",
+			"data": 0
+        },
+        "T": {
+            "item": "minecraft:torch"
+        },
+        "D": {
+            "item": "torchrism:double_compacted_torch"
+        }
+    },
+    "result": {
+		"item": "torchrism:powered_stone",
+		"data": 0,
+		"count": 64
+	}
+}

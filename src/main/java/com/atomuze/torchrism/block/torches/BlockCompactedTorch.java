@@ -1,4 +1,4 @@
-package com.atomuze.torchrism.block.torchs;
+package com.atomuze.torchrism.block.torches;
 
 import com.atomuze.torchrism.block.BlockBase;
 

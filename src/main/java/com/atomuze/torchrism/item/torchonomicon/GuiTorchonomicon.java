@@ -32,9 +32,10 @@ public class GuiTorchonomicon extends GuiScreen {
 
 	private int PagesMenu = 1;
 	private int totalPages = 1;
-	private int bookWidth = 175;
-	private int bookHeight = 209;
-	
+//	private int bookWidth = 175;
+//	private int bookHeight = 209;
+	private int bookWidth = 146;
+	private int bookHeight = 180;
 
 	protected String modid = Torchrism.MODID;
 

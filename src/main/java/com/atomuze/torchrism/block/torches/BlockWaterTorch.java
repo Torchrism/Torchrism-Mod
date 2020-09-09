@@ -1,11 +1,11 @@
-package com.atomuze.torchrism.block.torchs;
+package com.atomuze.torchrism.block.torches;
 
 import java.util.Random;
 
 import javax.annotation.Nullable;
 
 import com.atomuze.torchrism.Torchrism;
-import com.atomuze.torchrism.item.ItemWaterTorch;
+import com.atomuze.torchrism.block.ModBlocks;
 import com.google.common.base.Predicate;
 
 import net.minecraft.block.Block;
@@ -16,15 +16,20 @@ import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.Mirror;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -47,10 +52,9 @@ public class BlockWaterTorch extends Block {
 	public BlockWaterTorch(String name) {
 		super(Material.WOOD);
 
-		setHardness(1f);
-		setResistance(5f);
+		setHardness(0f);
+		setResistance(0f);
 		setLightLevel(1f);
-		setCreativeTab(Torchrism.creativeTab);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.UP));
 		this.setTickRandomly(true);
 
@@ -104,7 +108,7 @@ public class BlockWaterTorch extends Block {
 		return false;
 	}
 
-	 private boolean canPlaceAt(World worldIn, BlockPos pos, EnumFacing facing) {
+	private boolean canPlaceAt(World worldIn, BlockPos pos, EnumFacing facing) {
 		BlockPos blockpos = pos.offset(facing.getOpposite());
 		IBlockState iblockstate = worldIn.getBlockState(blockpos);
 		Block block = iblockstate.getBlock();
@@ -172,7 +176,7 @@ public class BlockWaterTorch extends Block {
 			return true;
 		} else {
 			if (worldIn.getBlockState(pos).getBlock() == this) {
-				this.dropBlockAsItem(worldIn, pos, state, 0);
+				this.dropBlockAsItem(worldIn, pos, Blocks.TORCH.getDefaultState(), 0);
 				worldIn.setBlockToAir(pos);
 			}
 
@@ -269,11 +273,12 @@ public class BlockWaterTorch extends Block {
 		return BlockFaceShape.UNDEFINED;
 	}
 
-	public void registerItemModel(Item itemBlock) {
-		Torchrism.proxy.registerItemRenderer(itemBlock, 0, name);
+	public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
+		drops.add(new ItemStack(Blocks.TORCH, 1));
 	}
-
-	public Item createItemBlock() {
-		return new ItemWaterTorch(this).setRegistryName(getRegistryName());
+	
+	@Override
+	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
+		return new ItemStack(Blocks.TORCH);
 	}
 }

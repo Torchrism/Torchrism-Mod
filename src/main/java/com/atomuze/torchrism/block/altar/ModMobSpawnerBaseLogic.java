@@ -161,9 +161,9 @@ public abstract class ModMobSpawnerBaseLogic extends MobSpawnerBaseLogic {
 					}
 				}
 
-				double d1 = (double) ((float) pos.getX() + this.getSpawnerWorld().rand.nextFloat());
-				double d4 = (double) ((float) pos.getY() + this.getSpawnerWorld().rand.nextFloat());
-				double d5 = (double) ((float) pos.getZ() + this.getSpawnerWorld().rand.nextFloat());
+				double d1 = (double) ((float) pos.getX() + this.getSpawnerWorld().rand.nextFloat()*2f);
+				double d4 = (double) ((float) pos.getY() + this.getSpawnerWorld().rand.nextFloat()*2f);
+				double d5 = (double) ((float) pos.getZ() + this.getSpawnerWorld().rand.nextFloat()*2f);
 				ParticleSpawner.spawnParticle(ModEnumParticleTypes.ALTARPARTICLE, d1, d4, d5, 0.0D, 0.0D, 0.0D);
 
 				d1 = (double) ((float) blockpos.getX() + 2 + this.getSpawnerWorld().rand.nextFloat());
