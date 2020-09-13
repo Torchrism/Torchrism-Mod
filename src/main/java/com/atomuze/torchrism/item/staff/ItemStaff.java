@@ -60,7 +60,6 @@ public class ItemStaff extends net.minecraft.item.ItemTool {
 		if (raytraceresult == null) {
 			return new ActionResult<ItemStack>(EnumActionResult.PASS, itemstack);
 		} else if (raytraceresult.typeOfHit != RayTraceResult.Type.BLOCK) {
-			System.out.println("BLOCK");
 			return new ActionResult<ItemStack>(EnumActionResult.PASS, itemstack);
 		} else if (raytraceresult.typeOfHit != RayTraceResult.Type.ENTITY) {
 
@@ -71,7 +70,7 @@ public class ItemStaff extends net.minecraft.item.ItemTool {
 			if (material == Material.WATER && ((Integer) iblockstate.getValue(BlockLiquid.LEVEL)).intValue() == 0 && worldIn.getBlockState(blockpos.up()).getBlock() == Blocks.AIR) {
 				worldIn.setBlockState(blockpos.up(), ModBlocks.waterTorch.getDefaultState(), 11);
 				playerIn.addStat(StatList.getObjectUseStats(this));
-				playerIn.playSound(SoundEvents.BLOCK_STONE_PLACE, 1.0F, 1.0F);
+				playerIn.playSound(SoundEvents.BLOCK_WOOD_PLACE, 1.0F, 1.0F);
 				if (!worldIn.isRemote) {
 					playerIn.getHeldItem(handIn).damageItem(-1, playerIn);
 				}
@@ -80,7 +79,6 @@ public class ItemStaff extends net.minecraft.item.ItemTool {
 				return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemstack);
 			}
 		} else {
-			System.out.println("false");
 			return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemstack);
 		}
 	}
@@ -136,6 +134,11 @@ public class ItemStaff extends net.minecraft.item.ItemTool {
 
 		} else if (worldIn.getBlockState(pos).isNormalCube() && player.getHeldItem(hand).getItemDamage() > 0) {
 			Material m;
+			
+			if (!worldIn.isRemote) {
+				player.getHeldItem(hand).damageItem(-1, player);
+			}
+			player.playSound(SoundEvents.BLOCK_WOOD_PLACE, 1.0F, 1.0F);
 			if (facing == EnumFacing.NORTH) {
 				m = worldIn.getBlockState(pos.north()).getMaterial();
 			} else if (facing == EnumFacing.SOUTH) {
@@ -174,9 +177,6 @@ public class ItemStaff extends net.minecraft.item.ItemTool {
 				return EnumActionResult.FAIL;
 			}
 
-			if (!worldIn.isRemote) {
-				player.getHeldItem(hand).damageItem(-1, player);
-			}
 			return EnumActionResult.SUCCESS;
 		} else {
 			if (player.getHeldItem(hand).getItemDamage() <= 0) {
