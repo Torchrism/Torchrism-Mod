@@ -1,5 +1,5 @@
 {
 	"recipes": {
-		"altar_crafting": "com.atomuze.torchrism.crafting.AltarCrafting$Factory"
+		"altar_crafting": "com.atomuze.torchrism.crafting.RecipeAltar$Factory"
     }
 }

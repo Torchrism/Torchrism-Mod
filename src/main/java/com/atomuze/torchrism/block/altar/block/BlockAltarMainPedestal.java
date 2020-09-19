@@ -15,7 +15,6 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -31,6 +30,7 @@ public class BlockAltarMainPedestal extends BlockTileEntity<TileEntityMainPedest
 
 	public static boolean crafting;
 	public static EntityItem craftingResult;
+	public static EntityPlayer player;
 	public static ItemStack stackResult;
 	public static World world;
 	public static BlockPos pos;
@@ -47,10 +47,15 @@ public class BlockAltarMainPedestal extends BlockTileEntity<TileEntityMainPedest
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
 		TileEntityMainPedestal tile = getTileEntity(world, pos);
+		this.world = world;
+		this.pos = pos;
+		this.player = player;
 		if (!world.isRemote && !crafting) {
 			if (player.getHeldItem(hand).getItem() == new ItemStack(ModItems.torchStaff).getItem()) {
-				CheckAltar check = new CheckAltar(world, pos, player);
-				if (check.checkingAltar(world, pos)) {
+				CheckAltar check = new CheckAltar(world, pos);
+				if (!check.checkingAltar(world, pos)) {
+					TileEntityMainPedestal.altarBuilder = 1;
+				} else {
 					craftingProgress(world, pos, player);
 				}
 				tile.markDirty();

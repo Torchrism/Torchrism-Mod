@@ -1,5 +1,8 @@
 package com.atomuze.torchrism;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.atomuze.torchrism.block.ModBlocks;
 import com.atomuze.torchrism.entity.ModEntity;
 import com.atomuze.torchrism.item.ModItems;
@@ -22,37 +25,33 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
 @Mod(modid = Torchrism.MODID, name = Torchrism.NAME, version = Torchrism.VERSION)
-public class Torchrism
-{
-    public static final String MODID = "torchrism";
-    public static final String NAME = "Torchrism";
-    public static final String VERSION = "1.2.1";
-    public static SimpleNetworkWrapper wrapper;
-    public static final Item.ToolMaterial testMaterial = EnumHelper.addToolMaterial("TORCH_STAFF", 0, 65535, 0, 0, 0);
+public class Torchrism {
+	public static final String MODID = "torchrism";
+	public static final String NAME = "Torchrism";
+	public static final String VERSION = "1.2.3";
+	public static SimpleNetworkWrapper wrapper;
+	public static final Item.ToolMaterial testMaterial = EnumHelper.addToolMaterial("TORCH_STAFF", 0, 65535, 0, 0, 0);
+	private static final Logger LOGGER = LogManager.getLogger(NAME);
 
-    @Mod.Instance(MODID)
+	@Mod.Instance(MODID)
 	public static Torchrism instance;
-    
-    @SidedProxy(clientSide = "com.atomuze.torchrism.proxy.ClientProxy",serverSide = "com.atomuze.torchrism.proxy.CommonProxy")
-    public static CommonProxy proxy;
 
-    public static final TorchrismTab creativeTab = new TorchrismTab();
+	@SidedProxy(clientSide = "com.atomuze.torchrism.proxy.ClientProxy", serverSide = "com.atomuze.torchrism.proxy.CommonProxy")
+	public static CommonProxy proxy;
 
-    
+	public static final TorchrismTab creativeTab = new TorchrismTab();
+
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 
-		System.out.println(NAME + " is loading!");
-		System.out.println();
-		
+		LOGGER.info(NAME + " is loading!");
 		ModEntity.registerEntities();
-		
+
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new ModGuiHandler());
 		ModNetworks.networkRegister();
 		proxy.registerRenderers();
 		proxy.preInit(event);
-		
-		
+
 	}
 
 	@Mod.EventHandler
@@ -64,29 +63,26 @@ public class Torchrism
 	public void postInit(FMLPostInitializationEvent event) {
 
 	}
-	
-	
+
 	@Mod.EventBusSubscriber
 	public static class RegistrationHandler {
-		
+
 		@SubscribeEvent
 		public static void registerItems(RegistryEvent.Register<Item> event) {
 			ModItems.register(event.getRegistry());
 			ModBlocks.registerItemBlocks(event.getRegistry());
 		}
-		
+
 		@SubscribeEvent
 		public static void registerModels(ModelRegistryEvent event) {
 			ModItems.registerModels();
 			ModBlocks.registerModels();
 		}
-		
+
 		@SubscribeEvent
 		public static void registerBlocks(RegistryEvent.Register<Block> event) {
 			ModBlocks.register(event.getRegistry());
 		}
 	}
-	
-	 
-	
+
 }

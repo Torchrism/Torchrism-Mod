@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.atomuze.torchrism.Torchrism;
 import com.atomuze.torchrism.block.ModBlocks;
+import com.atomuze.torchrism.block.altar.AltarBuilder;
 import com.atomuze.torchrism.block.altar.CheckAltar;
 import com.atomuze.torchrism.block.altar.ModMobSpawnerBaseLogic;
 import com.atomuze.torchrism.block.altar.block.BlockAltarMainPedestal;
@@ -35,10 +36,22 @@ public class TileEntityMainPedestal extends TileEntityPedestal implements ITicka
 	private boolean altarT = true;
 	EntityFlyingTorch flyingTorch = new EntityFlyingTorch(world);
 	Random ran = new Random();
+	public static int altarBuilder = 0;
 
+	
 	@Override
 	public void update() {
 		if (this.pos.equals(BlockAltarMainPedestal.pos)) {
+			if(!world.isRemote) {
+				if(altarBuilder != 0) {
+					AltarBuilder.builder(world, pos, BlockAltarMainPedestal.player, altarBuilder);
+					altarBuilder++;
+					if(altarBuilder > 11) {
+						altarBuilder = 0;
+					}
+				}
+			}
+			
 			if (BlockAltarMainPedestal.crafting) {
 				if (!world.isRemote) {
 					ModNetworks.network.sendToAllAround(new AltarCraftingParticlePacket(BlockAltarMainPedestal.crafting), new NetworkRegistry.TargetPoint(world.provider.getDimension(), pos.getX(), pos.getY(), pos.getZ(), 64));
@@ -59,8 +72,6 @@ public class TileEntityMainPedestal extends TileEntityPedestal implements ITicka
 		} else {
 			initTime = world.getTotalWorldTime();
 		}
-
-//		System.out.println("BlockMainPedestal.crafting "+ BlockMainPedestal.crafting);
 
 		if (world.getWorldTime() % 24000 < 12000 && !altarT) {
 			BlockAltarMainPedestal.setState(true, world, pos);

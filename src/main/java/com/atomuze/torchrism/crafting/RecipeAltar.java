@@ -1,5 +1,7 @@
 package com.atomuze.torchrism.crafting;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -21,35 +23,52 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.JsonUtils;
 import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.common.crafting.CraftingHelper.ShapedPrimer;
+import net.minecraftforge.common.crafting.IRecipeFactory;
 import net.minecraftforge.common.crafting.JsonContext;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
-public class AltarRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IRecipe {
+public class RecipeAltar extends IForgeRegistryEntry.Impl<IRecipe> implements IRecipe {
 
 	@Nonnull
 	protected ItemStack recipeOutput = ItemStack.EMPTY;
-	protected NonNullList<Ingredient> RecipeInput = null;
+	public static NonNullList<Ingredient> RecipeInput;
+	public static final List<ItemStack> inputList = new ArrayList<>();
+	public static final List<ItemStack> resultList = new ArrayList<>();
 	protected final int width = 3;
 	protected final int height = 5;
-	protected ResourceLocation group;
 	public BlockPos pos;
 	public World world;
 
-	public AltarRecipe(ResourceLocation group, ItemStack result, ShapedPrimer primer) {
-//		System.out.println("AltarRecipe*--------------------------------------------------");
-		this.group = group;
+	public RecipeAltar(ItemStack result, ShapedPrimer primer) {
+//		System.out.println("AltarRecipe*--------------------------------------------------" + primer.input.get(1).getMatchingStacks().toString());
+//		System.out.println("AltarRecipe*--------------------------------------------------" + result.getUnlocalizedName());
 		this.recipeOutput = result.copy();
 		this.RecipeInput = primer.input;
+		int count = 0;
+		for (int i = 0; i < primer.input.size(); i++) {
+			System.out.println(primer.input.get(i).getMatchingStacks());
+			for (ItemStack itemstack : primer.input.get(i).getMatchingStacks()) {
+				inputList.add(itemstack);
+				count++;
+			}
+		}
+		
+		for (int j = 0; j < 13 - count; j++) {
+			inputList.add(new ItemStack(Blocks.AIR));
+		}
+		
+		count = 0;
+	//	System.out.println(result.getUnlocalizedName());
+		resultList.add(result);
+		
 	}
 
 	@Override
 	public ItemStack getCraftingResult(InventoryCrafting inv) {
-//		System.out.println("getCraftingResult*--------------------------------------------------");
 		BlockAltarMainPedestal.stackResult = this.getRecipeOutput().copy();
 		return this.getRecipeOutput().copy();
 	}
@@ -57,13 +76,11 @@ public class AltarRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IR
 	@Override
 	@Nonnull
 	public ItemStack getRecipeOutput() {
-//		System.out.println("getRecipeOutput*--------------------------------------------------");
 		return recipeOutput;
 	}
 
 	@Override
 	public boolean matches(InventoryCrafting inv, World worldIn) {
-//		System.out.println("matches*--------------------------------------------------" + inv.getHeight());
 		if (inv.getHeight() != 0)
 			return false;
 		pos = BlockAltarMainPedestal.pos;
@@ -78,8 +95,6 @@ public class AltarRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IR
 	private boolean checkMatch(int slot) {
 		Ingredient target = Ingredient.EMPTY;
 		target = RecipeInput.get(slot);
-		Boolean catalyst = false;
-		System.out.println("f" + slot);
 		switch (slot) {
 		case 0:
 			if (!target.apply(getAltarItems(world, pos.north().north().north().north().west().west().west().west())))
@@ -147,13 +162,12 @@ public class AltarRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IR
 			break;
 		case 13:
 			if (!target.apply(new ItemStack(Blocks.AIR))) {
-				System.out.println("Torchrism Recipe Error:this slot must be air");
-				return false;
+				throw new IllegalArgumentException("Invalid input");
 			}
+			break;
 		case 14:
 			if (!target.apply(new ItemStack(Blocks.AIR))) {
-				System.out.println("Torchrism Recipe Error:this slot must be air");
-				return false;
+				throw new IllegalArgumentException("Invalid input");
 			}
 		}
 		return true;
@@ -220,6 +234,16 @@ public class AltarRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IR
 			throw new JsonSyntaxException("Key defines symbols that aren't used in pattern: " + keys);
 
 		return primer;
+	}
+	
+	public static class Factory implements IRecipeFactory {
+		@Override
+		public IRecipe parse(JsonContext context, JsonObject json) {
+			String group = JsonUtils.getString(json, "group", "");
+			CraftingHelper.ShapedPrimer primer = RecipeAltar.parseShaped(context, json);
+			ItemStack result = CraftingHelper.getItemStack(JsonUtils.getJsonObject(json, "result"), context);
+			return new RecipeAltar(result, primer);
+		}
 	}
 
 }

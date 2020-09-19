@@ -1,6 +1,5 @@
 {
     "type": "torchrism:altar_crafting",
-	"group": "test1",
     "pattern": [
         "CCC",
         "CQC",

@@ -11,12 +11,16 @@ import com.atomuze.torchrism.sound.ModSound;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.ResourceLocation;
 
 public class GuiTorchonomicon extends GuiScreen {
 	private static final ResourceLocation PG = new ResourceLocation(Torchrism.MODID, "textures/gui/torchonomicon_bg.png");
+	public static ResourceLocation BookPicture = null;
 	private GuiButton exit, menu, nextPage, PreviousPage, overview, utilities, altar, ch1, ch2, ch3, ch4, blocks;
 	private int crrBG;
 	private int branch = 0;
@@ -38,11 +42,7 @@ public class GuiTorchonomicon extends GuiScreen {
 	private int bookHeight = 180;
 
 	protected String modid = Torchrism.MODID;
-
-	String StringOverView = I18n.format(modid + "." + "book.overview_text");
-	String StringuUilities = I18n.format(modid + "." + "book.utilities_text");
-	String StringAltar = I18n.format(modid + "." + "book.altar_text");
-	String StringBlocks = I18n.format(modid + "." + "book.blocks");
+	
 
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
@@ -52,7 +52,6 @@ public class GuiTorchonomicon extends GuiScreen {
 //			this.mc.player.closeScreen();
 //		}
 		
-		
 		String StrText = "";
 		String StrTitle = "";
 		// System.out.println("branch" + branch + " " +"crrPage" + crrPage);
@@ -60,19 +59,19 @@ public class GuiTorchonomicon extends GuiScreen {
 
 		switch (branch) {
 		case 1:
-			StrText = StringOverView;
+			StrText = I18n.format(modid + "." + "book.overview_text");
 			StrTitle = I18n.format(modid + "." + "bookTitle.overview");
 			break;
 		case 2:
-			StrText = StringuUilities;
+			StrText = I18n.format(modid + "." + "book.utilities_text");
 			StrTitle = I18n.format(modid + "." + "bookTitle.utilities");
 			break;
 		case 3:
-			StrText = StringAltar;
+			StrText = I18n.format(modid + "." + "book.altar_text");
 			StrTitle = I18n.format(modid + "." + "bookTitle.altar");
 			break;
 		case 4:
-			StrText = StringBlocks;
+			StrText = I18n.format(modid + "." + "book.blocks");
 			StrTitle = I18n.format(modid + "." + "bookTitle.blocks");
 			break;
 		default:
@@ -104,9 +103,8 @@ public class GuiTorchonomicon extends GuiScreen {
 			}
 			Pages++;
 		}
-
+		
 		totalPages = Pages - 1;
-//		System.out.println("totalPages" + totalPages);
 		ButtonUpdate();
 
 	}
@@ -131,12 +129,7 @@ public class GuiTorchonomicon extends GuiScreen {
 		this.drawTexturedModalRect((float) (this.width - bookWidth) / 2, (float) (this.height - bookHeight - 10) / 2, 0, 0, bookWidth, bookHeight);
 		// 146x180
 	}
-
-	@Override
-	public boolean doesGuiPauseGame() {
-		return false;
-	}
-
+	
 	@Override
 	public void initGui() {
 
@@ -152,10 +145,10 @@ public class GuiTorchonomicon extends GuiScreen {
 		ButtonUpdate();
 
 	}
-
+	
 	@Override
 	protected void actionPerformed(GuiButton button) throws IOException {
-
+//		System.out.println("actionPerformed");
 		if (button.enabled) {
 			if (button.id == 0) {
 				this.mc.displayGuiScreen((GuiScreen) null);
@@ -213,7 +206,7 @@ public class GuiTorchonomicon extends GuiScreen {
 
 		}
 	}
-
+	
 	private void ButtonUpdate() {
 		if (branch != 0) {
 
@@ -243,5 +236,10 @@ public class GuiTorchonomicon extends GuiScreen {
 		this.altar.visible = ButtonAltar;
 		this.blocks.visible = ButtonBlock;
 
+	}
+	
+	@Override
+	public boolean doesGuiPauseGame() {
+		return false;
 	}
 }

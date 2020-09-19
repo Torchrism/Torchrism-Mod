@@ -13,13 +13,6 @@ public class CheckAltar {
 	
 	private World world;
 	private BlockPos pos;
-	private EntityPlayer player;
-	
-	public CheckAltar(World world, BlockPos pos, EntityPlayer player){
-		this.world = world;
-		this.pos = pos;
-		this.player = player;
-	}
 	
 	public CheckAltar(World world, BlockPos pos){
 		this.world = world;
@@ -202,13 +195,6 @@ public class CheckAltar {
 	}
 
 	private boolean check(World world, BlockPos initPos, BlockPos checkPos, IBlockState toCheckBlock) {
-		if (!world.getBlockState(checkPos).equals(toCheckBlock)) {
-			if(player != null) {
-				this.player.sendMessage(new TextComponentString("Altar Invalid at x:" + (checkPos.getX() - initPos.getX()) + " y:" + (checkPos.getY() - initPos.getY()) + " z:" + (checkPos.getZ() - initPos.getZ())));
-				player = null;
-			}
-			return false;
-		}
-		return true;
+		return world.getBlockState(checkPos).equals(toCheckBlock);
 	}
 }
