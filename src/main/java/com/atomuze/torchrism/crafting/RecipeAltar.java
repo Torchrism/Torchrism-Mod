@@ -50,7 +50,7 @@ public class RecipeAltar extends IForgeRegistryEntry.Impl<IRecipe> implements IR
 		this.RecipeInput = primer.input;
 		int count = 0;
 		for (int i = 0; i < primer.input.size(); i++) {
-			System.out.println(primer.input.get(i).getMatchingStacks());
+//			System.out.println(primer.input.get(i).getMatchingStacks());
 			for (ItemStack itemstack : primer.input.get(i).getMatchingStacks()) {
 				inputList.add(itemstack);
 				count++;
@@ -58,7 +58,7 @@ public class RecipeAltar extends IForgeRegistryEntry.Impl<IRecipe> implements IR
 		}
 		
 		for (int j = 0; j < 13 - count; j++) {
-			inputList.add(new ItemStack(Blocks.AIR));
+			inputList.add(new ItemStack(Blocks.BARRIER));
 		}
 		
 		count = 0;

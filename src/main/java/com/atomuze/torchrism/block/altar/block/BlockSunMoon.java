@@ -15,6 +15,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockSunMoon extends BlockTileEntity<TileEntitySunMoon> {
@@ -68,6 +69,11 @@ public class BlockSunMoon extends BlockTileEntity<TileEntitySunMoon> {
 	@Override
 	public boolean isFullCube(IBlockState state) {
 		return true;
+	}
+	
+	@Override
+	public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
+		drops.add(new ItemStack(ModBlocks.sunMoonBlock));
 	}
 
 	@Override

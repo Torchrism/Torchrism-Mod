@@ -1,9 +1,9 @@
 {
     "type": "torchrism:altar_crafting",
     "pattern": [
-        "CCC",
+        " C ",
         "CQC",
-        "CCC",
+        " C ",
 		"   ",
         "   "
     ],

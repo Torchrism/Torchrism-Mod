@@ -15,11 +15,13 @@ public class AltarRecipeMaker {
 	public static List<JeiAltarRecipeWrapper> getRecipes(){
 		List<JeiAltarRecipeWrapper> jeiRecipe = Lists.newArrayList();
 		for(int i=0; i< RecipeAltar.inputList.size() / 13; i++) {
-			List<ItemStack> inputs =  Lists.newArrayList();
+			List<ItemStack> inputs =  Lists.newArrayListWithExpectedSize(13);
 //			System.out.println(RecipeAltar.inputList.size());
 			for(int j=0;j < 13; j++){
 //				System.out.println(13*i + j);
 				inputs.add(RecipeAltar.inputList.get(13*i + j));
+//				System.out.println(inputs.size());
+				
 			}
 //			System.out.println("add");
 			JeiAltarRecipeWrapper recipe = new JeiAltarRecipeWrapper(inputs, RecipeAltar.resultList.get(i));

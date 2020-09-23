@@ -8,7 +8,7 @@ import net.minecraft.creativetab.CreativeTabs;
 
 public class BlockAltarPillar extends BlockBase {
 	public BlockAltarPillar(String name) {
-		super(Material.GLASS, name);
+		super(Material.ROCK, name);
 
 		setHardness(3f);
 		setResistance(4f);

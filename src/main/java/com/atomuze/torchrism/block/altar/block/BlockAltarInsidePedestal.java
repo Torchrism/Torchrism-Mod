@@ -28,7 +28,7 @@ public class BlockAltarInsidePedestal extends BlockTileEntity<TileEntityOtherPed
 		super(Material.ROCK, name);
 
 		setHardness(3f);
-		setResistance(5f);
+		setResistance(4f);
 	}
 	
 	@Override

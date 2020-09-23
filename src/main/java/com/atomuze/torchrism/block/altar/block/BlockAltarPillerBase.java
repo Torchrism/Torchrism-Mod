@@ -8,7 +8,7 @@ import net.minecraft.creativetab.CreativeTabs;
 
 public class BlockAltarPillerBase extends BlockBase {
 	public BlockAltarPillerBase(String name) {
-		super(Material.GLASS, name);
+		super(Material.ROCK, name);
 
 		setHardness(3f);
 		setResistance(4f);

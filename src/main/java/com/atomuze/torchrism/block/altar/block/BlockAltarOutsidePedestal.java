@@ -22,8 +22,8 @@ public class BlockAltarOutsidePedestal extends BlockTileEntity<TileEntityOtherPe
 	public BlockAltarOutsidePedestal(String name) {
 		super(Material.ROCK, name);
 
-		setHardness(5f);
-		setResistance(8f);
+		setHardness(3f);
+		setResistance(4f);
 	}
 	
 	@Override
