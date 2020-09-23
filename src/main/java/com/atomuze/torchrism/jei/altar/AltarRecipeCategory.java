@@ -59,32 +59,8 @@ public class AltarRecipeCategory implements IRecipeCategory<JeiAltarRecipeWrappe
 
 	public void setRecipe(IRecipeLayout recipeLayout, JeiAltarRecipeWrapper recipeWrapper, IIngredients ingredients) {
 		System.out.println("setRecipe");
-//		IGuiItemStackGroup stacks = recipeLayout.getItemStacks();
-//		stacks.init(input1, true, 0, 0);
-//		stacks.set(input1, new ItemStack(Items.WRITABLE_BOOK));
-//		stacks.init(input2, true, 10, 2);
-//		stacks.set(input2, new ItemStack(Items.ACACIA_DOOR));
-//		stacks.init(input3, true, 20, 2);
-//		stacks.set(input3, new ItemStack(Items.APPLE));
-//		stacks.init(input4, true, 30, 2);
-//		stacks.init(input5, true, 40, 2);
-//		stacks.init(input6, true, 50, 2);
-//		stacks.init(input7, true, 20, 11);
-//		stacks.init(input8, true, 30, 11);
-//		stacks.init(catalyse1, true, 40, 11);
-//		stacks.init(catalyse2, true, 50, 11);
-//		stacks.init(catalyse3, true, 60, 11);
-//		stacks.init(catalyse4, true, 70, 11);
-//		stacks.init(output, false, 30, 45);
-//		stacks.set(ingredients);
-
 		List<List<ItemStack>> inputs = ingredients.getInputs(VanillaTypes.ITEM);
-		List<List<ItemStack>> outputs = ingredients.getOutputs(VanillaTypes.ITEM);
-
-//		recipeLayout.getItemStacks().init(0, true, 39, 41);
-//
-//		recipeLayout.getItemStacks().init(1, true, 49, 41);
-//		recipeLayout.getItemStacks().set(0, inputs.get(0));
+		List<List<ItemStack>> outputs = ingredients.getOutputs(
 
 		for (List<ItemStack> i : inputs) {
 			IsetRecipe(recipeLayout, 0, 0, 0, i);
@@ -108,23 +84,6 @@ public class AltarRecipeCategory implements IRecipeCategory<JeiAltarRecipeWrappe
 				System.out.println(i.size());
 			}
 		}
-
-//			System.out.println(i.get(5).toString());
-//			System.out.println(i.size());
-
-//		System.out.println(inputs.get(0).toString());
-//		System.out.println(inputs.size());
-//		int index = 1, posX = 60;
-//		for(int i = 1; i < inputs.size(); i++) {
-//			List<ItemStack> o = inputs.get(i);
-//			recipeLayout.getItemStacks().init(index, true, posX, 6);
-//			recipeLayout.getItemStacks().set(index, o);
-//			index++;
-//			posX += 18;
-//		}
-
-//		recipeLayout.getItemStacks().init(7, false, 87, 41);
-//		recipeLayout.getItemStacks().set(7, getItemMatchingFocus(focus, IFocus.Mode.INPUT, inputs.get(0), outputs.get(0)));
 	}
 
 	private void IsetRecipe(IRecipeLayout recipeLayout, int slotIndex, int xPosition, int yPosition, List<ItemStack> stacks) {
