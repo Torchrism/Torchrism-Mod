@@ -35,7 +35,7 @@ public class RecipeAltar extends IForgeRegistryEntry.Impl<IRecipe> implements IR
 
 	@Nonnull
 	protected ItemStack recipeOutput = ItemStack.EMPTY;
-	public static NonNullList<Ingredient> RecipeInput;
+	public NonNullList<Ingredient> RecipeInput;
 	public static final List<ItemStack> inputList = new ArrayList<>();
 	public static final List<ItemStack> resultList = new ArrayList<>();
 	protected final int width = 3;
@@ -50,19 +50,15 @@ public class RecipeAltar extends IForgeRegistryEntry.Impl<IRecipe> implements IR
 		this.RecipeInput = primer.input;
 		int count = 0;
 		for (int i = 0; i < primer.input.size(); i++) {
-//			System.out.println(primer.input.get(i).getMatchingStacks());
+			boolean input = false;
 			for (ItemStack itemstack : primer.input.get(i).getMatchingStacks()) {
 				inputList.add(itemstack);
-				count++;
+				input = true;
+			}
+			if(!input) {
+				inputList.add(new ItemStack(Blocks.AIR));
 			}
 		}
-		
-		for (int j = 0; j < 13 - count; j++) {
-			inputList.add(new ItemStack(Blocks.BARRIER));
-		}
-		
-		count = 0;
-	//	System.out.println(result.getUnlocalizedName());
 		resultList.add(result);
 		
 	}

@@ -25,7 +25,7 @@ import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.common.crafting.CraftingHelper.ShapedPrimer;
 
 @JEIPlugin
-public class TorchrismJeiPlugin implements IModPlugin{
+public class JeiPlugin implements IModPlugin{
 	
 	public static final String Altar = Torchrism.MODID + ".altar";
 	

@@ -3,6 +3,7 @@ package com.atomuze.torchrism.jei.altar;
 import java.util.List;
 
 import mezz.jei.api.ingredients.IIngredients;
+import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
@@ -19,12 +20,12 @@ public class JeiAltarRecipeWrapper implements IRecipeWrapper {
 
 	@Override
 	public void getIngredients(IIngredients ingredients) {
-		ingredients.setInput(ItemStack.class, inputs);
-		ingredients.setOutput(ItemStack.class, outputs);
+		ingredients.setInputs(VanillaTypes.ITEM, inputs);
+		ingredients.setOutput(VanillaTypes.ITEM, outputs);
 	}
-	
+
 	@Override
 	public void drawInfo(Minecraft minecraft, int recipeWidth, int recipeHeight, int mouseX, int mouseY) {
-		
+
 	}
 }
