@@ -58,7 +58,7 @@ torchrism.book.utilities_text=1.火把放置器<NL><NL>火把放置器可以在�
 torchrism.book.altar_text=準備物品:<NL>祭壇基座x1<NL>祭壇柱基座x4<NL>純淨的祭壇基座x8<NL>祭壇柱底部x4<NL>日月石x4<NL>活化的石頭x29<NL>雕刻活化石頭x4<NL>發光石x8<NL><NL>  在空曠且距離地面一格高的地方，放置祭壇基座，以火把權杖對祭壇基座點擊右鍵<NP>合成:<NL>  祭壇基座和純淨的祭壇基座是合成的主體，而放置在祭壇柱基座的物品則是媒介。合成時，媒介不會被消耗，且可使合成的產物改變或是增加產物。<NL>  合成時，必須面向北方放置材料。
 torchrism.book.blocks=1.活化石頭<NL><NL>將未活化的石頭放置於火把上，並以火把權杖對其點擊右鍵，再將方塊挖掉後，就會取得活化石頭。
 
-torchrism.torch_staff.no_enough_item=火把不足
+torchrism.torch_staff.no_enough_item=火把數量不足
 torchrism.torch_staff.over_capacity=火把數量已超出容量
 torchrism.torch_staff.torch_count=火把數量
 

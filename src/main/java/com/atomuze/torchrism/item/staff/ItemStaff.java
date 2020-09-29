@@ -7,7 +7,11 @@ import javax.annotation.Nullable;
 
 import com.atomuze.torchrism.Torchrism;
 import com.atomuze.torchrism.block.ModBlocks;
+import com.atomuze.torchrism.block.altar.block.BlockAltarMainPedestal;
 import com.atomuze.torchrism.block.torches.BlockWaterTorch;
+import com.atomuze.torchrism.network.PacketAltarCraftingParticle;
+import com.atomuze.torchrism.network.ModNetworks;
+import com.atomuze.torchrism.network.PacketModParticle;
 
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.BlockLiquid;
@@ -18,6 +22,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
@@ -33,6 +38,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -57,6 +63,18 @@ public class ItemStaff extends net.minecraft.item.ItemTool {
 		ItemStack itemstack = playerIn.getHeldItem(handIn);
 		RayTraceResult raytraceresult = this.rayTrace(worldIn, playerIn, true);
 
+		if (playerIn.isSneaking()) {
+			if (!worldIn.isRemote) {
+				for (int i = 0; i < 36; i++) {
+					if (playerIn.inventory.getStackInSlot(i).getItem().equals(new ItemStack(Blocks.TORCH).getItem())) {
+
+						playerIn.getHeldItem(handIn).damageItem(playerIn.inventory.getStackInSlot(i).getCount(),playerIn);
+						playerIn.inventory.getStackInSlot(i).shrink(playerIn.inventory.getStackInSlot(i).getCount());
+					}
+				}
+			}
+		}
+		
 		if (raytraceresult == null) {
 			return new ActionResult<ItemStack>(EnumActionResult.PASS, itemstack);
 		} else if (raytraceresult.typeOfHit != RayTraceResult.Type.BLOCK) {
@@ -67,6 +85,8 @@ public class ItemStaff extends net.minecraft.item.ItemTool {
 			IBlockState iblockstate = worldIn.getBlockState(blockpos);
 			Material material = iblockstate.getMaterial();
 
+			
+			
 			if (material == Material.WATER && ((Integer) iblockstate.getValue(BlockLiquid.LEVEL)).intValue() == 0 && worldIn.getBlockState(blockpos.up()).getBlock() == Blocks.AIR) {
 				worldIn.setBlockState(blockpos.up(), ModBlocks.waterTorch.getDefaultState(), 11);
 				playerIn.addStat(StatList.getObjectUseStats(this));
@@ -85,44 +105,53 @@ public class ItemStaff extends net.minecraft.item.ItemTool {
 
 	@Override
 	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-		if (worldIn.getBlockState(pos).getBlock() == ModBlocks.waterTorch || worldIn.getBlockState(pos).getBlock() == Blocks.TORCH || worldIn.getBlockState(pos).getBlock() == ModBlocks.compactedTorch || worldIn.getBlockState(pos).getBlock() == ModBlocks.doublecompactedTorch) {
-			if (player.getHeldItem(hand).getMaxDamage() != player.getHeldItem(hand).getItemDamage()) {
-				if (worldIn.getBlockState(pos).getBlock() == ModBlocks.waterTorch) {
-					if (!worldIn.isRemote && player.getHeldItem(hand).getItemDamage() + 1 < player.getHeldItem(hand).getMaxDamage()) {
-						player.getHeldItem(hand).damageItem(1, player);
-					}
-				} else if (worldIn.getBlockState(pos).getBlock() == Blocks.TORCH) {
-					if (!worldIn.isRemote && player.getHeldItem(hand).getItemDamage() + 1 < player.getHeldItem(hand).getMaxDamage()) {
-						player.getHeldItem(hand).damageItem(1, player);
-					}
-				} else if (worldIn.getBlockState(pos).getBlock() == ModBlocks.compactedTorch) {
-					if (!worldIn.isRemote && player.getHeldItem(hand).getItemDamage() + 8 < player.getHeldItem(hand).getMaxDamage()) {
-						player.getHeldItem(hand).damageItem(8, player);
-					}
-				} else if (worldIn.getBlockState(pos).getBlock() == ModBlocks.doublecompactedTorch) {
-					if (!worldIn.isRemote && player.getHeldItem(hand).getItemDamage() + 64 < player.getHeldItem(hand).getMaxDamage()) {
-						player.getHeldItem(hand).damageItem(64, player);
-					}
-				}
-
-				worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
-				for (int i = 0; i < 6; ++i) {
-					double d1 = (double) ((float) pos.getX() + random.nextFloat());
-					double d2 = (double) ((float) pos.getY() + random.nextFloat());
-					double d3 = (double) ((float) pos.getZ() + random.nextFloat());
-					if (worldIn.isRemote) {
-						worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, d1, d2, d3, 0.0D, 0.0D, 0.0D);
-					}
-				}
-			} else {
-				if (worldIn.isRemote) {
+		if(player.isSneaking() && worldIn.getBlockState(pos).getBlock() == Blocks.TORCH) {
+			if (!worldIn.isRemote) {
+				if(player.getHeldItem(hand).getItemDamage() + 1 < player.getHeldItem(hand).getMaxDamage()) {
+					player.getHeldItem(hand).damageItem(-1, player);
+					worldIn.spawnEntity(new EntityItem(worldIn, pos.getX() + 0.5f, pos.getY() + 0.5f, pos.getZ() + 0.5f, new ItemStack(Blocks.TORCH)));
+				}else {
 					player.sendMessage(new TextComponentString(I18n.format(Torchrism.MODID + "." + "torch_staff.over_capacity")));
 				}
 			}
 			return EnumActionResult.SUCCESS;
-
+		}else if (worldIn.getBlockState(pos).getBlock() == ModBlocks.waterTorch || worldIn.getBlockState(pos).getBlock() == Blocks.TORCH || worldIn.getBlockState(pos).getBlock() == ModBlocks.compactedTorch || worldIn.getBlockState(pos).getBlock() == ModBlocks.doublecompactedTorch) {
+			if (!worldIn.isRemote) {
+				if (worldIn.getBlockState(pos).getBlock() == ModBlocks.waterTorch) {
+					if (player.getHeldItem(hand).getItemDamage() + 1 < player.getHeldItem(hand).getMaxDamage()) {
+						player.getHeldItem(hand).damageItem(1, player);
+					} else {
+						player.sendMessage(new TextComponentString(I18n.format(Torchrism.MODID + "." + "torch_staff.over_capacity")));
+						return EnumActionResult.FAIL;
+					}
+				} else if (worldIn.getBlockState(pos).getBlock() == Blocks.TORCH) {
+					if (player.getHeldItem(hand).getItemDamage() + 1 < player.getHeldItem(hand).getMaxDamage()) {
+						player.getHeldItem(hand).damageItem(1, player);
+					}else {
+						player.sendMessage(new TextComponentString(I18n.format(Torchrism.MODID + "." + "torch_staff.over_capacity")));
+						return EnumActionResult.FAIL;
+					}
+				} else if (worldIn.getBlockState(pos).getBlock() == ModBlocks.compactedTorch) {
+					if (player.getHeldItem(hand).getItemDamage() + 8 < player.getHeldItem(hand).getMaxDamage()) {
+						player.getHeldItem(hand).damageItem(8, player);
+					}else {
+						player.sendMessage(new TextComponentString(I18n.format(Torchrism.MODID + "." + "torch_staff.over_capacity")));
+						return EnumActionResult.FAIL;
+					}
+				} else if (worldIn.getBlockState(pos).getBlock() == ModBlocks.doublecompactedTorch) {
+					if (player.getHeldItem(hand).getItemDamage() + 64 < player.getHeldItem(hand).getMaxDamage()) {
+						player.getHeldItem(hand).damageItem(64, player);
+					}else {
+						player.sendMessage(new TextComponentString(I18n.format(Torchrism.MODID + "." + "torch_staff.over_capacity")));
+						return EnumActionResult.FAIL;
+					}
+				}
+				worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
+			}
+			ModNetworks.network.sendToDimension(new PacketModParticle(EnumParticleTypes.SMOKE_LARGE.getParticleID(), pos.getX(), pos.getY(), pos.getZ()), player.dimension);
+			return EnumActionResult.SUCCESS;
 		} else if (worldIn.getBlockState(pos).getBlock().isReplaceable(worldIn, pos) && player.getHeldItem(hand).getItemDamage() > 0) {
-
+			
 			if (worldIn.getBlockState(pos.down()).isNormalCube()) {
 				worldIn.setBlockState(pos, Blocks.TORCH.getDefaultState());
 				if (!worldIn.isRemote) {
@@ -133,6 +162,7 @@ public class ItemStaff extends net.minecraft.item.ItemTool {
 			return EnumActionResult.FAIL;
 
 		} else if (worldIn.getBlockState(pos).isNormalCube() && player.getHeldItem(hand).getItemDamage() > 0) {
+			
 			Material m;
 			
 			if (!worldIn.isRemote) {

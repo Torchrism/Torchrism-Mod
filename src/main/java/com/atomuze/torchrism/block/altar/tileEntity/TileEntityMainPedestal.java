@@ -9,7 +9,7 @@ import com.atomuze.torchrism.block.altar.CheckAltar;
 import com.atomuze.torchrism.block.altar.ModMobSpawnerBaseLogic;
 import com.atomuze.torchrism.block.altar.block.BlockAltarMainPedestal;
 import com.atomuze.torchrism.entity.flyingTorch.EntityFlyingTorch;
-import com.atomuze.torchrism.network.AltarCraftingParticlePacket;
+import com.atomuze.torchrism.network.PacketAltarCraftingParticle;
 import com.atomuze.torchrism.network.ModNetworks;
 
 import net.minecraft.block.state.IBlockState;
@@ -54,7 +54,7 @@ public class TileEntityMainPedestal extends TileEntityPedestal implements ITicka
 			
 			if (BlockAltarMainPedestal.crafting) {
 				if (!world.isRemote) {
-					ModNetworks.network.sendToAllAround(new AltarCraftingParticlePacket(BlockAltarMainPedestal.crafting), new NetworkRegistry.TargetPoint(world.provider.getDimension(), pos.getX(), pos.getY(), pos.getZ(), 64));
+					ModNetworks.network.sendToAllAround(new PacketAltarCraftingParticle(BlockAltarMainPedestal.crafting), new NetworkRegistry.TargetPoint(world.provider.getDimension(), pos.getX(), pos.getY(), pos.getZ(), 64));
 				}
 				long processingTime = world.getTotalWorldTime() - initTime;
 				this.spawnParticles1(world, pos);

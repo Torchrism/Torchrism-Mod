@@ -158,12 +158,12 @@ public class RecipeAltar extends IForgeRegistryEntry.Impl<IRecipe> implements IR
 			break;
 		case 13:
 			if (!target.apply(new ItemStack(Blocks.AIR))) {
-				throw new IllegalArgumentException("Invalid input");
+				throw new IllegalArgumentException("Invalid entry");
 			}
 			break;
 		case 14:
 			if (!target.apply(new ItemStack(Blocks.AIR))) {
-				throw new IllegalArgumentException("Invalid input");
+				throw new IllegalArgumentException("Invalid entry");
 			}
 		}
 		return true;

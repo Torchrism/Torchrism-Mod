@@ -12,17 +12,17 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.relauncher.Side;
 
-public class AltarCraftingParticlePacket implements IMessage {
+public class PacketAltarCraftingParticle implements IMessage {
 
 	private boolean messageValid;
 
 	private static boolean crafting;
 
-	public AltarCraftingParticlePacket() {
+	public PacketAltarCraftingParticle() {
 		this.messageValid = false;
 	}
 
-	public AltarCraftingParticlePacket(boolean crafting) {
+	public PacketAltarCraftingParticle(boolean crafting) {
 		this.crafting = crafting;
 
 		this.messageValid = true;
@@ -45,26 +45,17 @@ public class AltarCraftingParticlePacket implements IMessage {
 		buf.writeBoolean(crafting);
 	}
 
-	public static class Handler implements IMessageHandler<AltarCraftingParticlePacket, IMessage> {
+	public static class Handler implements IMessageHandler<PacketAltarCraftingParticle, IMessage> {
 
 		@Override
-		public IMessage onMessage(AltarCraftingParticlePacket message, net.minecraftforge.fml.common.network.simpleimpl.MessageContext ctx) {
-			if (!message.messageValid && ctx.side != Side.CLIENT) {
-				return null;
-			}
-
-			Minecraft minecraft = Minecraft.getMinecraft();
-			final WorldClient worldClient = minecraft.world;
-
-			minecraft.addScheduledTask(() -> processMessage(message, worldClient));
-
+		public IMessage onMessage(PacketAltarCraftingParticle message, net.minecraftforge.fml.common.network.simpleimpl.MessageContext ctx) {
+			if (!message.messageValid && ctx.side != Side.CLIENT) 
+				return null;	
+			Minecraft.getMinecraft().addScheduledTask(() -> {
+				BlockAltarMainPedestal.crafting = crafting;
+			});
 			return null;
 		}
-
-		void processMessage(AltarCraftingParticlePacket message, WorldClient worldClient) {
-			BlockAltarMainPedestal.crafting = crafting;
-		}
-
 	}
 
 }
