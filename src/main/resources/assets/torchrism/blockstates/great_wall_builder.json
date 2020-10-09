@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": {"model": "torchrism:block/great_wall_builder"},
+	"facing=east": {"model": "torchrism:block/great_wall_builder", "y" : 90},
+	"facing=south": {"model": "torchrism:block/great_wall_builder", "y" : 180},
+	"facing=west": {"model": "torchrism:block/great_wall_builder", "y" : 270}
+  }
+}

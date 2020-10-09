@@ -1,4 +1,4 @@
-package com.atomuze.torchrism.blocks.torchPlacer;
+package com.atomuze.torchrism.blocks;
 
 import com.atomuze.torchrism.config.TorchrismConfig;
 import net.minecraft.block.*;
@@ -12,17 +12,16 @@ import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
 
-public class TorchPlacer extends Block {
+public class BlockTorchPlacer extends Block {
 
     public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
 
-    public TorchPlacer() {
+    public BlockTorchPlacer() {
         super(Block.Properties.create(Material.WOOD)
-                .hardnessAndResistance(2.0f, 6.0f)
+                .hardnessAndResistance(3.0f, 4.0f)
                 .sound(SoundType.WOOD)
                 .harvestLevel(2)
                 .harvestTool(ToolType.AXE)
@@ -53,7 +52,7 @@ public class TorchPlacer extends Block {
 
                         Material m = world.getBlockState(PlacePos).getMaterial();
                         Material mDown = world.getBlockState(PlacePos.down()).getMaterial();
-                        state  = world.getBlockState(PlacePos.down());
+                        state = world.getBlockState(PlacePos.down());
 
                         if(mDown == Material.WATER){
                             break;
@@ -75,7 +74,7 @@ public class TorchPlacer extends Block {
 
     @Override
     public BlockState getStateForPlacement(BlockItemUseContext context) {
-        return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite());
+        return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing());
     }
 
     @Override

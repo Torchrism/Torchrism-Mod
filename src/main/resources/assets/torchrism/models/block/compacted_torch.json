@@ -5,6 +5,21 @@
     "up": "torchrism:blocks/compacted_torch_top",
     "down": "torchrism:blocks/compacted_torch_bottom"
   },
+  "display": {
+    "gui": {
+      "rotation":  [ 30, 225, 0 ],
+      "scale":  [ 0.6, 0.6, 0.6 ]
+    },
+    "thirdperson_righthand": {
+      "scale":  [ 0.5, 0.5, 0.5 ]
+    },
+    "firstperson_righthand": {
+      "scale":  [ 0.5, 0.5, 0.5 ]
+    },
+    "firstperson_lefthand": {
+      "scale":  [ 0.5, 0.5, 0.5 ]
+    }
+  },
   "elements": [
     {
       "from": [ 6, 0, 6 ],

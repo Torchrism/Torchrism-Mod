@@ -1,0 +1,9 @@
+{
+    "variants": {
+        "facing=up": { "model": "torchrism:normal_water_torch" },
+        "facing=east": { "model": "torchrism:normal_water_torch_wall" },
+        "facing=south": { "model": "torchrism:normal_water_torch_wall", "y": 90 },
+        "facing=west": { "model": "torchrism:normal_water_torch_wall", "y": 180 },
+        "facing=north": { "model": "torchrism:normal_water_torch_wall", "y": 270 }
+    }
+}

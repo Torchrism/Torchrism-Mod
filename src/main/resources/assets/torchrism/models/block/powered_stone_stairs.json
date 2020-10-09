@@ -1,0 +1,8 @@
+{
+    "parent": "block/stairs",
+    "textures": {
+        "bottom": "torchrism:blocks/powered_stone",
+        "top": "torchrism:blocks/powered_stone",
+        "side": "torchrism:blocks/powered_stone"
+    }
+}

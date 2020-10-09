@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "torchrism:block/illuminate_block" }
+  }
+}

@@ -1,0 +1,6 @@
+{
+    "parent": "block/torch",
+    "textures": {
+        "torch": "torchrism:blocks/water_torch_on"
+    }
+}

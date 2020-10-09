@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": {"model": "torchrism:block/torch_dice"},
+        "facing=east": {"model": "torchrism:block/torch_dice", "y" : 90},
+        "facing=south": {"model": "torchrism:block/torch_dice", "y" : 180},
+        "facing=west": {"model": "torchrism:block/torch_dice", "y" : 270}
+    }
+}

@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "torchrism:block/sun_moon_block_night" }
+  }
+}
