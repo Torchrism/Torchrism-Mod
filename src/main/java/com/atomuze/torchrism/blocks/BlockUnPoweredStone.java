@@ -9,9 +9,9 @@ public class BlockUnPoweredStone extends Block {
     public BlockUnPoweredStone() {
         super(Block.Properties.create(Material.ROCK)
                 .hardnessAndResistance(3.0f, 4.0f)
-                .sound(SoundType.WOOD)
+                .sound(SoundType.STONE)
                 .harvestLevel(2)
-                .harvestTool(ToolType.AXE));
+                .harvestTool(ToolType.PICKAXE));
     }
 
 

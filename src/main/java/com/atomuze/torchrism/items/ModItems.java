@@ -2,6 +2,7 @@ package com.atomuze.torchrism.items;
 
 import com.atomuze.torchrism.TorchrismMod;
 import com.atomuze.torchrism.blocks.ModBlocks;
+
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
@@ -31,5 +32,12 @@ public class ModItems {
 	public static final RegistryObject<Item> illuminateBlock_Item = ITEMS.register("wall_light", () -> new BlockItem(ModBlocks.illuminateBlock.get(), new Item.Properties().group(TorchrismMod.TAB)));
 	public static final RegistryObject<Item> wall_Item = ITEMS.register("wall", () -> new BlockItem(ModBlocks.wall.get(), new Item.Properties().group(TorchrismMod.TAB)));
 	public static final RegistryObject<Item> poweredStone_Item = ITEMS.register("powered_stone", () -> new BlockItem(ModBlocks.poweredStone.get(), new Item.Properties().group(TorchrismMod.TAB)));
+	public static final RegistryObject<Item> chiseledPoweredStone_Item = ITEMS.register("chiseled_powered_stone", () -> new BlockItem(ModBlocks.chiseledPoweredStone.get(), new Item.Properties().group(TorchrismMod.TAB)));
 	public static final RegistryObject<Item> unPoweredStone_Item = ITEMS.register("un_powered_stone", () -> new BlockItem(ModBlocks.unPoweredStone.get(), new Item.Properties().group(TorchrismMod.TAB)));
+	public static final RegistryObject<Item> poweredStoneStair_Item = ITEMS.register("powered_stone_stairs", () -> new BlockItem(ModBlocks.poweredStoneStair.get(), new Item.Properties().group(TorchrismMod.TAB)));
+	public static final RegistryObject<Item> poweredStoneSlab_Item = ITEMS.register("powered_stone_slab", () -> new BlockItem(ModBlocks.poweredStoneSlab.get(), new Item.Properties().group(TorchrismMod.TAB)));
+	
+	public static final RegistryObject<Item> torchStaff = ITEMS.register("torch_staff", ItemStaff ::new);
+	public static final RegistryObject<Item> torchonomicon = ITEMS.register("torchonomicon", ItemTorchonomicon::new);
+	
 }

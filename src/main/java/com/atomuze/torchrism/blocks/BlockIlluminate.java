@@ -8,7 +8,7 @@ import net.minecraftforge.common.ToolType;
 public class BlockIlluminate extends Block {
     public BlockIlluminate() {
         super(Block.Properties.create(Material.ROCK)
-                .hardnessAndResistance(2.0f, 6.0f)
+                .hardnessAndResistance(3.0f, 4.0f)
                 .sound(SoundType.STONE)
                 .harvestLevel(2)
                 .harvestTool(ToolType.AXE)

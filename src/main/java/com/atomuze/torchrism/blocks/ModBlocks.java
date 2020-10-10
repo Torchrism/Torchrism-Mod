@@ -1,7 +1,12 @@
 package com.atomuze.torchrism.blocks;
 
 import com.atomuze.torchrism.TorchrismMod;
+
 import net.minecraft.block.Block;
+import net.minecraft.block.SlabBlock;
+import net.minecraft.block.StairsBlock;
+import net.minecraft.block.material.Material;
+import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -26,8 +31,10 @@ public class ModBlocks {
     public static final RegistryObject<Block> illuminateBlock = BLOCKS.register("illuminate_block", BlockIlluminate::new);
     public static final RegistryObject<Block> wall = BLOCKS.register("wall", BlockWall::new);
     public static final RegistryObject<Block> wallLight = BLOCKS.register("wall_light", BlockWallLight::new);
-    public static final RegistryObject<Block> poweredStone = BLOCKS.register("powered_stone", BlockPoweredStone::new);
+    public static final RegistryObject<Block> poweredStone = BLOCKS.register("powered_stone", () -> new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 4.0f).harvestLevel(2).harvestTool(ToolType.PICKAXE)));
+    public static final RegistryObject<Block> chiseledPoweredStone = BLOCKS.register("chiseled_powered_stone", () -> new Block(Block.Properties.from(poweredStone.get())));
     public static final RegistryObject<Block> powerInfusedStone = BLOCKS.register("power_infused_stone", BlockPowerInfusedStone::new);
     public static final RegistryObject<Block> unPoweredStone = BLOCKS.register("un_powered_stone", BlockUnPoweredStone::new);
-
+    public static final RegistryObject<Block> poweredStoneStair = BLOCKS.register("powered_stone_stairs", () -> new StairsBlock(() ->  poweredStone.get().getDefaultState(), Block.Properties.from(poweredStone.get())));
+    public static final RegistryObject<Block> poweredStoneSlab = BLOCKS.register("powered_stone_slab",  () -> new SlabBlock(Block.Properties.from(poweredStone.get())));
 }

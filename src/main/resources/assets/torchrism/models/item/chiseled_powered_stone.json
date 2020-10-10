@@ -1,7 +1,3 @@
 {
-    "parent": "block/cube_column",
-    "textures": {
-        "side": "torchrism:blocks/chisel_powered_stone_side",
-        "end": "torchrism:blocks/chisel_powered_stone"
-    }
+	"parent": "torchrism:block/chiseled_powered_stone"
 }
