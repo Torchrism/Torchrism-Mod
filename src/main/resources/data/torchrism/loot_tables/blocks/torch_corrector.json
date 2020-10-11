@@ -2,11 +2,11 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "rolls": 4.0,
+      "rolls": 1.0,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "torchrism:powered_stone"
+          "name": "torchrism:torch_corrector"
         }
       ]
     }

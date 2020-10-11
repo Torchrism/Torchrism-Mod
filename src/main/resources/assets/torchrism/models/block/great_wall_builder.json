@@ -7,6 +7,12 @@
     "down": "torchrism:blocks/torch_castle_bottom"
     
   },
+  "display": {
+      	"gui": {
+			"rotation":  [ 210, 135, 180 ],
+			"scale":  [ 0.6, 0.6, 0.6 ]
+		}
+	},
   "elements": [
     {
       "from": [ 0, 0, 0 ],

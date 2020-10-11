@@ -5,6 +5,8 @@ import com.atomuze.torchrism.config.TorchrismConfig;
 import com.atomuze.torchrism.items.ModItems;
 import com.atomuze.torchrism.tileentity.ModTileEntity;
 
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -20,8 +22,7 @@ public class TorchrismMod {
 	public static final String MODID = "torchrism";
 	public static final String NAME = "Torchrism";
 	public static final String VERSION = "1.1.0";
-//	public static final Item.Properties() testMaterial = EnumHelper.addToolMaterial("TORCH_STAFF", 0, 65535, 0, 0, 0);
-	// Directly reference a log4j logger.
+// Directly reference a log4j logger.
 //	private static final Logger LOGGER = LogManager.getLogger();
 
 	public TorchrismMod() {
@@ -42,6 +43,9 @@ public class TorchrismMod {
 	}
 
 	private void doClientStuff(final FMLClientSetupEvent event) {
+
+		RenderTypeLookup.setRenderLayer(ModBlocks.waterTorch.get(), RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(ModBlocks.wallWaterTorch.get(), RenderType.getCutout());
 	}
 
 	// Custom ItemGroup TAB

@@ -19,7 +19,6 @@ public class ModItems {
 	public static final RegistryObject<Item> torchPlacer_Item = ITEMS.register("torch_placer", () -> new BlockItem(ModBlocks.torchPlacer.get(), new Item.Properties().group(TorchrismMod.TAB)));
 	public static final RegistryObject<Item> compactedTorch_Item = ITEMS.register("compacted_torch", () -> new BlockItem(ModBlocks.compactedTorch.get(), new Item.Properties().group(TorchrismMod.TAB)));
 	public static final RegistryObject<Item> doublecompactedTorch_Item = ITEMS.register("double_compacted_torch", () -> new BlockItem(ModBlocks.doubleCompactedTorch.get(), new Item.Properties().group(TorchrismMod.TAB)));
-	public static final RegistryObject<Item> waterTorch_Item = ITEMS.register("water_torch", () -> new BlockItem(ModBlocks.waterTorch.get(), new Item.Properties().group(TorchrismMod.TAB)));
 	public static final RegistryObject<Item> torchDice_Item = ITEMS.register("torch_dice", () -> new BlockItem(ModBlocks.torchDice.get(), new Item.Properties().group(TorchrismMod.TAB)));
 	public static final RegistryObject<Item> torchCorrecter_Item = ITEMS.register("torch_corrector", () -> new BlockItem(ModBlocks.torchCorrector.get(), new Item.Properties().group(TorchrismMod.TAB)));
 

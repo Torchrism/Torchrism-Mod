@@ -18,6 +18,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> compactedTorch = BLOCKS.register("compacted_torch", BlockCompactedTorch::new);
     public static final RegistryObject<Block> doubleCompactedTorch = BLOCKS.register("double_compacted_torch", BlockDoubleCompactedTorch::new);
     public static final RegistryObject<Block> waterTorch = BLOCKS.register("water_torch", BlockWaterTorch::new);
+    public static final RegistryObject<Block> wallWaterTorch = BLOCKS.register("wall_water_torch", BlockWallWaterTorch::new);
     public static final RegistryObject<Block> torchDice = BLOCKS.register("torch_dice", BlockTorchDice::new);
     public static final RegistryObject<Block> torchCorrector = BLOCKS.register("torch_corrector", BlockTorchCorrector::new);
 
@@ -37,4 +38,5 @@ public class ModBlocks {
     public static final RegistryObject<Block> unPoweredStone = BLOCKS.register("un_powered_stone", BlockUnPoweredStone::new);
     public static final RegistryObject<Block> poweredStoneStair = BLOCKS.register("powered_stone_stairs", () -> new StairsBlock(() ->  poweredStone.get().getDefaultState(), Block.Properties.from(poweredStone.get())));
     public static final RegistryObject<Block> poweredStoneSlab = BLOCKS.register("powered_stone_slab",  () -> new SlabBlock(Block.Properties.from(poweredStone.get())));
+
 }
