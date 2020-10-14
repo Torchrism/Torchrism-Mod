@@ -1,5 +1,6 @@
 {
 	"type": "minecraft:crafting_shaped",
+	"group":"utilites",
 	"pattern": [
 		" A ",
 		"A A",
@@ -11,7 +12,6 @@
 		}
 	},
 	"result": {
-		"item": "torchrism:torch_placer",
-		"count": 1
+		"item": "torchrism:torch_placer"
 	}
 }

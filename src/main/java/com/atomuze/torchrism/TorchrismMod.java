@@ -2,9 +2,12 @@ package com.atomuze.torchrism;
 
 import com.atomuze.torchrism.blocks.ModBlocks;
 import com.atomuze.torchrism.config.TorchrismConfig;
+import com.atomuze.torchrism.gui.ScreenTorchonomicon;
+import com.atomuze.torchrism.gui.ModGui;
 import com.atomuze.torchrism.items.ModItems;
 import com.atomuze.torchrism.tileentity.ModTileEntity;
 
+import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.ItemGroup;
@@ -46,6 +49,7 @@ public class TorchrismMod {
 
 		RenderTypeLookup.setRenderLayer(ModBlocks.waterTorch.get(), RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(ModBlocks.wallWaterTorch.get(), RenderType.getCutout());
+	//	ScreenManager.registerFactory(ModGui.TORCHONOMICON, IScreenFactory);
 	}
 
 	// Custom ItemGroup TAB

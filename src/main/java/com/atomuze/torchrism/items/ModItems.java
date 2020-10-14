@@ -28,7 +28,7 @@ public class ModItems {
 	public static final RegistryObject<Item> sunMoonBlock_Item = ITEMS.register("sun_moon_block", () -> new BlockItem(ModBlocks.sunMoonBlock.get(), new Item.Properties().group(TorchrismMod.TAB)));
 
 	public static final RegistryObject<Item> greatWallBuilder_Item = ITEMS.register("great_wall_builder", () -> new BlockItem(ModBlocks.greatWallBuilder.get(), new Item.Properties().group(TorchrismMod.TAB)));
-	public static final RegistryObject<Item> illuminateBlock_Item = ITEMS.register("wall_light", () -> new BlockItem(ModBlocks.illuminateBlock.get(), new Item.Properties().group(TorchrismMod.TAB)));
+	public static final RegistryObject<Item> illuminateBlock_Item = ITEMS.register("illuminate_block", () -> new BlockItem(ModBlocks.illuminateBlock.get(), new Item.Properties().group(TorchrismMod.TAB)));
 	public static final RegistryObject<Item> wall_Item = ITEMS.register("wall", () -> new BlockItem(ModBlocks.wall.get(), new Item.Properties().group(TorchrismMod.TAB)));
 	public static final RegistryObject<Item> poweredStone_Item = ITEMS.register("powered_stone", () -> new BlockItem(ModBlocks.poweredStone.get(), new Item.Properties().group(TorchrismMod.TAB)));
 	public static final RegistryObject<Item> chiseledPoweredStone_Item = ITEMS.register("chiseled_powered_stone", () -> new BlockItem(ModBlocks.chiseledPoweredStone.get(), new Item.Properties().group(TorchrismMod.TAB)));

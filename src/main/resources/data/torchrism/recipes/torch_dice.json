@@ -1,9 +1,9 @@
 {
 	"type": "minecraft:crafting_shaped",
+	"group":"utilites",
 	"pattern": [
-		"AAA",
-		"A A",
-		"AAA"
+		"AA",
+		"AA"
 	],
 	"key": {
 		"A": {
@@ -11,6 +11,6 @@
 		}
 	},
 	"result": {
-		"item": "torchrism:compacted_torch"
+		"item": "torchrism:torch_dice"
 	}
 }

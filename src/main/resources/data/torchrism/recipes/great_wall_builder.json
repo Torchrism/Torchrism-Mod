@@ -1,0 +1,51 @@
+{
+    "type": "minecraft:crafting_shaped",
+	"group":"utilites",
+    "pattern": [
+        "#T#",
+        "CFC",
+        "STS"
+    ],
+    "key": {
+        "#": [
+		  {
+			"item": "minecraft:acacia_log"
+		  },
+		  {
+			"item": "minecraft:birch_log"
+		  },
+		  {
+			"item": "minecraft:dark_oak_log"
+		  },
+		  {
+			"item": "minecraft:jungle_log"
+		  },
+		  {
+			"item": "minecraft:oak_log"
+		  },
+		  {
+			"item": "minecraft:spruce_log"
+		  }
+		],
+        "T": {
+            "item": "torchrism:double_compacted_torch"
+        },
+        "C":  [
+		  {
+			"item": "minecraft:coal"
+		  },
+		  {
+			"item": "minecraft:charcoal"
+		  }
+		],
+        "F": {
+            "item": "minecraft:furnace"
+        },
+        "S": {
+            "item": "minecraft:stone_bricks"
+        }
+    },
+    "result": {
+		"item": "torchrism:great_wall_builder"
+	}
+}

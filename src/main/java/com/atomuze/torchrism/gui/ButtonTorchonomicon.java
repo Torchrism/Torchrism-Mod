@@ -1,20 +1,21 @@
-package com.atomuze.torchrism.items.gui;
+package com.atomuze.torchrism.gui;
 
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.SoundHandler;
 import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.client.gui.widget.button.Button;
 import net.minecraft.util.ResourceLocation;
 
-public class ButtonTorchonomicon //extends GuiButton {
-	{
+public class ButtonTorchonomicon {
+//extends Button {
 //	private static final ResourceLocation BUTTON_TEXTURES_T = new ResourceLocation(Torchrism.MODID, "textures/gui/torchonomicon_bg.png");
 //	private int textx,texty;
 //	private int widthIn;
 //	private int heightIn;
 //	
 //	public ButtonTorchonomicon(int buttonId, int x, int y, int textx, int texty, int widthIn, int heightIn, String buttonText) {
-//		super(buttonId, x, y, widthIn, heightIn, buttonText);
+//		super(x, y, widthIn, heightIn, buttonText, Button.IPressable onPress);
 //        this.x = x;
 //        this.y = y;
 //        this.widthIn = widthIn;
