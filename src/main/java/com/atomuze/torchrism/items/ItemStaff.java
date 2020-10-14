@@ -46,7 +46,7 @@ public class ItemStaff extends ToolItem {
 	private static final Set<Block> EFFECTIVE_ON = Sets.newHashSet(Blocks.AIR);
 
 	public ItemStaff() {
-		super(1, 1, ItemTier.WOOD, EFFECTIVE_ON, new Item.Properties().group(TorchrismMod.TAB).maxStackSize(1).maxDamage(65535));
+		super(1, 1, ItemTier.WOOD, EFFECTIVE_ON, new Item.Properties().group(TorchrismMod.TAB).maxStackSize(1).maxDamage(65535).maxDamage(65534));
 	}
 	
 	@Override
@@ -175,7 +175,7 @@ public class ItemStaff extends ToolItem {
 	
 	@OnlyIn(Dist.CLIENT)
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-		tooltip.add(new StringTextComponent  (I18n.format(TorchrismMod.MODID + "." + "torch_staff.torch_count") + this.getDamage(stack)));
+		tooltip.add(new StringTextComponent(I18n.format(TorchrismMod.MODID + "." + "torch_staff.torch_count") + this.getDamage(stack)));
 	}
 	
 	@Override

@@ -2,12 +2,9 @@ package com.atomuze.torchrism;
 
 import com.atomuze.torchrism.blocks.ModBlocks;
 import com.atomuze.torchrism.config.TorchrismConfig;
-import com.atomuze.torchrism.gui.ScreenTorchonomicon;
-import com.atomuze.torchrism.gui.ModGui;
 import com.atomuze.torchrism.items.ModItems;
 import com.atomuze.torchrism.tileentity.ModTileEntity;
 
-import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.ItemGroup;
@@ -25,11 +22,8 @@ public class TorchrismMod {
 	public static final String MODID = "torchrism";
 	public static final String NAME = "Torchrism";
 	public static final String VERSION = "1.1.0";
-// Directly reference a log4j logger.
-//	private static final Logger LOGGER = LogManager.getLogger();
 
 	public TorchrismMod() {
-	//	LOGGER.log(null, "Torchrism run");
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, TorchrismConfig.COMMON_SPEC, "torchrism.toml");
 
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
@@ -46,10 +40,8 @@ public class TorchrismMod {
 	}
 
 	private void doClientStuff(final FMLClientSetupEvent event) {
-
 		RenderTypeLookup.setRenderLayer(ModBlocks.waterTorch.get(), RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(ModBlocks.wallWaterTorch.get(), RenderType.getCutout());
-	//	ScreenManager.registerFactory(ModGui.TORCHONOMICON, IScreenFactory);
 	}
 
 	// Custom ItemGroup TAB

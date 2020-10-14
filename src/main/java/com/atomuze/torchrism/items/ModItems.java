@@ -36,7 +36,5 @@ public class ModItems {
 	public static final RegistryObject<Item> poweredStoneStair_Item = ITEMS.register("powered_stone_stairs", () -> new BlockItem(ModBlocks.poweredStoneStair.get(), new Item.Properties().group(TorchrismMod.TAB)));
 	public static final RegistryObject<Item> poweredStoneSlab_Item = ITEMS.register("powered_stone_slab", () -> new BlockItem(ModBlocks.poweredStoneSlab.get(), new Item.Properties().group(TorchrismMod.TAB)));
 	
-	public static final RegistryObject<Item> torchStaff = ITEMS.register("torch_staff", ItemStaff ::new);
-	public static final RegistryObject<Item> torchonomicon = ITEMS.register("torchonomicon", ItemTorchonomicon::new);
-	
+	public static final RegistryObject<Item> torchStaff = ITEMS.register("torch_staff", ItemStaff ::new);	
 }

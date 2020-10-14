@@ -25,26 +25,8 @@
 "block.torchrism.powered_stone_stairs":"活化石階梯",
 
 "item.torchrism.torch_staff":"火把權杖",
-"item.torchrism.torchonomicon":"火把福音",
-
-"torchrism.bookButton.menu":"回首頁",
-"torchrism.bookButton.next_page":"下一頁",
-"torchrism.bookButton.previous_page":"上一頁",
-"torchrism.bookButton.overview":"模組介紹",
-"torchrism.bookButton.utilities":"功能道具",
-"torchrism.bookButton.blocks":"方塊",
-
-"torchrism.bookTitle.overview":"模組介紹",
-"torchrism.bookTitle.utilities":"功能道具",
-"torchrism.bookTitle.blocks":"方塊",
-"torchrism.bookTitle.menu":"首頁",
-
-"torchrism.book.overview_text":"恭喜你踏入偉大火把的世界！<NL>這將是你人生中少數正確的決定。<NL>你可以透過這本書來了解此模組的所有功能，以及一些隱藏的額外功能。<NL>火把教的一切體驗皆能由Minecraft的內建道具完成，並且設計都以「實用」為基礎，希望能夠陪伴玩家整場遊戲。<NL><NL>神說：「要有火把」，於是世界上出現了火把<NL>我說：「要整齊」，於是世界上出現了火把教<NP>神在空虛渾沌中，用六天的時間創造了物質的天地，先後創造光大氣、旱地、植物、天體和動物以及人類。第七日則創造了火把以及其聖地，並將這天訂為「火把日」。<NL><NL>火把盛放四部曲<NL>1. 火把樹<NL>2. 怪物<NL>3. 大洪水<NL>4. 倚廷<NP>1.火把樹<NL>神吩咐說世界上的火把皆為聖物，且產自於世界中心之火把樹。但狡猾的凱恩受到烏賊的哄誘，將火把樹砍為七塊，以致世界平衡被嚴重的打破，凱恩與人類被神逐出火把聖地，使人類必須終身勞苦才得餬口，最後死去而歸回塵土。<NP>2.怪物<NL>在某個夜晚，突如其來的XXX來襲，並把大量人類吞噬，此時神於心不忍，將能夠阻止怪物侵略的火把賜予人類，但人類並沒有學會分享，反而為了爭奪火把做出骨肉相殘的行為。<NP>3. 大洪水<NL>神看到人類如此敗壞不堪，便降下一場洪水借以洗刷萬物，但降水前神告知了無辜的火把一族，賜予他們翅膀借以躲避此次劫難，但無私的火把違背神的心意，帶著人類一同躲過了這場洪水。<NP>4.倚廷<NL>  三千年前在虛空中沉睡的倚廷，被突如其來的洪水喚醒，祂是暴食與醜陋的化身，但一現身便會被火把壓制著，雖然偶爾會洩漏出一絲惡意，但封印尚還完整，目前祂的肉體是作為關押罪大惡極的地方。",
-"torchrism.book.utilities_text":"1.火把放置器<NL><NL>火把放置器可以在空曠的地方插火把(16x16)。 火把的間距預設是4格，在空曠的地方擺置火把放置器，並點右鍵就完成， 當火把無法放置時，會轉換到玩家的背包。<NP>2.火把長城<NL><NL>對火把長城點擊右鍵，就會依照連貫的火把建造出一片城牆。<NP>3.火把骰子<NL><NL>對火把骰子點擊右鍵，會給予隨機數量(1~6)的火把。<NP>4.火把矯正器<NL><NL>火把矯正器會自動將不整齊的火把排列整齊。<NP>5.火把權杖<NL><NL>以火把權杖對各種火把點擊右鍵可以將火把儲存在此權杖中。<NL>對方塊點擊右鍵會在方塊上面放置火把。<NL>拿著火把權杖蹲下點右鍵會將玩家物品欄中所有的火把儲存到火把權杖中，以火把權杖對火把方塊蹲下點右鍵則會生成火把。",
-"torchrism.book.blocks":"1.活化石頭<NL><NL>將未活化的石頭放置於火把上，並以火把權杖對其點擊右鍵，再將方塊挖掉後，就會取得活化石頭。",
 
 "torchrism.torch_staff.no_enough_item":"火把數量不足",
-"torchrism.torch_staff.over_capacity":"火把數量已超出容量",
 "torchrism.torch_staff.torch_count":"火把數量",
 
 "itemGroup.torchrismTab":"火把教"
