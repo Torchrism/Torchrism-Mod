@@ -4,6 +4,7 @@ package com.atomuze.torchrism.blocks;
 import com.atomuze.torchrism.tileentity.ModTileEntity;
 import com.atomuze.torchrism.tileentity.TileEntityGreatWallBuilder;
 
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalBlock;
@@ -27,12 +28,12 @@ public class BlockGreatWallBuilder extends Block {
     public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
 
     public BlockGreatWallBuilder() {
-        super(Block.Properties.create(Material.WOOD)
+        super(AbstractBlock.Properties.create(Material.WOOD)
                 .hardnessAndResistance(3.0f, 4.0f)
                 .sound(SoundType.WOOD)
                 .harvestLevel(1)
                 .harvestTool(ToolType.AXE)
-                .lightValue(15));
+                .func_235838_a_((blockState) -> 15));
     }
 
     @Override

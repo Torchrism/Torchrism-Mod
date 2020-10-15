@@ -12,7 +12,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModBlocks {
-    public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, TorchrismMod.MODID);
+    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, TorchrismMod.MODID);
 
     public static final RegistryObject<Block> torchPlacer = BLOCKS.register("torch_placer", BlockTorchPlacer::new);
     public static final RegistryObject<Block> compactedTorch = BLOCKS.register("compacted_torch", BlockCompactedTorch::new);

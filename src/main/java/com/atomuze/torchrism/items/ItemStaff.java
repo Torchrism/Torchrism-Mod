@@ -114,7 +114,7 @@ public class ItemStaff extends ToolItem {
 				return ActionResult.resultSuccess(itemstack);
 			}else if(itemstack.getDamage() <= 0) {
 				if (worldIn.isRemote) {
-					playerIn.sendMessage(new StringTextComponent(I18n.format(TorchrismMod.MODID + "." + "torch_staff.no_enough_item")));
+					playerIn.sendMessage(new StringTextComponent(I18n.format(TorchrismMod.MODID + "." + "torch_staff.no_enough_item")), null);
 				}
 				return ActionResult.resultPass(itemstack);
 			}else {

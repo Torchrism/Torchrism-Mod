@@ -3,6 +3,7 @@ package com.atomuze.torchrism.blocks;
 import com.atomuze.torchrism.tileentity.ModTileEntity;
 import com.atomuze.torchrism.tileentity.TileEntityTorchCorrector;
 
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SoundType;
@@ -22,12 +23,12 @@ public class BlockTorchCorrector extends Block {
    public static PlayerEntity player;
 
     public BlockTorchCorrector() {
-        super(Block.Properties.create(Material.WOOD)
+        super(AbstractBlock.Properties.create(Material.WOOD)
                 .hardnessAndResistance(2.0f, 6.0f)
                 .sound(SoundType.WOOD)
                 .harvestLevel(2)
                 .harvestTool(ToolType.AXE)
-                .lightValue(15));
+                .func_235838_a_((blockState) -> 15));
     }
 
     @Override

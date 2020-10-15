@@ -2,6 +2,7 @@ package com.atomuze.torchrism.blocks;
 
 import java.util.Random;
 
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SoundType;
@@ -22,9 +23,9 @@ public class BlockDoubleCompactedTorch extends Block {
     VoxelShape shape1 = VoxelShapes.create(DoubleCompactedTorchAABB);
 
     public BlockDoubleCompactedTorch() {
-        super(Block.Properties.create(Material.MISCELLANEOUS)
+        super(AbstractBlock.Properties.create(Material.MISCELLANEOUS)
                 .sound(SoundType.WOOD)
-                .lightValue(15));
+                .func_235838_a_((blockState) -> 15));
     }
 
     @Override

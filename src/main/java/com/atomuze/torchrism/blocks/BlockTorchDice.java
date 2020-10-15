@@ -21,12 +21,12 @@ public class BlockTorchDice extends Block {
     public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
 
     public BlockTorchDice() {
-        super(Properties.create(Material.WOOD)
+        super(AbstractBlock.Properties.create(Material.WOOD)
                 .hardnessAndResistance(1.0f, 4.0f)
                 .sound(SoundType.WOOD)
                 .harvestLevel(2)
                 .harvestTool(ToolType.AXE)
-                .lightValue(15));
+                .func_235838_a_((blockState) -> 15));
     }
 
     @Override

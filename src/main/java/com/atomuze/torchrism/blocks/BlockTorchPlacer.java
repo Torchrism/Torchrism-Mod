@@ -20,12 +20,12 @@ public class BlockTorchPlacer extends Block {
     public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
 
     public BlockTorchPlacer() {
-        super(Block.Properties.create(Material.WOOD)
+        super(AbstractBlock.Properties.create(Material.WOOD)
                 .hardnessAndResistance(3.0f, 4.0f)
                 .sound(SoundType.WOOD)
                 .harvestLevel(2)
                 .harvestTool(ToolType.AXE)
-                .lightValue(15));
+                .func_235838_a_((blockState) -> 15));
 
     }
 
