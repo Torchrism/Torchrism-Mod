@@ -23,7 +23,7 @@ public class BlockTorchCorrector extends Block {
 
     public BlockTorchCorrector() {
         super(Block.Properties.create(Material.WOOD)
-                .hardnessAndResistance(2.0f, 6.0f)
+                .hardnessAndResistance(3.0f, 4.0f)
                 .sound(SoundType.WOOD)
                 .harvestLevel(2)
                 .harvestTool(ToolType.AXE)

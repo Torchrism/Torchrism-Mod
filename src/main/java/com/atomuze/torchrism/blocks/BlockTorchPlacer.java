@@ -34,9 +34,6 @@ public class BlockTorchPlacer extends Block {
 
         int offset = TorchrismConfig.COMMON.offset.get()+1;
 
-
-        //ModConfig.getTorchOffset();
-
         // Relative to Torch Placer
         int placerPosX = pos.getX() - offset * 8;
         int placePosY = 255;

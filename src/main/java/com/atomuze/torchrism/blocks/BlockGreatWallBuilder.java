@@ -30,7 +30,7 @@ public class BlockGreatWallBuilder extends Block {
         super(Block.Properties.create(Material.WOOD)
                 .hardnessAndResistance(3.0f, 4.0f)
                 .sound(SoundType.WOOD)
-                .harvestLevel(1)
+                .harvestLevel(2)
                 .harvestTool(ToolType.AXE)
                 .lightValue(15));
     }

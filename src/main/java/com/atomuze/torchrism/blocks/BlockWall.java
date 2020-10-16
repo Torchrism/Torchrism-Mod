@@ -23,32 +23,6 @@ public class BlockWall extends Block {
                 .notSolid()
                 .noDrops());
     }
-//
-//	@Override
-//	public BlockWall setCreativeTab(CreativeTabs tab) {
-//		super.setCreativeTab(tab);
-//		return this;
-//	}
-//
-//	@Override
-//	public boolean isOpaqueCube(IBlockState state) {
-//		return true;
-//	}
-//
-//	@Override
-//	public boolean isFullCube(IBlockState state) {
-//		return true;
-//	}
-//
-//	@Override
-//	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
-//		return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing());
-//	}
-
-//
-//	@Override
-//	public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune){
-//	}
 
     @Override
     public BlockState getStateForPlacement(BlockItemUseContext context) {
