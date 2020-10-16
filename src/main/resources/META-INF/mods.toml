@@ -9,7 +9,7 @@ issueTrackerURL="http://my.issue.tracker/" #optional
 
 modId="torchrism" #mandatory
 
-version="1.15.1-1.0.0" #mandatory
+version="1.15.1-1.1.1" #mandatory
 
 displayName="Torchrism Mod" #mandatory
 
