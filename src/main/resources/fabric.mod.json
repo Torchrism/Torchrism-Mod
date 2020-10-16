@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "torchrism",
+  "version": "1.0.0",
+
+  "name": "Torchrism Mod",
+  "description": "Torchrism is for placing torches in an open area.",
+  "authors": [
+    "Atomuze",
+    "Chatzen_",
+    "Dexmio"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/torchrism",
+    "sources": "https://github.com/Torchrism/Torchrism-Mod"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/torchrism/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.atomuze.torchrism.TorchrismMod"
+    ]
+  },
+  "mixins": [
+    "torchrism.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "minecraft": "1.16.x"
+  },
+  "suggests": {
+    "flamingo": "*"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.atomuze.torchrism.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+  ],
+  "client": [
+    "TorchrismMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
