@@ -15,8 +15,8 @@
     "sources": "https://github.com/Torchrism/Torchrism-Mod"
   },
 
-  "license": "CC0-1.0",
-  "icon": "assets/torchrism/icon.png",
+  "license": "CC BY-NC",
+  "icon": "assets/torchrism/logo.png",
 
   "environment": "*",
   "entrypoints": {
