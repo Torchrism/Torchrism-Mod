@@ -6,14 +6,16 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.util.Tickable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 
 import java.util.Random;
 
-public class BlockEntityTorchCorrector extends BlockEntity {
+public class BlockEntityTorchCorrector extends BlockEntity implements Tickable  {
 
 	private boolean check = false;
 	int torchCount = 0;
@@ -27,7 +29,7 @@ public class BlockEntityTorchCorrector extends BlockEntity {
 	}
 
 	@Override
-	public BlockEntityUpdateS2CPacket toUpdatePacket() {
+	public void tick() {
 		if (!world.isClient) {
 			if (check) {
 				if (outlay <= 64) {
@@ -40,7 +42,7 @@ public class BlockEntityTorchCorrector extends BlockEntity {
 					check = false;
 					outlay = 0;
 					if (BlockTorchCorrector.player != null) {
-//						BlockTorchCorrector.player.addItemStackToInventory(new ItemStack(Blocks.TORCH, torchCount));
+						BlockTorchCorrector.player.giveItemStack(new ItemStack(Blocks.TORCH, torchCount));
 					}
 					torchCount = 0;
 				}
@@ -48,7 +50,6 @@ public class BlockEntityTorchCorrector extends BlockEntity {
 		        world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + d, pos.getY() + d, pos.getZ() + d, 0.0D, 0.0D, 0.0D);
 			}
 		}
-		return null;
 	}
 
 	private void movePos1(int outLay) {
@@ -94,16 +95,13 @@ public class BlockEntityTorchCorrector extends BlockEntity {
 		int placePosZ = activatePos.getZ();
 		for (int placePosY = 255; placePosY >= 0; placePosY--) {
 			BlockPos PlacePos = new BlockPos(placePosX, placePosY, placePosZ);
-
 			BlockState iblockstate = world.getBlockState(PlacePos);
 			Material m = world.getBlockState(PlacePos).getMaterial();
 
 			if (m == Material.LEAVES) {
 
 			} else if (iblockstate == Blocks.TORCH.getDefaultState()) {
-
-				if ((activatePos.getX() - pos.getX()) % offset == 0
-						&& (activatePos.getZ() - pos.getZ()) % offset == 0) {
+				if ((activatePos.getX() - pos.getX()) % offset == 0 && (activatePos.getZ() - pos.getZ()) % offset == 0) {
 					break;
 				}
 				world.setBlockState(PlacePos, Blocks.AIR.getDefaultState());

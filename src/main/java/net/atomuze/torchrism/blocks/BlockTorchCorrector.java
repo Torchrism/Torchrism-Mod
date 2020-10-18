@@ -25,7 +25,6 @@ public class BlockTorchCorrector extends Block implements BlockEntityProvider {
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-
         BlockTorchCorrector.player = player;
         final BlockEntityTorchCorrector bE = (BlockEntityTorchCorrector) world.getBlockEntity(pos);
         if (bE != null) {
@@ -33,11 +32,9 @@ public class BlockTorchCorrector extends Block implements BlockEntityProvider {
         }
 
         BlockEntity blockEntity = world.getBlockEntity(pos);
-
         if (blockEntity instanceof BlockEntityTorchCorrector) {
             blockEntity.setLocation(world, pos);
         }
-
         return ActionResult.SUCCESS;
     }
 

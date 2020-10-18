@@ -8,7 +8,7 @@ import net.minecraft.util.registry.Registry;
 
 public class ModItems {
 	
-    public static final Item TORCH_STAFF = new Item(new FabricItemSettings().group(TorchrismMod.ITEM_GROUP));
+    public static final ItemStaff TORCH_STAFF = new ItemStaff();
     
 	public static void register() {
         Registry.register(Registry.ITEM, new Identifier("torchrism", "torch_staff"), TORCH_STAFF);

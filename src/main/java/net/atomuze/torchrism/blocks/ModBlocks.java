@@ -15,10 +15,10 @@ public class ModBlocks {
     public static final BlockTorchPlacer TORCH_PLACER = new BlockTorchPlacer(FabricBlockSettings.of(Material.WOOD).lightLevel(15).requiresTool().strength(3f, 4f));
     public static final BlockCompactedTorch COMPACTED_TORCH = new BlockCompactedTorch(FabricBlockSettings.copyOf(Blocks.TORCH));
     public static final BlockDoubleCompactedTorch DOUBLE_COMPACTED_TORCH = new BlockDoubleCompactedTorch(FabricBlockSettings.copyOf(Blocks.TORCH));
-    public static final BlockWaterTorch WATER_TORCH = new BlockWaterTorch(FabricBlockSettings.copyOf(Blocks.TORCH));
-    public static final BlockWallWaterTorch WALL_WATER_TORCH = new BlockWallWaterTorch(FabricBlockSettings.copyOf(Blocks.TORCH));
+    public static final BlockWaterTorch WATER_TORCH = new BlockWaterTorch(FabricBlockSettings.of(Material.WOOD).lightLevel(15).collidable(false));
+    public static final BlockWallWaterTorch WALL_WATER_TORCH = new BlockWallWaterTorch(FabricBlockSettings.copyOf(WATER_TORCH));
     public static final BlockTorchDice TORCH_DICE = new BlockTorchDice(FabricBlockSettings.of(Material.WOOD).requiresTool().strength(1f, 4f));
-    public static final Block TORCH_CORRECTOR = new Block(FabricBlockSettings.copyOf(TORCH_PLACER));
+    public static final BlockTorchCorrector TORCH_CORRECTOR = new BlockTorchCorrector(FabricBlockSettings.copyOf(TORCH_PLACER));
     
     public static final BlockPillarTop PILLAR_TOP = new BlockPillarTop(FabricBlockSettings.copyOf(Blocks.QUARTZ_BLOCK));
     public static final BlockPillar PILLAR = new BlockPillar(FabricBlockSettings.copyOf(Blocks.QUARTZ_BLOCK));

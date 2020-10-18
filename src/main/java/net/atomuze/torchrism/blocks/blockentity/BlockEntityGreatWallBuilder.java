@@ -3,17 +3,16 @@ package net.atomuze.torchrism.blocks.blockentity;
 import net.atomuze.torchrism.blocks.ModBlocks;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.util.Tickable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 
 import java.util.Random;
 
-public class BlockEntityGreatWallBuilder extends BlockEntity {
-
+public class BlockEntityGreatWallBuilder extends BlockEntity implements Tickable {
 	public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
 	private boolean buildCastle = false;
 	int buildNum = 0;
@@ -26,7 +25,7 @@ public class BlockEntityGreatWallBuilder extends BlockEntity {
 	}
 	
 	@Override
-	public BlockEntityUpdateS2CPacket toUpdatePacket() {
+	public void tick() {
 		if (!world.isClient) {
 			if(buildCastle) {
 				if(world.getBlockState(posCrr.north()).getBlock() == Blocks.TORCH) {
@@ -79,7 +78,6 @@ public class BlockEntityGreatWallBuilder extends BlockEntity {
 				buildNum = 0;
 			}
 		}
-		return null;
 	}
 	
 	public void buildWall(Direction facing) {

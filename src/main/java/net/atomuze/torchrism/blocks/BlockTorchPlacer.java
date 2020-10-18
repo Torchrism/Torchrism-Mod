@@ -28,7 +28,7 @@ public class BlockTorchPlacer extends Block {
  
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-    	int offset = 5;//TorchrismConfig.COMMON.offset.get()+1;
+    	int offset = 5; //TorchrismConfig.COMMON.offset.get()+1;
 
         // Relative to Torch Placer
         int placerPosX = pos.getX() - offset * 8;
@@ -59,21 +59,7 @@ public class BlockTorchPlacer extends Block {
                     }
                 }
             }
-
-//            for(int i=0; i<36; i++){
-//                if(player.inventory.getStack(i).equals(new ItemStack(Blocks.TORCH))){
-//                    player.inventory.setStack(i, new ItemStack(Blocks.TORCH, giveBackToPlayerCount - player.inventory.get > 64 ? 64 : giveBackToPlayerCount));
-//                }
-//            }
-//            while(giveBackToPlayerCount > 0) {
-//                player.inventory.setStack(player.inventory.getSlotWithStack(new ItemStack(Blocks.TORCH)), new ItemStack(Blocks.TORCH, giveBackToPlayerCount > 64 ? 64 : giveBackToPlayerCount));
-//                giveBackToPlayerCount -= 64;
-//            }
-
-            while(giveBackToPlayerCount > 0) {
-                player.inventory.setStack(player.inventory.getEmptySlot(), new ItemStack(Blocks.TORCH, giveBackToPlayerCount > 64 ? 64 : giveBackToPlayerCount));
-                giveBackToPlayerCount -= 64;
-            }
+            BlockTorchCorrector.player.giveItemStack(new ItemStack(Blocks.TORCH, giveBackToPlayerCount));
         }
         return ActionResult.SUCCESS;
     }

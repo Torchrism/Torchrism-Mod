@@ -33,7 +33,6 @@ public class BlockGreatWallBuilder extends Block implements BlockEntityProvider 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
 
-        System.out.println("onBlockActivated");
         final BlockEntityGreatWallBuilder bE = (BlockEntityGreatWallBuilder) world.getBlockEntity(pos);
         if (bE != null) {
             bE.toggleActive();
