@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "torchrism:compacted_torch"
+          "name": "torchrism:torch_placer"
         }
       ]
     }

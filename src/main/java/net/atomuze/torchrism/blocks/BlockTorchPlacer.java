@@ -59,7 +59,9 @@ public class BlockTorchPlacer extends Block {
                     }
                 }
             }
-            BlockTorchCorrector.player.giveItemStack(new ItemStack(Blocks.TORCH, giveBackToPlayerCount));
+            if(giveBackToPlayerCount > 0){
+                BlockTorchCorrector.player.giveItemStack(new ItemStack(Blocks.TORCH, giveBackToPlayerCount));
+            }
         }
         return ActionResult.SUCCESS;
     }

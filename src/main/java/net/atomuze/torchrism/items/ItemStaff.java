@@ -61,12 +61,12 @@ public class ItemStaff extends ToolItem {
 			Material material = blockstate.getMaterial();
 			
 			if(material == Material.WATER && worldIn.getBlockState(blockpos1).getBlock() == Blocks.AIR && itemstack.getDamage() > 0) {
-				worldIn.setBlockState(blockpos1, ModBlocks.WATER_TORCH.getDefaultState(), 11);
-				playerIn.playSound(SoundEvents.BLOCK_WOOD_PLACE, 1.0F, 1.0F);
-				if (!worldIn.isClient) {
-					playerIn.getStackInHand(handIn).damage(-1, playerIn, null);
-				}
-				return TypedActionResult.success(itemstack);
+//				worldIn.setBlockState(blockpos1, ModBlocks.WATER_TORCH.getDefaultState(), 11);
+//				playerIn.playSound(SoundEvents.BLOCK_WOOD_PLACE, 1.0F, 1.0F);
+//				if (!worldIn.isClient) {
+//					playerIn.getStackInHand(handIn).damage(-1, playerIn, null);
+//				}
+				return TypedActionResult.pass(itemstack);
 			} else if (material.isReplaceable() && itemstack.getDamage() > 0) {
 
 				if (Block.sideCoversSmallSquare(worldIn, blockpos.down(), Direction.UP)) {
@@ -114,13 +114,11 @@ public class ItemStaff extends ToolItem {
 	    ItemStack item = context.getStack();
 	    Hand hand = context.getHand();
 	    
-	    if(player.isSneaking() && item.getDamage() > 0 && (blockstate.getBlock() == ModBlocks.WATER_TORCH || blockstate.getBlock() == Blocks.TORCH)) {
+	    if(player.isSneaking() && item.getDamage() > 0 && blockstate.getBlock() == Blocks.TORCH) {
 	    	world.spawnEntity(new ItemEntity(world, blockpos.getX(), blockpos.getY(), blockpos.getZ(), Items.TORCH.getDefaultStack()));
 	    	player.getStackInHand(hand).damage(-1, player, null);    	
 	    	return ActionResult.SUCCESS;
-	    }else if(blockstate.getBlock() == ModBlocks.WATER_TORCH
-	    	|| blockstate.getBlock() == ModBlocks.WALL_WATER_TORCH
-	    	|| blockstate.getBlock() == Blocks.TORCH
+	    }else if(blockstate.getBlock() == Blocks.TORCH
 	    	|| blockstate.getBlock() == Blocks.WALL_TORCH
 	    	|| blockstate.getBlock() == ModBlocks.COMPACTED_TORCH
 	    	|| blockstate.getBlock() == ModBlocks.DOUBLE_COMPACTED_TORCH

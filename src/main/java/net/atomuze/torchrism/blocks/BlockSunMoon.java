@@ -16,7 +16,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Random;
 
-public class BlockSunMoon extends Block implements BlockEntityProvider {
+public class BlockSunMoon extends Block {
 
 	public BlockSunMoon(AbstractBlock.Settings settings) {
 		super(settings);
@@ -25,7 +25,7 @@ public class BlockSunMoon extends Block implements BlockEntityProvider {
 	@Environment(EnvType.CLIENT)
 	@Override
 	public void randomDisplayTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand) {
-		if (worldIn.getTimeOfDay() % 24000 > 12000) {
+		if (worldIn.getTimeOfDay() % 24000 < 12000) {
 			worldIn.setBlockState(pos, ModBlocks.SUN_MOON_BLOCK.getDefaultState(), 3);
 		} else {
 			worldIn.setBlockState(pos, ModBlocks.SUN_MOON_BLOCK_NIGHT.getDefaultState(), 3);
@@ -35,10 +35,5 @@ public class BlockSunMoon extends Block implements BlockEntityProvider {
 	@Environment(EnvType.CLIENT)
 	public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
 		return new ItemStack(ModBlocks.SUN_MOON_BLOCK);
-	}
-
-	@Override
-	public @Nullable BlockEntity createBlockEntity(BlockView world) {
-		return new BlockEntityTorchCorrector();
 	}
 }

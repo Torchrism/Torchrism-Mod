@@ -12,23 +12,18 @@ public class ModBlocks {
 	
 	private final static String mod_id = TorchrismMod.MOD_ID;
 	
-    public static final BlockTorchPlacer TORCH_PLACER = new BlockTorchPlacer(FabricBlockSettings.of(Material.WOOD).lightLevel(15).requiresTool().strength(3f, 4f));
+    public static final BlockTorchPlacer TORCH_PLACER = new BlockTorchPlacer(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).lightLevel(15));
     public static final BlockCompactedTorch COMPACTED_TORCH = new BlockCompactedTorch(FabricBlockSettings.copyOf(Blocks.TORCH));
     public static final BlockDoubleCompactedTorch DOUBLE_COMPACTED_TORCH = new BlockDoubleCompactedTorch(FabricBlockSettings.copyOf(Blocks.TORCH));
-    public static final BlockWaterTorch WATER_TORCH = new BlockWaterTorch(FabricBlockSettings.of(Material.WOOD).lightLevel(15).collidable(false));
-    public static final BlockWallWaterTorch WALL_WATER_TORCH = new BlockWallWaterTorch(FabricBlockSettings.copyOf(WATER_TORCH));
-    public static final BlockTorchDice TORCH_DICE = new BlockTorchDice(FabricBlockSettings.of(Material.WOOD).requiresTool().strength(1f, 4f));
+    public static final BlockTorchDice TORCH_DICE = new BlockTorchDice(FabricBlockSettings.of(Material.WOOD).requiresTool().strength(1.0f, 3.0f));
     public static final BlockTorchCorrector TORCH_CORRECTOR = new BlockTorchCorrector(FabricBlockSettings.copyOf(TORCH_PLACER));
     
-    public static final BlockPillarTop PILLAR_TOP = new BlockPillarTop(FabricBlockSettings.copyOf(Blocks.QUARTZ_BLOCK));
-    public static final BlockPillar PILLAR = new BlockPillar(FabricBlockSettings.copyOf(Blocks.QUARTZ_BLOCK));
-    public static final BlockPillarBottom PILLAR_BOTTOM = new BlockPillarBottom(FabricBlockSettings.copyOf(Blocks.QUARTZ_BLOCK).lightLevel(15));
     public static final BlockSunMoon SUN_MOON_BLOCK = new BlockSunMoon(FabricBlockSettings.copyOf(Blocks.QUARTZ_BLOCK).lightLevel(15));
     public static final BlockSunMoon SUN_MOON_BLOCK_NIGHT = new BlockSunMoon(FabricBlockSettings.copyOf(Blocks.QUARTZ_BLOCK));
     
     public static final BlockGreatWallBuilder GREAT_WALL_BUILDER = new BlockGreatWallBuilder(FabricBlockSettings.copyOf(TORCH_PLACER));
     public static final Block ILLUMINATE_BLOCK = new Block(FabricBlockSettings.copyOf(SUN_MOON_BLOCK));
-    public static final BlockWall WALL = new BlockWall(FabricBlockSettings.copyOf(TORCH_PLACER).lightLevel(0));
+    public static final BlockWall WALL = new BlockWall(FabricBlockSettings.copyOf(TORCH_PLACER).lightLevel(0).strength(3.0f,5.0f));
     public static final BlockWallLight WALL_LIGHT = new BlockWallLight(FabricBlockSettings.copyOf(SUN_MOON_BLOCK));
     public static final Block POWERED_STONE = new Block(FabricBlockSettings.copyOf(Blocks.QUARTZ_BLOCK));
     public static final Block CHISELED_POWERED_STONE = new Block(FabricBlockSettings.copyOf(Blocks.QUARTZ_BLOCK));
@@ -41,14 +36,9 @@ public class ModBlocks {
         Registry.register(Registry.BLOCK, new Identifier(mod_id, "torch_placer"), TORCH_PLACER);
         Registry.register(Registry.BLOCK, new Identifier(mod_id, "compacted_torch"), COMPACTED_TORCH);
         Registry.register(Registry.BLOCK, new Identifier(mod_id, "double_compacted_torch"), DOUBLE_COMPACTED_TORCH);
-        Registry.register(Registry.BLOCK, new Identifier(mod_id, "water_torch"), WATER_TORCH);
-        Registry.register(Registry.BLOCK, new Identifier(mod_id, "wall_water_torch"), WALL_WATER_TORCH);
         Registry.register(Registry.BLOCK, new Identifier(mod_id, "torch_dice"), TORCH_DICE);
         Registry.register(Registry.BLOCK, new Identifier(mod_id, "torch_corrector"), TORCH_CORRECTOR);
         
-        Registry.register(Registry.BLOCK, new Identifier(mod_id, "pillar_top"), PILLAR_TOP);
-        Registry.register(Registry.BLOCK, new Identifier(mod_id, "pillar"), PILLAR);
-        Registry.register(Registry.BLOCK, new Identifier(mod_id, "pillar_bottom"), PILLAR_BOTTOM);
         Registry.register(Registry.BLOCK, new Identifier(mod_id, "sun_moon_block"), SUN_MOON_BLOCK);
         Registry.register(Registry.BLOCK, new Identifier(mod_id, "sun_moon_block_night"), SUN_MOON_BLOCK_NIGHT);
         
@@ -71,9 +61,6 @@ public class ModBlocks {
         Registry.register(Registry.ITEM, new Identifier(mod_id, "torch_dice"), new BlockItem(TORCH_DICE, new Item.Settings().group(TorchrismMod.ITEM_GROUP)));
         Registry.register(Registry.ITEM, new Identifier(mod_id, "torch_corrector"), new BlockItem(TORCH_CORRECTOR, new Item.Settings().group(TorchrismMod.ITEM_GROUP)));
         
-        Registry.register(Registry.ITEM, new Identifier(mod_id, "pillar_top"), new BlockItem(PILLAR_TOP, new Item.Settings().group(TorchrismMod.ITEM_GROUP)));
-        Registry.register(Registry.ITEM, new Identifier(mod_id, "pillar"), new BlockItem(PILLAR, new Item.Settings().group(TorchrismMod.ITEM_GROUP)));
-        Registry.register(Registry.ITEM, new Identifier(mod_id, "pillar_bottom"), new BlockItem(PILLAR_BOTTOM, new Item.Settings().group(TorchrismMod.ITEM_GROUP)));
         Registry.register(Registry.ITEM, new Identifier(mod_id, "sun_moon_block"), new BlockItem(SUN_MOON_BLOCK, new Item.Settings().group(TorchrismMod.ITEM_GROUP)));
         
         Registry.register(Registry.ITEM, new Identifier(mod_id, "great_wall_builder"), new BlockItem(GREAT_WALL_BUILDER, new Item.Settings().group(TorchrismMod.ITEM_GROUP)));

@@ -21,6 +21,5 @@ public class TorchrismMod implements ModInitializer {
     } 
     
     public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.build(
-    		new Identifier("torchrism", "general"),
-    		() -> new ItemStack(ModBlocks.TORCH_PLACER));
+    		new Identifier("torchrism", "general"), () -> new ItemStack(ModBlocks.TORCH_PLACER));
 }

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "torchrism",
-  "version": "1.0.0",
+  "version": "1.0.1",
 
   "name": "Torchrism Mod",
   "description": "Torchrism is for placing torches in an open area.",
