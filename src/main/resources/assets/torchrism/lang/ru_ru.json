@@ -1,0 +1,33 @@
+{
+"block.torchrism.torch_placer":"Распределяющий факел",
+"block.torchrism.torch_dice":"Факел - Кубик",
+"block.torchrism.great_wall_builder":"Факел - Великая стена",
+"block.torchrism.torch_corrector":"Исправляющий факел",
+
+"block.torchrism.pillar_top":"Верх колонны",
+"block.torchrism.pillar":"Колонна",
+"block.torchrism.pillar_bottom":"Низ колонны",
+
+"block.torchrism.compacted_torch":"Компактный факел",
+"block.torchrism.double_compacted_torch":"Двойной компактный факел",
+"block.torchrism.water_torch":"Водонепроницаемый факел",
+
+"block.torchrism.wall":"Стена",
+"block.torchrism.illuminate_block":"Осветить блок",
+"block.torchrism.sun_moon_block":"Блок солнца/луны",
+"block.torchrism.sun_moon_block_moon":"Блок солнца/луны (Луна)",
+"block.torchrism.un_powered_stone":"Незаряженный камень",
+"block.torchrism.power_infused_stone":"Камень вливания энергии",
+"block.torchrism.powered_stone":"Заряженный камень",
+"block.torchrism.chiseled_powered_stone.":"Резной заряженный камень",
+"block.torchrism.powered_stone_slab":"Заряженная каменная плита",
+"block.torchrism.powered_stone_slab_double":"Двойная заряженная каменная плита",
+"block.torchrism.powered_stone_stairs":"Заряженные каменные ступени",
+
+"item.torchrism.torch_staff":"Посох-факел",
+
+"torchrism.torch_staff.no_enough_item":"Недостаточно факелов",
+"torchrism.torch_staff.torch_count":"Количество факелов:",
+
+"itemGroup.torchrismTab":"Факелизм"
+}
