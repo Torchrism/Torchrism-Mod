@@ -1,7 +1,7 @@
 # Torchrism Mod
 
 ## About this Mod
-Torchrism is for placing torches in an open area(256 torches).The interval between each torch by default is 4 blocks, you can change the interval in the config file.Place Torch-placer in an open area and right-click it to deploy torches.If the torch cannot be placed, it will be returned to the players' inventory.
+Torchrism is for placing torches in an open area(256 torches).The interval between each torch by default is 4 blocks.Place Torch-placer in an open area and right-click it to deploy torches.If the torch cannot be placed, it will be returned to the players' inventory.
 
 ## License
 Every piece of code in this mod is subjected to CC BY-NC.
