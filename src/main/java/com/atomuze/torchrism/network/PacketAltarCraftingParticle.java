@@ -2,7 +2,7 @@ package com.atomuze.torchrism.network;
 
 import javax.xml.ws.handler.MessageContext;
 
-import com.atomuze.torchrism.block.altar.block.BlockAltarMainPedestal;
+import com.atomuze.torchrism.block.BlockAltarMainPedestal;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;

@@ -1,6 +1,7 @@
 package com.atomuze.torchrism.entity.flyingTorch;
 
 import com.atomuze.torchrism.Torchrism;
+import com.atomuze.torchrism.entity.EntityFlyingTorch;
 
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;

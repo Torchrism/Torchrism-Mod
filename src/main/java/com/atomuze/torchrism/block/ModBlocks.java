@@ -1,29 +1,6 @@
 package com.atomuze.torchrism.block;
 
 import com.atomuze.torchrism.Torchrism;
-import com.atomuze.torchrism.block.modblocks.BlockIlluminate;
-import com.atomuze.torchrism.block.modblocks.BlockPowerInfusedStone;
-import com.atomuze.torchrism.block.modblocks.BlockPoweredStone;
-import com.atomuze.torchrism.block.modblocks.BlockWall;
-import com.atomuze.torchrism.block.modblocks.BlockWallLight;
-import com.atomuze.torchrism.block.modblocks.BlockunPoweredStone;
-import com.atomuze.torchrism.block.slab.BlockDoublePoweredStoneSlab;
-import com.atomuze.torchrism.block.slab.BlockHalfPoweredStoneSlab;
-import com.atomuze.torchrism.block.slab.BlockPoweredStoneSlab;
-import com.atomuze.torchrism.block.stair.BlockStairBase;
-import com.atomuze.torchrism.block.altar.block.BlockAltarInsidePedestal;
-import com.atomuze.torchrism.block.altar.block.BlockAltarMainPedestal;
-import com.atomuze.torchrism.block.altar.block.BlockAltarOutsidePedestal;
-import com.atomuze.torchrism.block.altar.block.BlockAltarPillar;
-import com.atomuze.torchrism.block.altar.block.BlockAltarPillerBase;
-import com.atomuze.torchrism.block.altar.block.BlockSunMoon;
-import com.atomuze.torchrism.block.torch_castle.BlockGreatWallBuilder;
-import com.atomuze.torchrism.block.torch_correcter.BlockTorchCorrector;
-import com.atomuze.torchrism.block.torch_dice.BlockTorchDice;
-import com.atomuze.torchrism.block.torch_placer.BlockTorchPlacer;
-import com.atomuze.torchrism.block.torches.BlockCompactedTorch;
-import com.atomuze.torchrism.block.torches.BlockDoubleCompactedTorch;
-import com.atomuze.torchrism.block.torches.BlockWaterTorch;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

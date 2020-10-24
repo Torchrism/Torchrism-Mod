@@ -43,7 +43,6 @@ public class JeiPlugin implements IModPlugin{
 		final IJeiHelpers helpers = registry.getJeiHelpers();
 		IRecipeTransferRegistry recipeTransfer = registry.getRecipeTransferRegistry();
 		registry.addRecipes(AltarRecipeMaker.getRecipes(), Altar);
-	//	recipeTransfer.addRecipeTransferHandler(ContainerAltar.class, Altar, 0, 1 ,3 ,36);
 	}
 
 	public static String translateToLocal(String key) {

@@ -1,7 +1,7 @@
 package com.atomuze.torchrism.block.altar;
 
+import com.atomuze.torchrism.block.BlockAltarMainPedestal;
 import com.atomuze.torchrism.block.ModBlocks;
-import com.atomuze.torchrism.block.altar.block.BlockAltarMainPedestal;
 import com.atomuze.torchrism.sound.ModSound;
 
 import net.minecraft.block.state.IBlockState;

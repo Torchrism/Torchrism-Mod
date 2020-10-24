@@ -7,8 +7,8 @@ import java.util.Set;
 
 import javax.annotation.Nonnull;
 
-import com.atomuze.torchrism.block.altar.block.BlockAltarMainPedestal;
-import com.atomuze.torchrism.block.altar.tileEntity.TileEntityPedestal;
+import com.atomuze.torchrism.block.BlockAltarMainPedestal;
+import com.atomuze.torchrism.block.tileentity.TileEntityPedestal;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.gson.JsonArray;

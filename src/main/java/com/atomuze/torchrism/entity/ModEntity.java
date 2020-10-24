@@ -2,7 +2,6 @@ package com.atomuze.torchrism.entity;
 
 import com.atomuze.torchrism.ModConfig;
 import com.atomuze.torchrism.Torchrism;
-import com.atomuze.torchrism.entity.flyingTorch.EntityFlyingTorch;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
