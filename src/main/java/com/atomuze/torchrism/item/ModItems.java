@@ -11,11 +11,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 
 public class ModItems {
 	
-
-	public static final Item.ToolMaterial TORCH_STAFF_MATERIAL = EnumHelper.addToolMaterial("TORCH_STAFF", 3, 65535, 0, 0, 0);
-	
-	
-	public static final ItemStaff torchStaff = (ItemStaff) new ItemStaff(TORCH_STAFF_MATERIAL, "torch_staff");
+	public static final ItemStaff torchStaff = (ItemStaff) new ItemStaff("torch_staff");
 	public static final ItemTorchonomicon torchonomicon = (ItemTorchonomicon) new ItemTorchonomicon("torchonomicon");
 
 	public static void register(IForgeRegistry<Item> registry) {
