@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.atomuze.torchrism.ModConfig;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
@@ -42,7 +43,7 @@ public class BlockTorchPlacer extends BlockBase {
 
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
-
+		Block block = new Block(Material.CIRCUITS);
 		int offset = ModConfig.getTorchOffset();
 
 		// Relative to Torch Placer
@@ -50,33 +51,36 @@ public class BlockTorchPlacer extends BlockBase {
 		int placePosY = 255;
 		int placerPosZ = pos.getZ() - offset * 8;
 
+
 		if (!world.isRemote) {
-			int giveBackToPlayerCount = 256;
-			world.setBlockState(pos, Blocks.AIR.getDefaultState());
-			for (int placePosX = placerPosX; placePosX < placerPosX + 16 * offset; placePosX = placePosX + offset) {
-				for (int placePosZ = placerPosZ; placePosZ < placerPosZ + 16 * offset; placePosZ = placePosZ + offset) {
-					for (placePosY = 255; placePosY >= 0; placePosY--) {
-						BlockPos findPlacePos = new BlockPos(placePosX, placePosY, placePosZ);
-						BlockPos PlacePos = new BlockPos(placePosX, placePosY + 1, placePosZ);
+            int giveBackToPlayerCount = 256;
+            world.setBlockState(pos, Blocks.AIR.getDefaultState());
+            for (int placePosX = placerPosX; placePosX < placerPosX + 16 * offset; placePosX = placePosX + offset) {
+                for (int placePosZ = placerPosZ; placePosZ < placerPosZ + 16 * offset; placePosZ = placePosZ + offset) {
+                    for (placePosY = 255; placePosY >= 0; placePosY--) {
+                        BlockPos PlacePos = new BlockPos(placePosX, placePosY, placePosZ);
 
-						Material m = world.getBlockState(findPlacePos).getMaterial();
-						Material m2 = world.getBlockState(PlacePos).getMaterial();
-						IBlockState iblockstate = world.getBlockState(findPlacePos);
+                        Material m = world.getBlockState(PlacePos).getMaterial();
+                        Material mDown = world.getBlockState(PlacePos.down()).getMaterial();
+                        state = world.getBlockState(PlacePos.down());
 
-						if (m == Material.VINE || m == Material.SNOW || m == Material.AIR) {
-							world.setBlockState(findPlacePos, Blocks.AIR.getDefaultState());
-							continue;
-						} else if (iblockstate.isNormalCube() && m2 == Material.AIR) {
-							world.setBlockState(PlacePos, Blocks.TORCH.getDefaultState());
-							giveBackToPlayerCount--;
-							break;
-						}
-					}
-				}
-			}
+                        if(mDown == Material.WATER){
+                            break;
+                        }else if ((mDown.isReplaceable() || mDown == Material.LEAVES) && mDown != Material.AIR){
+                            world.setBlockState(PlacePos.down(), Blocks.AIR.getDefaultState());
+                            continue;
+                        }else if (mDown.isSolid() && m == Material.AIR) {
+                            world.setBlockState(PlacePos, Blocks.TORCH.getDefaultState());
+                            giveBackToPlayerCount--;
+                            break;
+                        }
+                    }
+                }
+            }
 			player.addItemStackToInventory(new ItemStack(Blocks.TORCH, giveBackToPlayerCount));
 		}
 		return true;
+		
 	}
 
 	@Override

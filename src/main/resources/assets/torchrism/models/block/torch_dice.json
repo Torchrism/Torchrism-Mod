@@ -9,6 +9,12 @@
     "up": "torchrism:blocks/torch_dice_six",
     "down": "torchrism:blocks/torch_dice_one"
   },
+  "display": {
+    "gui": {
+      "rotation":  [ 210, 135, 180 ],
+      "scale":  [ 0.6, 0.6, 0.6 ]
+    }
+  },
   "elements": [
     {
       "from": [ 0, 0, 0 ],
