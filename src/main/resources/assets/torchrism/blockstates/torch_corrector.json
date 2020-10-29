@@ -2,10 +2,10 @@
 	"forge_marker": 1,
   "variants": {
     "normal": {
-      "model": "torchrism:torch_correcter"
+      "model": "torchrism:torch_corrector"
     },
     "inventory": {
-      "model": "torchrism:torch_correcter",
+      "model": "torchrism:torch_corrector",
       "transform": "forge:default-block"
     }
   }

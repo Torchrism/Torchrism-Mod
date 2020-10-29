@@ -1,7 +1,7 @@
 tile.torchrism.torch_placer.name=火把放置器
 tile.torchrism.torch_dice.name=火把骰子
 tile.torchrism.great_wall_builder.name=火把長城
-tile.torchrism.torch_correcter.name=火把矯正器
+tile.torchrism.torch_corrector.name=火把矯正器
 
 tile.torchrism.altar_main_pedestal.name=祭壇基座
 tile.torchrism.altar_inside_pedestal.name=祭壇柱基座

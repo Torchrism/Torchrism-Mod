@@ -33,7 +33,7 @@ import net.minecraftforge.items.IItemHandler;
 public class TileEntityMainPedestal extends TileEntityPedestal implements ITickable {
 
 	long initTime = 0;
-	private boolean altarT = true;
+	private boolean isDay = true;
 	EntityFlyingTorch flyingTorch = new EntityFlyingTorch(world);
 	Random ran = new Random();
 	public static int altarBuilder = 0;
@@ -73,12 +73,12 @@ public class TileEntityMainPedestal extends TileEntityPedestal implements ITicka
 			initTime = world.getTotalWorldTime();
 		}
 
-		if (world.getWorldTime() % 24000 < 12000 && !altarT) {
+		if (world.getWorldTime() % 24000 < 12000 && !isDay) {
 			BlockAltarMainPedestal.setState(true, world, pos);
-			altarT = true;
-		} else if (world.getWorldTime() % 24000 > 12000 && altarT) {
+			isDay = true;
+		} else if (world.getWorldTime() % 24000 > 12000 && isDay) {
 			BlockAltarMainPedestal.setState(false, world, pos);
-			altarT = false;
+			isDay = false;
 		}
 
 		CheckAltar check = new CheckAltar(world, pos);

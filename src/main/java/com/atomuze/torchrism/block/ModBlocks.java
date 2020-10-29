@@ -18,7 +18,7 @@ public class ModBlocks {
 	public static final BlockDoubleCompactedTorch doublecompactedTorch = new BlockDoubleCompactedTorch("double_compacted_torch").setCreativeTab(Torchrism.creativeTab);
 	public static final BlockWaterTorch waterTorch = new BlockWaterTorch("water_torch");
 	public static final BlockTorchDice torchDice = new BlockTorchDice("torch_dice").setCreativeTab(Torchrism.creativeTab);
-	public static final BlockTorchCorrector torchCorrecter = new BlockTorchCorrector("torch_correcter").setCreativeTab(Torchrism.creativeTab);
+	public static final BlockTorchCorrector torchCorrecter = new BlockTorchCorrector("torch_corrector").setCreativeTab(Torchrism.creativeTab);
 	
 	public static final BlockAltarMainPedestal altarMainPedestal = new BlockAltarMainPedestal("altar_main_pedestal").setCreativeTab(Torchrism.creativeTab);
 	public static final BlockAltarMainPedestal altarMainPedestal_night = new BlockAltarMainPedestal("altar_main_pedestal_night").setCreativeTab(Torchrism.creativeTab);
