@@ -3,11 +3,11 @@ package com.atomuze.torchrism.proxy;
 import com.atomuze.torchrism.Torchrism;
 import com.atomuze.torchrism.block.TESR.TESRMainPedestal;
 import com.atomuze.torchrism.block.TESR.TESROtherPedestal;
-import com.atomuze.torchrism.block.tileentity.TileEntityMainPedestal;
-import com.atomuze.torchrism.block.tileentity.TileEntityOtherPedestal;
 import com.atomuze.torchrism.entity.EntityFlyingTorch;
 import com.atomuze.torchrism.entity.flyingTorch.RenderFlyingTorch;
 import com.atomuze.torchrism.item.ModItems;
+import com.atomuze.torchrism.tileentity.TileEntityMainPedestal;
+import com.atomuze.torchrism.tileentity.TileEntityOtherPedestal;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.entity.Render;

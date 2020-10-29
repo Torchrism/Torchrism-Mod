@@ -1,15 +1,10 @@
 package com.atomuze.torchrism.block;
 
-import com.atomuze.torchrism.block.tileentity.TileEntityGreatWallBuilder;
-import com.atomuze.torchrism.block.tileentity.TileEntityTorchCorrector;
+import com.atomuze.torchrism.tileentity.TileEntityTorchCorrector;
 
-import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.PropertyDirection;
-import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
@@ -46,6 +41,7 @@ public class BlockTorchCorrector extends BlockTileEntity<TileEntityTorchCorrecto
 		TileEntity tileentity = world.getTileEntity(pos);
 
 		if (tileentity instanceof TileEntityTorchCorrector) {
+			((TileEntityTorchCorrector) tileentity).setWorld(world);
 			((TileEntityTorchCorrector) tileentity).setPos(pos);
 		}
 

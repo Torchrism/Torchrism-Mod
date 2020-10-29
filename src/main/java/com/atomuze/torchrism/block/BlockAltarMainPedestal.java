@@ -3,9 +3,9 @@ package com.atomuze.torchrism.block;
 import javax.annotation.Nullable;
 
 import com.atomuze.torchrism.block.altar.CheckAltar;
-import com.atomuze.torchrism.block.tileentity.TileEntityMainPedestal;
 import com.atomuze.torchrism.crafting.ContainerAltar;
 import com.atomuze.torchrism.item.ModItems;
+import com.atomuze.torchrism.tileentity.TileEntityMainPedestal;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;

@@ -1,4 +1,4 @@
-package com.atomuze.torchrism.item.torchonomicon;
+package com.atomuze.torchrism.gui;
 
 import java.io.IOException;
 import java.util.Random;
@@ -6,6 +6,7 @@ import java.util.Random;
 import org.lwjgl.opengl.GL11;
 
 import com.atomuze.torchrism.Torchrism;
+import com.atomuze.torchrism.gui.button.ButtonTorchonomicon;
 import com.atomuze.torchrism.sound.ModSound;
 
 import net.minecraft.client.audio.PositionedSoundRecord;

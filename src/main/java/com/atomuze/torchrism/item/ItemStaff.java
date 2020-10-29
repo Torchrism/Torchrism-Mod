@@ -140,7 +140,7 @@ public class ItemStaff extends net.minecraft.item.ItemTool {
 				}
 				worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
 			}
-			ModNetworks.network.sendToDimension(new PacketModParticle(EnumParticleTypes.SMOKE_LARGE.getParticleID(), pos.getX(), pos.getY(), pos.getZ()), player.dimension);
+			ModNetworks.network.sendToDimension(new PacketModParticle(EnumParticleTypes.SMOKE_LARGE, pos.getX(), pos.getY(), pos.getZ()), player.dimension);
 			return EnumActionResult.SUCCESS;
 		} else if (worldIn.getBlockState(pos).getBlock().isReplaceable(worldIn, pos) && block.canPlaceTorchOnTop(state, worldIn, pos.down()) && nbt.getInteger("count") > 0) {
 				worldIn.setBlockState(pos, Blocks.TORCH.getDefaultState());

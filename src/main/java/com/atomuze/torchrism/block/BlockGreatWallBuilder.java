@@ -1,6 +1,6 @@
 package com.atomuze.torchrism.block;
 
-import com.atomuze.torchrism.block.tileentity.TileEntityGreatWallBuilder;
+import com.atomuze.torchrism.tileentity.TileEntityGreatWallBuilder;
 
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
@@ -35,20 +35,15 @@ public class BlockGreatWallBuilder extends BlockTileEntity<TileEntityGreatWallBu
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
-			EnumFacing side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
 		final TileEntityGreatWallBuilder tileEntity = (TileEntityGreatWallBuilder) world.getTileEntity(pos);
 		if (tileEntity != null) {
-
 			tileEntity.toggleActive();
 		}
-
 		TileEntity tileentity = world.getTileEntity(pos);
-
 		if (tileentity instanceof TileEntityGreatWallBuilder) {
 			((TileEntityGreatWallBuilder) tileentity).setPos(pos);
 		}
-
 		return true;
 	}
 
@@ -99,8 +94,7 @@ public class BlockGreatWallBuilder extends BlockTileEntity<TileEntityGreatWallBu
 	}
 	
 	@Override
-	public IBlockState getStateFromMeta(int meta) 
-	{
+	public IBlockState getStateFromMeta(int meta) {
 		EnumFacing facing = EnumFacing.getFront(meta);
 		if(facing.getAxis() == EnumFacing.Axis.Y) facing = EnumFacing.NORTH;
 		return this.getDefaultState().withProperty(FACING, facing);

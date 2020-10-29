@@ -1,4 +1,4 @@
-package com.atomuze.torchrism.item.torchonomicon;
+package com.atomuze.torchrism.gui.button;
 
 import com.atomuze.torchrism.Torchrism;
 

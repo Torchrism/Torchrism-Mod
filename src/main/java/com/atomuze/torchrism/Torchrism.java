@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.atomuze.torchrism.block.ModBlocks;
 import com.atomuze.torchrism.entity.ModEntity;
+import com.atomuze.torchrism.gui.ModGui;
 import com.atomuze.torchrism.item.ModItems;
 import com.atomuze.torchrism.network.ModNetworks;
 import com.atomuze.torchrism.proxy.CommonProxy;
@@ -46,7 +47,7 @@ public class Torchrism {
 		LOGGER.info(NAME + " is loading!");
 		ModEntity.registerEntities();
 
-		NetworkRegistry.INSTANCE.registerGuiHandler(this, new ModGuiHandler());
+		NetworkRegistry.INSTANCE.registerGuiHandler(this, new ModGui());
 		ModNetworks.networkRegister();
 		proxy.registerRenderers();
 		proxy.preInit(event);

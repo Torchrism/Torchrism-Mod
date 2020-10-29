@@ -2,7 +2,7 @@ package com.atomuze.torchrism.block.TESR;
 
 import org.lwjgl.opengl.GL11;
 
-import com.atomuze.torchrism.block.tileentity.TileEntityMainPedestal;
+import com.atomuze.torchrism.tileentity.TileEntityMainPedestal;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;

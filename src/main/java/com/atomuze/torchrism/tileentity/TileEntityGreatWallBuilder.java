@@ -1,4 +1,4 @@
-package com.atomuze.torchrism.block.tileentity;
+package com.atomuze.torchrism.tileentity;
 
 import com.atomuze.torchrism.block.ModBlocks;
 
@@ -9,14 +9,12 @@ import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
-import net.minecraft.util.math.BlockPos;
 
 public class TileEntityGreatWallBuilder extends TileEntity implements ITickable {
 	
 	public static final PropertyDirection FACING = BlockHorizontal.FACING;
 	private boolean buildCastle = false;
 	int buildNum = 0;
-	BlockPos pos2 = pos;
 	
 	@Override
 	public void update() {
@@ -60,7 +58,6 @@ public class TileEntityGreatWallBuilder extends TileEntity implements ITickable 
 					buildWall(EnumFacing.NORTH);
 				}else {
 					buildCastle = false;
-					pos = pos2;
 				}
 				buildNum++;
 			}

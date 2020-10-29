@@ -1,6 +1,6 @@
 package com.atomuze.torchrism.block;
 
-import com.atomuze.torchrism.block.tileentity.TileEntityEncloseTorchPlacer;
+import com.atomuze.torchrism.tileentity.TileEntityEncloseTorchPlacer;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;

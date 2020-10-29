@@ -2,7 +2,7 @@ package com.atomuze.torchrism.block;
 
 import javax.annotation.Nullable;
 
-import com.atomuze.torchrism.block.tileentity.TileEntityOtherPedestal;
+import com.atomuze.torchrism.tileentity.TileEntityOtherPedestal;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;

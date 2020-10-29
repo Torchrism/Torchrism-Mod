@@ -1,4 +1,4 @@
-package com.atomuze.torchrism.block.tileentity;
+package com.atomuze.torchrism.tileentity;
 
 import com.atomuze.torchrism.block.BlockSunMoon;
 

@@ -2,7 +2,7 @@ package com.atomuze.torchrism.block;
 
 import javax.annotation.Nullable;
 
-import com.atomuze.torchrism.block.tileentity.TileEntitySunMoon;
+import com.atomuze.torchrism.tileentity.TileEntitySunMoon;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -19,7 +19,6 @@ import net.minecraft.world.World;
 public class BlockSunMoon extends BlockTileEntity<TileEntitySunMoon> {
 	public BlockSunMoon(String name) {
 		super(Material.ROCK, name);
-
 		setHardness(3f);
 		setResistance(4f);
 	}
@@ -27,7 +26,7 @@ public class BlockSunMoon extends BlockTileEntity<TileEntitySunMoon> {
 	public static void setState(boolean active, World worldIn, BlockPos pos) {
 		IBlockState iblockstate = worldIn.getBlockState(pos);
 		TileEntity tileentity = worldIn.getTileEntity(pos);
-
+		
 		if (active) {
 			worldIn.setBlockState(pos, ModBlocks.sunMoonBlock.getDefaultState(), 3);
 			worldIn.setBlockState(pos, ModBlocks.sunMoonBlock.getDefaultState(), 3);

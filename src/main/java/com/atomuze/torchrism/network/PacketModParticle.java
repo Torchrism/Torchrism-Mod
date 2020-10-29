@@ -27,11 +27,11 @@ public class PacketModParticle implements IMessage {
 		this.messageValid = false;
 	}
 	
-	public PacketModParticle(int particleId, float posX, float posY, float posZ) {
+	public PacketModParticle(EnumParticleTypes particle, float posX, float posY, float posZ) {
 		this.posX = posX;
 		this.posY = posY;
 		this.posZ = posZ;
-		this.particleId = particleId;
+		this.particleId = particle.getParticleID();
 		this.messageValid = true;
 	}
 	

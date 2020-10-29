@@ -1,6 +1,6 @@
 package com.atomuze.torchrism.network;
 
-import com.atomuze.torchrism.block.tileentity.TileEntityPedestal;
+import com.atomuze.torchrism.tileentity.TileEntityPedestal;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;

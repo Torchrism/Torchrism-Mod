@@ -1,13 +1,11 @@
-package com.atomuze.torchrism;
-
-import com.atomuze.torchrism.item.torchonomicon.GuiTorchonomicon;
+package com.atomuze.torchrism.gui;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
 
-public class ModGuiHandler implements IGuiHandler {
+public class ModGui implements IGuiHandler {
 	public static final int TORCHONOMICON = 0;
 
 	@Override
