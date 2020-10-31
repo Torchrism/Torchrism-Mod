@@ -97,16 +97,10 @@ public class TileEntityTorchCorrector extends TileEntity implements ITickable {
 		int placePosZ = activatepos.getZ();
 		for (int placePosY = 255; placePosY >= 0; placePosY--) {
 			BlockPos PlacePos = new BlockPos(placePosX, placePosY, placePosZ);
-
 			IBlockState iblockstate = world.getBlockState(PlacePos);
-			Material m = world.getBlockState(PlacePos).getMaterial();
-
-			
-			
-			if (m == Material.LEAVES) {
-
+			Material m = iblockstate.getMaterial();
+			if (m == Material.LEAVES || (iblockstate != Blocks.TORCH.getDefaultState() && iblockstate.getBlock() == Blocks.TORCH) || (iblockstate != Blocks.REDSTONE_TORCH.getDefaultState() && iblockstate.getBlock() == Blocks.REDSTONE_TORCH)) {
 			} else if (iblockstate == Blocks.TORCH.getDefaultState()) {
-				
 				if((activatepos.getX()-pos.getX())%offset == 0 && (activatepos.getZ()-pos.getZ())%offset == 0) {
 					break;
 				}

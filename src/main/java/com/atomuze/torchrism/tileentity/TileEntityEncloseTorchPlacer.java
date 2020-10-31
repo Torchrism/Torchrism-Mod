@@ -11,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.chunk.Chunk;
 
 public class TileEntityEncloseTorchPlacer extends TileEntity implements ITickable {
 	
@@ -106,6 +107,8 @@ public class TileEntityEncloseTorchPlacer extends TileEntity implements ITickabl
 	
 	public void toggleActive() {
 		if (this.checking) {
+			this.checking = false;
+		}else if(this.world.getChunkFromBlockCoords(getPos()).canSeeSky(getPos())) {
 			this.checking = false;
 		}else {
 			this.checking = true;
