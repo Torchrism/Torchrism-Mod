@@ -63,10 +63,8 @@ public class BlockAltarMainPedestal extends BlockTileEntity<TileEntityMainPedest
 				IItemHandler itemHandler = tile.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, side);
 				if (player.getHeldItem(hand).isEmpty() || player.getHeldItem(hand).getItem() == itemHandler.getStackInSlot(0).getItem()) {
 					player.addItemStackToInventory(itemHandler.extractItem(0, 1, false));
-				} else if (itemHandler.getStackInSlot(0).isEmpty()) {
-					ItemStack giveBackItem = player.getHeldItem(hand);
-					player.setHeldItem(hand, itemHandler.insertItem(0, new ItemStack(player.getHeldItem(hand).getItem(), 1, player.getHeldItem(hand).getMetadata()), false));
-					player.setHeldItem(hand, new ItemStack(giveBackItem.getItem(), giveBackItem.getCount() - 1, giveBackItem.getMetadata()));
+				} else if (itemHandler.getStackInSlot(0).isEmpty()){
+					itemHandler.insertItem(0, player.getHeldItem(hand).splitStack(1), false);
 				}
 				tile.markDirty();
 			}
