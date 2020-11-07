@@ -53,8 +53,12 @@ public class TileEntityEncloseTorchPlacer extends TileEntity implements ITickabl
 	}
 	
 	private void moveAround(int degree) {
-		RayTraceResult raytraceresult = rayTrace(world, pos, degree);
-		placeTorch(raytraceresult);
+		
+		for(int i = 0; i<64; i = i + ModConfig.offset + 1) {
+			BlockPos tempPos = new BlockPos(pos.getX(), pos.getY() + i, pos.getZ());
+			RayTraceResult raytraceresult = rayTrace(world, tempPos, degree);
+			placeTorch(raytraceresult);
+		}
 	}
 	
 	private void placeTorch(RayTraceResult raytraceresult) {
@@ -72,7 +76,7 @@ public class TileEntityEncloseTorchPlacer extends TileEntity implements ITickabl
 			System.out.println(offsetx);
 			System.out.println(offsetz);
 			
-			if((offsetx)%offset == 0 || offsetx == 0 ||  offsetz%offset == 0 || offsetz == 0) {
+			if(offsetx%offset == 0  ||  offsetz%offset == 0 ) {
 				if(iblockstate.isFullBlock() && material == Material.AIR)
 					world.setBlockState(placepos, Blocks.TORCH.getDefaultState().withProperty(BlockTorch.FACING, facing));
 			}
@@ -82,14 +86,12 @@ public class TileEntityEncloseTorchPlacer extends TileEntity implements ITickabl
 		}catch(Exception e) {
 			System.out.println(e.getLocalizedMessage());
 		}
-		
-		
 	}
 	
 	protected RayTraceResult rayTrace(World worldIn, BlockPos pos, int degree) {
         double x = pos.getX();
         double y = pos.getY();
-        double z = pos.getZ() + 1;
+        double z = pos.getZ();
         Vec3d vec3d = new Vec3d(x, y, z);
         float vx = MathHelper.cos(degree * 0.017453292F);
         float vz = MathHelper.sin(degree * 0.017453292F);
