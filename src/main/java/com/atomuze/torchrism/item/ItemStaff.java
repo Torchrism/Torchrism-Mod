@@ -7,6 +7,7 @@ import java.util.Set;
 import javax.annotation.Nullable;
 
 import com.atomuze.torchrism.Torchrism;
+import com.atomuze.torchrism.TorchrismAPI;
 import com.atomuze.torchrism.block.BlockAltarMainPedestal;
 import com.atomuze.torchrism.block.BlockWaterTorch;
 import com.atomuze.torchrism.block.ModBlocks;
@@ -149,11 +150,11 @@ public class ItemStaff extends net.minecraft.item.ItemTool {
 		} else if (block.canPlaceTorchOnTop(state, worldIn, pos) && facing != EnumFacing.DOWN && nbt.getInteger("count") > 0) {
 			addNbtCount("count", -1);
 			player.playSound(SoundEvents.BLOCK_WOOD_PLACE, 1.0F, 1.0F);
-			Material m = worldIn.getBlockState(posOffset(pos ,facing)).getMaterial();
+			Material m = worldIn.getBlockState(TorchrismAPI.posOffset(pos ,facing)).getMaterial();
 			if((m == Material.VINE || m == Material.SNOW || m == Material.AIR) && m != Material.WATER){
-				worldIn.setBlockState(posOffset(pos ,facing), Blocks.TORCH.getDefaultState().withProperty(BlockTorch.FACING, facing));
+				worldIn.setBlockState(TorchrismAPI.posOffset(pos ,facing), Blocks.TORCH.getDefaultState().withProperty(BlockTorch.FACING, facing));
 			}else if(m == Material.WATER) {
-				worldIn.setBlockState(posOffset(pos ,facing), ModBlocks.waterTorch.getDefaultState().withProperty(BlockTorch.FACING, facing));
+				worldIn.setBlockState(TorchrismAPI.posOffset(pos ,facing), ModBlocks.waterTorch.getDefaultState().withProperty(BlockTorch.FACING, facing));
 			}
 			return EnumActionResult.SUCCESS;
 		} else if (nbt.getInteger("count") <= 0) {
@@ -172,22 +173,6 @@ public class ItemStaff extends net.minecraft.item.ItemTool {
 		if(!nbt.hasKey("count")) {
 		    itemstack.setTagCompound(nbt);
 			nbt.setInteger("count", 0);
-		}
-	}
-	
-	private BlockPos posOffset(BlockPos pos ,EnumFacing facing) {
-		if (facing == EnumFacing.NORTH) {
-			return pos.north();
-		} else if (facing == EnumFacing.SOUTH) {
-			return pos.south();
-		} else if (facing == EnumFacing.EAST) {
-			return pos.east();
-		} else if (facing == EnumFacing.WEST) {
-			return pos.west();
-		} else if (facing == EnumFacing.UP) {
-			return pos.up();
-		} else {
-			return pos;
 		}
 	}
 	

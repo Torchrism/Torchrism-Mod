@@ -19,7 +19,8 @@ public class ModBlocks {
 	public static final BlockWaterTorch waterTorch = new BlockWaterTorch("water_torch");
 	public static final BlockTorchDice torchDice = new BlockTorchDice("torch_dice").setCreativeTab(Torchrism.creativeTab);
 	public static final BlockTorchCorrector torchCorrecter = new BlockTorchCorrector("torch_corrector").setCreativeTab(Torchrism.creativeTab);
-	
+	public static final BlockEncloseTorchPlacer encloseTorchPlacer = new BlockEncloseTorchPlacer("enclose_torch_placer").setCreativeTab(Torchrism.creativeTab);
+
 	public static final BlockAltarMainPedestal altarMainPedestal = new BlockAltarMainPedestal("altar_main_pedestal").setCreativeTab(Torchrism.creativeTab);
 	public static final BlockAltarMainPedestal altarMainPedestal_night = new BlockAltarMainPedestal("altar_main_pedestal_night").setCreativeTab(Torchrism.creativeTab);
 	public static final BlockAltarInsidePedestal altarInsidePedestal = new BlockAltarInsidePedestal("altar_inside_pedestal").setCreativeTab(Torchrism.creativeTab);
@@ -52,6 +53,7 @@ public class ModBlocks {
 				torchDice,
 				greatWallBuilder,
 				torchCorrecter,
+				encloseTorchPlacer,
 				
 				altarMainPedestal,
 				altarMainPedestal_night,
@@ -78,6 +80,7 @@ public class ModBlocks {
 		GameRegistry.registerTileEntity(altarInsidePedestal.getTileEntityClass(), altarInsidePedestal.getRegistryName().toString());
 		GameRegistry.registerTileEntity(sunMoonBlock.getTileEntityClass(), sunMoonBlock.getRegistryName().toString());
 		GameRegistry.registerTileEntity(greatWallBuilder.getTileEntityClass(), greatWallBuilder.getRegistryName().toString());
+		GameRegistry.registerTileEntity(encloseTorchPlacer.getTileEntityClass(), encloseTorchPlacer.getRegistryName().toString());
 
 	}
 	
@@ -93,6 +96,7 @@ public class ModBlocks {
 				torchDice.createItemBlock(),
 				greatWallBuilder.createItemBlock(),
 				torchCorrecter.createItemBlock(),
+				encloseTorchPlacer.createItemBlock(),
 				
 				altarMainPedestal.createItemBlock(),
 				altarInsidePedestal.createItemBlock(),
@@ -117,6 +121,7 @@ public class ModBlocks {
 		torchDice.registerItemModel(Item.getItemFromBlock(torchDice));
 		greatWallBuilder.registerItemModel(Item.getItemFromBlock(greatWallBuilder));
 		torchCorrecter.registerItemModel(Item.getItemFromBlock(torchCorrecter));
+		encloseTorchPlacer.registerItemModel(Item.getItemFromBlock(encloseTorchPlacer));
 		
 		altarMainPedestal.registerItemModel(Item.getItemFromBlock(altarMainPedestal));
 		altarInsidePedestal.registerItemModel(Item.getItemFromBlock(altarInsidePedestal));

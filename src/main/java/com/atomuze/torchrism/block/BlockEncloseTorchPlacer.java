@@ -42,6 +42,7 @@ public class BlockEncloseTorchPlacer extends BlockTileEntity<TileEntityEncloseTo
 
 		if (tileentity instanceof TileEntityEncloseTorchPlacer) {
 			((TileEntityEncloseTorchPlacer) tileentity).setPos(pos);
+			
 		}
 
 		return true;
