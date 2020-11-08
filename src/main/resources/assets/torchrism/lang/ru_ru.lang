@@ -12,9 +12,9 @@ tile.torchrism.double_compacted_torch.name=Двойной компактный �
 tile.torchrism.water_torch.name=Водонепроницаемый факел
 
 tile.torchrism.wall.name=Стена
-tile.torchrism.illuminate_tile.name=Осветить блок
-tile.torchrism.sun_moon_tile.name=Блок солнца/луны
-tile.torchrism.sun_moon_tile_moon.name=Блок солнца/луны (Луна)
+tile.torchrism.illuminate_block.name=Осветить блок
+tile.torchrism.sun_moon_block.name=Блок солнца/луны
+tile.torchrism.sun_moon_block_moon.name=Блок солнца/луны (Луна)
 tile.torchrism.un_powered_stone.name=Незаряженный камень
 tile.torchrism.power_infused_stone.name=Камень вливания энергии
 tile.torchrism.powered_stone.name=Заряженный камень
