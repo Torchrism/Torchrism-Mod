@@ -1,0 +1,33 @@
+tile.torchrism.torch_placer.name=Распределяющий факел
+tile.torchrism.torch_dice.name=Факел - Кубик
+tile.torchrism.great_wall_builder.name=Факел - Великая стена
+tile.torchrism.torch_corrector.name=Исправляющий факел
+
+tile.torchrism.altar_inside_pedestal.name=Верх колонны
+tile.torchrism.altar_pillar.name=Колонна
+tile.torchrism.altar_piller_base.name=Низ колонны
+
+tile.torchrism.compacted_torch.name=Компактный факел
+tile.torchrism.double_compacted_torch.name=Двойной компактный факел
+tile.torchrism.water_torch.name=Водонепроницаемый факел
+
+tile.torchrism.wall.name=Стена
+tile.torchrism.illuminate_tile.name=Осветить блок
+tile.torchrism.sun_moon_tile.name=Блок солнца/луны
+tile.torchrism.sun_moon_tile_moon.name=Блок солнца/луны (Луна)
+tile.torchrism.un_powered_stone.name=Незаряженный камень
+tile.torchrism.power_infused_stone.name=Камень вливания энергии
+tile.torchrism.powered_stone.name=Заряженный камень
+tile.torchrism.powered_stone.default.name=Заряженный камень
+tile.torchrism.powered_stone.chiseled.name=Резной заряженный камень
+tile.torchrism.powered_stone_slab_half.name=Заряженная каменная плита
+tile.torchrism.powered_stone_slab_double.name=Двойная заряженная каменная плита
+tile.torchrism.powered_stone_stairs.name=Заряженные каменные ступени
+
+item.torchrism.torch_staff.name=Посох-факел
+
+torchrism.torch_staff.no_enough_item.name=Недостаточно факелов
+torchrism.torch_staff.torch_count.name=Количество факелов:
+
+itemGroup.torchrism=Факелизм
+
